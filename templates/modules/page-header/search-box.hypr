@@ -1,0 +1,10 @@
+<form id="searchbox" class="mz-searchbox{% if themeSettings.searchExpandOnFocus %} mz-searchbox-expands{% endif %}{% if themeSettings.useSearchAutocomplete %} mz-searchbox-expands{% endif %}" action="/search">
+    <span class="mz-searchbox-field">
+        <input placeholder="{{ labels.search }}" type="search" class="mz-searchbox-input" autocomplete="off" name="query" data-mz-role="searchquery" />
+    {% require_script "modules/contextify" %}
+    {% if themeSettings.useSearchAutocomplete %}
+        {% require_script "modules/search-autocomplete" %}
+    {% endif %}
+    </span>
+    <button class="mz-searchbox-button" type="submit">{{ labels.search }}</button>
+</form>

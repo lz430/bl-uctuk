@@ -1,0 +1,13 @@
+<div class="seismic-shipping-estimator">
+  <h4>When will I get my order?</h4>
+  <p>We realize that you want your Pro Audio Equipment yesterday. Here at Seismic Audio Speakers, we aim to ship items out immediately. If you place your order before 2:30 Central time, we will ship your pro audio equipment on the very same business day. <a href="/shipping-policy">Read our full shipping policy &raquo;</a></p>
+  <div class="seismic-shipping-estimator__form">
+    <label>Enter your shipping zip code:</label>
+    <input type="text" name="shippingzip" data-mz-value="postalOrZipCode" value="{{ model.zip }}" />
+    <button data-mz-action="runEstimate">Estimate</button>
+    <span class="mz-validationmessage" data-mz-role="errorContainer"></span>
+  </div>
+  {% if model.estimatedDate and model.zip %}
+    {% include "modules/shipping-time-estimate" %}
+  {% endif %}
+</div>

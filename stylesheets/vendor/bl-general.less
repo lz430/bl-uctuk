@@ -1,0 +1,50 @@
+[data-bl-action] {
+    cursor: pointer;
+}
+
+/* Styles used by custom visibility state toggle component */
+[data-state-key] {
+    cursor: pointer;
+}
+[data-state-content] {
+    display: none;
+}
+.active[data-state-content] {
+    display: block;
+}
+
+@media only screen and (max-width: @screen-xs-max) {
+  [data-state-key]:not([data-state-active~="xs"]) {
+      cursor: text;
+  }
+  [data-state-content][data-state-active~="xs"] {
+      display: block !important;
+  }
+}
+
+@media only screen and (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  [data-state-key]:not([data-state-active~="sm"]) {
+      cursor: text;
+  }
+  [data-state-content][data-state-active~="sm"] {
+      display: block !important;
+  }
+}
+
+@media only screen and (min-width: @screen-md-min) and (min-width: @screen-md-max) {
+  [data-state-key]:not([data-state-active~="md"]) {
+      cursor: text;
+  }
+  [data-state-content][data-state-active~="md"] {
+      display: block !important;
+  }
+}
+
+@media only screen and (min-width: @screen-lg-min) {
+  [data-state-key]:not([data-state-active~="lg"]) {
+      cursor: text;
+  }
+  [data-state-content][data-state-active~="lg"] {
+      display: block !important;
+  }
+}

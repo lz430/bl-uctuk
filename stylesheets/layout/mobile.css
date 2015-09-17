@@ -1,0 +1,97 @@
+﻿/*!
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license
+
+Copyright (c) 2013 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+.notify-count {
+  height: 20px;
+  min-width: 20px;
+  padding: 0 6px;
+  text-align: center;
+  line-height: 1.8em;
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  /*box-shadow: inset 0 0 7px rgba(0,0,0,0.8);*/
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-sizing: border-box;
+  -webkit-user-select: none;
+  cursor: pointer;
+  background: #eb9a9c;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ee0000 0%, #840000 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee0000), color-stop(100%, #840000));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ee0000 0%, #840000 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ee0000 0%, #840000 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ee0000 0%, #840000 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ee0000 0%, #840000 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee0000', endColorstr='#840000', GradientType=0);
+  /* IE6-9 */
+}
+.notify-count.is-active {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+/*# sourceMappingURL=mobile.css.map */

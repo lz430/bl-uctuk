@@ -1,0 +1,8 @@
+<div class="bl-cart-upsell bl-cart-upsell-orientation-{{ Model.config.displayOrientation }}">
+	<div class="bl-cart-upsell-title">{{ Model.config.title|safe }}</div>
+	<div class="bl-cart-upsell-subtext">{{ Model.config.subText|safe }}</div>
+    <ul class="bl-cart-upsell-list" data-bl-role="cart-upsell" data-bl-config="{% json_attribute Model.config %}">
+        
+    </ul>
+</div>
+{% require_script "widgets/bl-cart-upsell" %}

@@ -1,0 +1,47 @@
+.seismic-paymenticons {
+  float: left;
+  clear: both;
+}
+.seismic-paymenticon {
+  display: inline-block;
+  margin: 10px 5px;
+  .opacity(0.4);
+  vertical-align: middle;
+  &:hover {
+    .opacity(1);
+  }
+  &.radio-selected {
+    .opacity(1);
+    .box-shadow(0 0 9px @mz-color--alpha);
+    .border-radius(2px);
+  }
+
+  span, input {
+    visibility: hidden;
+    font-size: 0;
+  }
+
+  &--visa {
+    .checkout-sprite("visa");
+  }
+
+  &--mastercard {
+    .checkout-sprite("mastercard");
+  }
+
+  &--discover {
+    .checkout-sprite("discover");
+  }
+
+  &--amex {
+    .checkout-sprite("amex");
+  }
+
+  &--paypal {
+    .checkout-sprite("paypal");
+  }
+
+  &--check {
+    .checkout-sprite("check");
+  }
+}

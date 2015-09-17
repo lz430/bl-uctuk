@@ -1,0 +1,75 @@
+.mz-nav-target {
+	display: none;
+	position: absolute;
+}
+
+.mz-nav-trigger:hover > .mz-nav-target,
+.mz-nav-target:hover {
+	display: block;
+}
+
+.is-crossedout {
+	text-decoration: line-through;
+}
+
+.is-saleprice {
+	color: @brand-danger;
+}
+
+.is-finalprice {
+	color: @brand-danger;
+}
+
+.mz-nostock {
+	color: @brand-danger;
+  font-weight: bold;
+}
+
+.mz-lowstock {
+	color: @mz-color--yellow;
+  font-weight: bold;
+}
+
+.mz-instock {
+	color: @mz-color--green;
+  font-weight: bold;
+}
+
+
+html.js .fades-in {
+    visibility: hidden;
+    opacity: 0;
+    .transition(~"opacity ease 0.3s");
+}
+
+
+.seismic-productlist {
+  position: relative;
+  &.is-loading {
+    .opacity(0.4);
+    &::before {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 10px;
+      left: 10px;
+      background: transparent url('../resources/images/ajax-loader.gif') no-repeat;
+      content: '';
+    }
+  }
+}
+
+.mz-l-sidebaritem.is-closed {
+  .mz-facet-panel__header:after,
+  .mz-facet-panel__header::after {
+    .transform(~"rotate(90deg) !important");
+  }
+
+  .mz-facetingform-facet {
+    display: none;
+    // height: 0;
+    // overflow: hidden;
+    // padding-bottom: 0;
+    // padding-top: 0;
+  }
+}

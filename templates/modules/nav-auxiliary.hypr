@@ -1,0 +1,34 @@
+{% comment %}
+	Styles in page-header.less
+{% endcomment %}
+<div class="mz-nav-aux-outer">
+    <ul class="mz-nav-aux">
+        
+            {% if not user.isAnonymous %}
+            <li class="mz-soft-cart">
+                <a href="/myaccount"><i class="icon icon-user icon-2x"></i><br />{{labels.yourAccount}}</a>
+            </li>
+            {% else %}
+            <li class="mz-soft-cart">
+                <a href="javascript:;" data-mz-role="login-open"><i class="icon icon-user icon-2x"></i><br />Log In</a>
+            </li>
+            {% endif %}
+
+            {% if not user.isAnonymous %}
+            <li class="mz-soft-cart">
+                <a href="/logout"><i class="icon icon-sign-out icon-2x"></i><br />Log Out</a>
+            </li>
+            {% endif %}
+
+            {% require_script "modules/soft-cart" %}
+
+        <li class="mz-soft-cart">
+    
+            {% include "modules/wish-list" %}
+        </li>
+
+        <li class="mz-soft-cart mz-nav-trigger mz-shopping-cart" data-mz-role="soft-cart" data-mz-action="show-soft-cart" onclick="window.location = '/cart';">
+            {% include "modules/soft-cart" %}
+        </li>
+    </ul>
+</div>

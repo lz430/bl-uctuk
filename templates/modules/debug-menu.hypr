@@ -1,0 +1,9 @@
+{% require_script "modules/debug-menu" %}
+
+<section id="debug" class="mz-debug" data-mz-role="debug">
+	<button class="mz-debug__close" data-mz-role="debug-close">Close</button>
+
+	<div class="mz-debug__viewport">Viewport:</div>
+
+	{{ pagemodel }}
+</section>

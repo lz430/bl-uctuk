@@ -1,0 +1,86 @@
+﻿.mz-ordersummary {
+  width: 100%;
+  
+  tbody {
+    border: @genericBorder;
+  }
+  th {
+      text-align: left;
+      padding: @gutter/5;
+      border: @genericBorder;
+      background-color: @genericBorderColor;
+      
+      &.mz-ordersummary-header {
+          text-align: left;
+          font-size: @fontSizeLarger;
+      }
+  }
+  
+  .mz-ordersummary-lineitems {
+    td {
+      text-align: right;
+      padding: @gutter/2 @gutter/3;
+      
+      &.mz-ordersummary-item-product {
+        text-align: left;
+        
+        .bl-ordersummary-product {
+          list-style: none;
+          margin: 0;
+          padding: 0;  
+          
+          dl {
+            display: block;
+            text-align: right;
+            dt {
+              font-weight: bold;
+              display: inline-block;
+            }
+            dd {
+              margin: 0 0 0 @gutter/5;
+              float: right;
+              clear: right;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .bl-ordersummary-totals {
+    td {
+      padding: @gutter/3;
+      
+      .mz-ordersummary-totalname, .mz-ordersummary-discountname {
+        float: left;
+        text-align: left;
+        padding-right: @gutter/5;
+      }
+      .mz-ordersummary-totalvalue, .mz-ordersummary-itemtotal, .mz-ordersummary-discountamt {
+        float: right;
+      }
+    }
+    .mz-ordersummary-grandtotal {
+      background-color: @genericBorderColor;
+      font-size: @fontSizeLarge;
+      text-align: right;
+      
+      .mz-ordersummary-totalname, .mz-ordersummary-totalvalue {
+        float: none;
+      }
+    }
+    .mz-ordersummary-grandtotal, .mz-ordersummary-totalname {
+      font-weight: bold;
+    }
+  }
+}
+
+.mz-ordersummary-checkout {
+    margin: 0 0 @gutter/2;
+    text-align: center;
+    .mz-formstep-header {
+      margin-bottom: 0;
+    }
+    .mz-formstep-body {
+    }
+}

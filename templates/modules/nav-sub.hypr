@@ -1,0 +1,51 @@
+{% comment %}
+	If you get confused, just know that we never show a link to the parent.
+	In this case, "Alternate Navigation" won't be shown. Just its children
+	and grandchildren.
+{% endcomment %}
+
+{% partial_cache %}
+{% if navigation.tree %}
+	{% for parent in navigation.tree %}
+		{% if parent.name == themeSettings.alternateNavName and not parent.isHidden %}
+                    <div class="col-md-4 col-sm-5 col-xs-12">
+                        <div class="panel-group" id="accordionAltNav">
+                            {% if parent.items %}
+                            {% for child in parent.items %}
+                            {% if not child.isHidden %}
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="#secNav{{ forloop.counter }}" data-toggle="collapse" data-parent="#accordionAltNav">
+                                        <span class="panel-title">
+                                            <i class="icon icon-plus-square text-dark-gray"></i> {{ child.name|upper }}
+                                        </span>
+                                    </a>
+                                    <a href="{{ child.url }}" class="pull-right"><i class="icon icon-lg icon-angle-right"></i></a>
+                                </div>
+                                {% if child.items %}
+                                <div id="secNav{{ forloop.counter }}" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled">
+                                            {% for grandchild in child.items %}
+                                            {% if not grandchild.isHidden %}
+                                            <li>
+                                                <a href="{{ grandchild.url}}">{{ grandchild.name|upper }}</a>
+                                            </li>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                    </div>
+				</div>
+		{% endif %}
+	{% endfor %}		
+{% else %}
+	<!-- LOG: There is no secondary navigation. SiteContext.Navigation.CurrentNode.items does not exist or is empty. -->
+{% endif %}
+{% endpartial_cache %}

@@ -1,0 +1,273 @@
+﻿@dlmenu-color-header-fg: #ffffff;
+@dlmenu-color-header-bg: #072F53;
+@dlmenu-color-menu-fg:   #072F53;
+@dlmenu-color-menu-bg:   #ffffff;
+@dlmenu-color-border:    #17446c;
+@dlmenu-navicon-back:    "<";
+@dlmenu-navicon-down:    ">";
+
+.dl-menu-overlay {
+    cursor: pointer;
+    z-index: 101;
+    background: #000;
+    .opacity(.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: none;
+    &.active {
+      display: block;
+    }
+}
+
+.dl-menu-trigger {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+.dl-menuwrapper {
+    width: 100%;
+    position: absolute;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-perspective-origin: 50% 200%;
+    perspective-origin: 50% 200%;
+    background: @dlmenu-color-header-bg;
+    z-index: 102;
+    top: 0;
+    ul {
+        padding: 0;
+        list-style: none;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+    li {
+        position: relative;
+        border-top: 2px solid @dlmenu-color-border;
+        a {
+            display: block;
+            position: relative;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: 300;
+            outline: none;
+            background-color: @dlmenu-color-menu-bg;
+            color: @dlmenu-color-menu-fg;
+            text-decoration: none;
+        }
+        .dl-submenu {
+            display: none;
+        }
+    }
+    li:not(.dl-heading) {
+        & > a:not(:only-child):after {
+            right: 10px;
+            position: absolute;
+            top: 35%;
+            speak: none;
+            content: @dlmenu-navicon-down;
+        }
+    }
+    li.dl-heading {
+        position: relative;
+        background-color: @dlmenu-color-header-bg;
+        color: @dlmenu-color-header-fg;
+        overflow: hidden;
+        & > a {
+            display: inline-block;
+            height: 100%;
+            background-color: @dlmenu-color-header-bg;
+            color: @dlmenu-color-header-fg;
+            width: auto;
+        }
+        .dl-back {
+            float: left;
+            padding-left: 30px;
+            &:before {
+              position: absolute;
+              top: 35%;
+              speak: none;
+              content: @dlmenu-navicon-back;
+              left: 10px;
+              color: @dlmenu-color-header-fg;
+            }
+        }
+        .dl-menu-close {
+            float: right;
+            padding-right: 10px;
+        }
+    }
+
+    .dl-menu {
+        margin: -4px 0 0;
+        position: absolute;
+        width: 100%;
+        max-width: 480px;
+        opacity: 0;
+        pointer-events: none;
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    .dl-menu.dl-menu-toggle {
+        transition: all 0.3s ease;
+    }
+    .dl-menu.dl-menuopen {
+        opacity: 1;
+        pointer-events: auto;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    /* Dynamically added submenu outside of the menu context */
+    & > .dl-submenu {
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        left: 0;
+        margin: 0;
+    }
+    & > .dl-submenu.dl-animate-in-2 {
+        -webkit-animation: SubMenuAnimIn2 0.3s ease-in-out;
+        animation: SubMenuAnimIn2 0.3s ease-in-out;
+    }
+    & > .dl-submenu.dl-animate-out-2 {
+        -webkit-animation: SubMenuAnimOut2 0.3s ease-in-out;
+        animation: SubMenuAnimOut2 0.3s ease-in-out;
+    }
+}
+.no-touch {
+    .dl-menuwrapper {
+        li {
+            a:hover {
+                background: rgba(255,248,213,0.1);
+            }
+        }
+    }
+}
+
+/* 
+When a submenu is openend, we will hide all li siblings.
+For that we give a class to the parent menu called "dl-subview".
+We also hide the submenu link. 
+The opened submenu will get the class "dl-subviewopen".
+All this is done for any sub-level being entered.
+*/
+.dl-menu.dl-subview li,.dl-menu.dl-subview li.dl-subviewopen &>a,.dl-menu.dl-subview li.dl-subview &>a {
+    display: none;
+}
+.dl-menu.dl-subview li.dl-subview,.dl-menu.dl-subview li.dl-subview .dl-submenu,.dl-menu.dl-subview li.dl-subviewopen,.dl-menu.dl-subview li.dl-subviewopen &>.dl-submenu,.dl-menu.dl-subview li.dl-subviewopen &>.dl-submenu &>li {
+    display: block;
+}
+
+/* Animation classes for moving out and in */
+.dl-menu.dl-animate-out-2 {
+  -webkit-animation: MenuAnimOut2 0.3s ease-in-out;
+  animation: MenuAnimOut2 0.3s ease-in-out;
+}
+
+@-webkit-keyframes MenuAnimOut2 {
+  0% { }
+  100% {
+    -webkit-transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes MenuAnimOut2 {
+  0% { }
+  100% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.dl-menu.dl-animate-in-2 {
+  -webkit-animation: MenuAnimIn2 0.3s ease-in-out;
+  animation: MenuAnimIn2 0.3s ease-in-out;
+}
+
+@-webkit-keyframes MenuAnimIn2 {
+  0% {
+    -webkit-transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes MenuAnimIn2 {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.dl-menuwrapper > .dl-submenu.dl-animate-in-2 {
+  -webkit-animation: SubMenuAnimIn2 0.3s ease-in-out;
+  animation: SubMenuAnimIn2 0.3s ease-in-out;
+}
+
+@-webkit-keyframes SubMenuAnimIn2 {
+  0% {
+    -webkit-transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes SubMenuAnimIn2 {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.dl-menuwrapper > .dl-submenu.dl-animate-out-2 {
+  -webkit-animation: SubMenuAnimOut2 0.3s ease-in-out;
+  animation: SubMenuAnimOut2 0.3s ease-in-out;
+}
+
+@-webkit-keyframes SubMenuAnimOut2 {
+  0% {
+    -webkit-transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes SubMenuAnimOut2 {
+  0% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}

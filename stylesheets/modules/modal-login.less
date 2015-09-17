@@ -1,0 +1,85 @@
+.mz-modal--login {
+	
+    .mz-modal__wrapper {
+        @media(min-width: @screen-sm-min) {
+            width: 400px;
+        }
+    }
+
+	.mz-modal__title {
+		color: @mz-text--alpha;
+		font-weight: normal;
+		margin-bottom: 15px;
+		margin-top: 15px;
+		width: auto;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+
+	.mz-l-column {
+		border-bottom: 1px solid @mz-border--beta;
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+
+		&:last-of-type {
+			border-bottom: none;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	.mz-form {
+		padding: 10px 0;
+
+		label {
+			.clearfix();
+			font-weight: bold;
+		}
+
+		input {
+			display: block;
+			margin-bottom: 10px;
+			margin-top: 5px;
+			width: 100%;
+		}
+
+		.mz-forgot {
+			color: @mz-link--beta;
+			display: block;
+			float: right;
+			font-style: italic;
+			padding: 10px;
+			text-decoration: underline;
+
+			&:hover {
+				color: @mz-link--alpha;
+			}
+		}
+	}
+
+	.mz-input-wrapper {
+		overflow: hidden;
+	}
+
+	.mz-button--cancelforgotpassword {
+		.std-gradient(@mz-color--red);
+		border-color: @mz-color--red;
+	}
+
+	.forgotpassword-message {
+		margin-top: 10px;
+		font-weight: bold;
+		color: @mz-color--red;
+	}
+
+	.mz-button--login,
+	.mz-button--close {
+		margin-top: 10px;
+	}
+
+	button + button {
+		margin-left: 10px;
+	}
+}

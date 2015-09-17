@@ -1,0 +1,92 @@
+.bl-product-comparison {
+    
+    &-toggle {
+      display: block;
+      text-align: center;
+    }
+    
+    &-close {
+        position: relative;
+        top: 1 - @gutter - 2;
+        margin: 0px 1 - @gutter - 2 0px 0px;
+        
+        img, button, a {
+            float: right;
+            cursor: pointer;
+            margin: @gutter/5;
+        }
+    }
+    
+  &-table {
+    td {
+      -webkit-box-shadow: inset 1px 1px 0px 0px @genericBorderColor;
+      -moz-box-shadow:    inset 1px 1px 0px 0px @genericBorderColor;
+      box-shadow:         inset 1px 1px 0px 0px @genericBorderColor;
+      padding: @gutter/2;
+      
+      &:last-child {
+          
+          -webkit-box-shadow: inset -1px 1px 0px 0px @genericBorderColor, inset 1px 0px 0px 0px @genericBorderColor;
+          -moz-box-shadow:    inset -1px 1px 0px 0px @genericBorderColor, inset 1px 0px 0px 0px @genericBorderColor;
+          box-shadow:         inset -1px 1px 0px 0px @genericBorderColor, inset 1px 0px 0px 0px @genericBorderColor;
+      }
+    }
+    tr:last-child {
+         -webkit-box-shadow: inset 1px -1px 0px 0px @genericBorderColor, inset 0px 1px 0px 0px @genericBorderColor;
+          -moz-box-shadow:    inset 1px -1px 0px 0px @genericBorderColor, inset 0px 1px 0px 0px @genericBorderColor;
+          box-shadow:         inset 1px -1px 0px 0px @genericBorderColor, inset 0px 1px 0px 0px @genericBorderColor;
+    }
+  }
+  
+  &-top {
+    text-align: center;
+    
+  }
+  
+  &-remove {
+    
+  }
+  
+  &-title a, &-title a:hover {
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  &-productcode {
+    font-weight: bold;
+  }
+  
+  &-pricing {
+    
+  }
+  
+  &-description {
+    
+  }
+  
+  &-property {
+    
+  }
+  
+}
+
+@media only screen {
+    @media (max-width: @tabletThreshold) {
+        .bl-product-comparison-overlay.bl-l-lightbox-overlay {
+            background: @bodyBackgroundColor;
+            opacity: 1;
+            filter:alpha(opacity=100);
+        }
+    }
+    
+    @media (max-width: @mobileThreshold) {
+        .bl-product-comparison-overlay.bl-l-lightbox-active {
+            display: none;
+        }   
+        
+        .bl-product-comparison-toggle {
+            display: none;
+        }
+    }
+}
+

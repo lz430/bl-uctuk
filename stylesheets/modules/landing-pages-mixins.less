@@ -1,0 +1,125 @@
+// h1 tag {
+	.pageTitle(
+			@Border-Color: #bebebe;
+			@Border-Size: 1px;
+			@Border-Style: solid;
+			@Font-Size: 24pt;
+			@Font-Weight: normal;
+			@Margin: 0 0 20px;
+			@Padding: 0 0 7px 0;
+			@Width: 100%
+			) {
+		border-bottom: @Border-Size @Border-Style @Border-Color;
+		font-size: @Font-Size;
+		font-weight: @Font-Weight;
+		margin: @Margin;
+		padding: @Padding;
+		width: @Width;
+	}
+// }
+
+// h3 tag {
+	.titleBar(
+			@Color: #f7f7f7;
+		    @BG-Color: #464646;
+		    @Font-Size: 12pt;
+		    @Font-Weight: normal;
+		    @Margin: 0;
+		    @Padding: 12px 10px;
+		    @Width: 100%
+		    ) {
+		.std-gradient(@color: @BG-Color);
+		color: @Color;
+		font-size: @Font-Size;
+		font-weight: @Font-Weight;
+		margin: @Margin;
+		padding: @Padding;
+		width: @Width;
+	}
+// }
+
+// h2 tag {
+	.messageTitle(
+			@Margin: 0;
+			@Padding: 0;
+			@Font-Size: 12pt
+			){
+		padding: @Padding;
+		margin: @Margin;
+		font-size: @Font-Size;
+	}
+// }
+
+.grid(@numColm: 2; @gutterSize: 10px) {
+	font-size: 0;
+	& > * {
+		font-size: 10px;
+		display: inline-block;
+		vertical-align: top;
+		padding-left: @gutterSize / 2;
+		padding-right: @gutterSize / 2;
+		width: 100% / @numColm;
+	}
+}
+
+// parent tag {
+//	min-height: ###;
+//  position: relative;
+	.textShaddowBottomImg(
+			@Img_Width: 100%;
+			@Img_Height: auto;
+			@Img_Bottom: 0; 
+			@BG-Color: #fff;
+			@Opacity: 0.98;
+			@Shadow_Y_Axis: 24px;
+			@Shadow_Blend: 20px;
+			@Z-Index: -10
+			) {
+		> p {
+			background-color: @BG-Color;
+			opacity: @Opacity;
+			.box-shadow(0 @Shadow_Y_Axis @Shadow_Blend @BG-Color);
+		}
+		
+		> img {
+			width: @Img_Width;
+			height: @Img_Height;
+			position: absolute;
+			bottom: @Img_Bottom;
+			z-index: @Z-Index;
+		}
+	}
+// }
+
+// parent tag {
+	// position: relative;
+	.center() {
+		margin: 0 auto;
+		position: absolute;
+		right: 0;
+		left: 0;
+	}
+// }
+
+.ulBoxStyle(@Margin: 0; @offset: 10px){
+	list-style-type: none;
+	padding-left: 0;
+	margin: @Margin;
+	overflow: hidden;
+	> li {
+			text-indent: -@offset;
+			padding-left: @offset;
+			width: 100%;
+	}
+}
+
+.ulRowStyle(@Margin: 0) {
+	list-style-type: none;
+	padding-left: 0;
+	margin: @Margin;
+	overflow: hidden;
+	> li {
+		display: inline-block;
+		float: left;
+	}
+}

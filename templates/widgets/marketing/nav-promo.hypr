@@ -1,0 +1,5 @@
+<div class="bl-nav-promo-widget {%if model.config.desktopOnly %}bl-desktop-only{%endif%}" data-bl-promo-id="{{model.config.catId}}" data-bl-promo-show-orphan="{{model.config.show}}" style="display:none;">
+	{{Model.config.promoBody|default_edit:'add content here'|safe}}
+</div>
+
+{% require_script "widgets/nav-promo" %}

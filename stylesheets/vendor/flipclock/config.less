@@ -1,0 +1,56 @@
+@fc-clock-font-size: 30px;
+@fc-clock-height: (@fc-clock-font-size * 1.2);
+@fc-digit-gap: .2rem;
+@fc-border-radius: 15%;
+@fc-dot-size: .5rem;
+
+.flip-clock-wrapper ul {
+  width: (@fc-clock-font-size * 0.8);
+  height: @fc-clock-height;
+  margin: 0 (@fc-digit-gap / 2);
+}
+
+.flip-clock-wrapper ul li {
+  line-height: @fc-clock-height;
+}
+
+.flip-clock-wrapper ul li a div div.inn {
+  font-size: @fc-clock-font-size;
+}
+
+.flip-clock-wrapper ul,
+.flip-clock-wrapper ul li a div div.inn {
+    border-radius: @fc-border-radius;
+}
+
+.flip-clock-wrapper ul li a div.down {
+    border-bottom-left-radius: @fc-border-radius;
+    border-bottom-right-radius: @fc-border-radius;
+}
+
+.flip-clock-wrapper ul li a div.up:after {
+  top: ((@fc-clock-height / 2) - 1px);
+}
+
+.flip-clock-dot.top {
+    top: (@fc-clock-height / 2 - @fc-clock-font-size * 0.2 - @fc-dot-size / 2);
+}
+
+.flip-clock-dot.bottom {
+    top: (@fc-clock-height / 2 + @fc-clock-font-size * 0.2 - @fc-dot-size / 2);
+}
+
+.flip-clock-dot{
+    width: @fc-dot-size;
+    height: @fc-dot-size;
+    left: @fc-dot-size;
+}
+
+.flip-clock-divider {
+    width: (@fc-dot-size * 3);
+    height: 5em;
+}
+
+.flip-clock-group {
+  display: inline-block;
+}

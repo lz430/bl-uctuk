@@ -1,0 +1,58 @@
+<div class="bl-product-comparison">
+    <div class="bl-product-comparison-close"><img src="/resources/images/lightbox-close.png" alt="[x]" title="{{labels.close}}" data-bl-action="close-lightbox" /></div>
+	<table class="bl-product-comparison-table">
+		<tr class="bl-product-comparison-top">
+			<td></td>
+			{% for product in Model.items %}
+			<td data-bl-product="{{ product.productCode }}">
+			<div class="bl-product-comparison-remove"><button data-bl-action="remove" title="{{labels.removeItem}}">{{labels.removeItem}}</button></div>
+			<div class="bl-product-comparison-title">
+				<a class="mz-productlisting-title" href="{{product.url}}">{{product.content.productName}}</a>
+			</div>
+			<div class="bl-product-comparison-image">
+				{% if product.content.productImages %}
+				{% with product.content.productImages|first as mainImage %}
+				<a href="{{product.url}}"> <img src="{{mainImage.imageUrl}}?max={% block thumbnail-size %}{{ themeSettings.listProductThumbSize }}{% endblock thumbnail-size %}" /> </a>
+				{% endwith %}
+				{% else %}
+				<span class="mz-productlisting-imageplaceholder"><span class="mz-productlisting-imageplaceholdertext">{{ labels.productImagePlaceholder }}</span></span>
+				{% endif %}
+
+			</div>
+			<div class="bl-product-comparison-productcode">
+				{{product.productCode}}
+			</div></td>
+			{% endfor %}
+		</tr>
+		<tr class="bl-product-comparison-pricing">
+			<td>{{labels.cartPrice}}</td>
+			{% for product in Model.items %}
+			<td>
+			{% include "modules/product/price-stack" with model=product %}
+			</td>
+			{% endfor %}
+		</tr>
+		{% if themeSettings.listProductShortDesc %}
+		<tr class="bl-product-comparison-description">
+			<td>{{labels.shortDesc}}</td>
+			{% for product in Model.items %}
+			<td><div>{{ product.content.productShortDescription|safe }}</div></td>
+			{% endfor %}
+		</tr>
+		{% endif %}
+		{% for id, property in Extra.properties %}
+		<tr class="bl-product-comparison-property">
+			<td>{{property}}</td>
+			{% for product in Extra.products %}
+			<td>
+				{% if product.properties[id] %}
+					{% with product.properties[id].values|first as value %}
+						{{value.stringValue|default("-")}}
+					{% endwith %}
+				{% else %} - {% endif %}
+			</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</table>
+</div>

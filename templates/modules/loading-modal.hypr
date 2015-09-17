@@ -1,0 +1,14 @@
+{% extends "modules/common/seismic-modal" %}
+{% block modal-classes %} mz-loading{% endblock modal-classes %}
+{% block modal-role %}loading-modal{% endblock modal-role %}
+{% block modal-inner %}
+		<span class="mz-loading__title">
+			Please wait...
+		</span>
+
+		{% comment %}
+			<img src="/resources/images/kitty-burger.gif" alt="A low-fidelity cat chasing a high-fidelity cheeseburger. #swag" class="mz-loading__img">	
+		{% endcomment %}
+
+		<img src="/resources/images/loading.gif" alt="Loading..." class="mz-loading__img">
+{% endblock modal-inner %}

@@ -1,0 +1,168 @@
+.mz-mailing-list {
+
+    background-color: @brand-info;
+	border-radius: @mz-border-radius @mz-border-radius 0 0;
+
+	color: white;
+	margin-bottom: 3px;
+	clear: both;
+
+	+ .mz-page-footer {
+		border-radius: 0 0 @mz-border-radius @mz-border-radius;
+
+		&:before,
+		&::before {
+			background-color: transparent;
+			display: block;
+			content: "";
+			height: 5px;
+			left: 0px;
+			position: absolute;
+			top: 0px;
+			width: 100%;
+		}
+	}
+	@media(max-width:767px){
+	    text-align:center;
+	}
+	
+}
+
+	.mz-mailing-list__title {
+		.font-smooth();
+		border-right: 1px solid rgba(0,0,0,.15);
+		display: inline-block;
+		float: left;
+		font-size: 22px;
+		line-height: 40px;
+		height: 40px;
+		padding: 0 20px;
+		margin: 5px 0;
+		font-family:"Roboto Condensed";
+		text-transform: uppercase;
+    	@media(max-width:991px){
+		    float: none;
+		    display:inline-block;
+        }
+    	@media(max-width:767px){
+            border-right:0;
+        }
+	}
+
+	.mz-mailing-list__promo-text {
+		float: left;
+		margin: 0;
+		line-height: 17px;
+		height: 100%;
+		padding: 8px 0 8px 18px;
+		max-width: 250px;
+		display:inline-block;
+    	@media(max-width:991px){
+		    float: none;
+		    display:inline-block;
+        }
+    	@media(max-width:767px){
+		    display:block;
+		    margin:0 auto;
+		    padding:inherent 0;
+        }
+        
+        
+	}
+
+	.mz-mailing-list__form {
+		font-size: 0;
+		height: 100%;
+		overflow: hidden;
+		padding: 5px 10px;
+
+    @media(max-width:1100px){
+      display:block;
+      width:100%;
+    }
+    
+		> form {
+			.tiny-shadow();
+			border-radius: @mz-border-radius;
+			display: block;
+			height: 100%;
+		}
+
+		.mz-input-wrapper {
+			overflow: hidden;
+			display:inline-block;
+			width:81%;
+			@media(max-width:1199px){
+			    width:73%;
+			}
+            @media(max-width:1100px){
+                width:87%;
+            }
+            @media(max-width:991px){
+                width:84%;
+            }
+            @media(max-width:739px){
+                width:83%;
+            }
+            @media(max-width:697px){
+                width:82%;
+            }
+            @media(max-width:659px){
+                width:81%;
+            }
+            @media(max-width:625px){
+                width:100%;
+            }
+		}
+		
+		input[type="text"] {
+      border-radius: 0;
+			border: 1px solid @gray-light;
+			color: @gray-darker;
+			height: 40px;
+			font-size: 15px;
+			// font-style: italic;
+			overflow: hidden;
+		    display:inline-block;
+		    width:100%;
+			font-family:"Noto Sans";
+			.placeholder(@mz-text--gamma);
+		}
+
+		button {
+      border-radius: 3px;
+      background-color: @text-color-day-speaker;
+			border: none;
+			color: @brand-white;
+			float: right;
+			font-family: @font-family-sans-serif;
+			font-size: 16px;
+			text-transform: uppercase;
+      margin-left: 4px;
+      padding: 10px 20px;
+      font-weight:700;
+			&:hover, &:active {
+				background-color: lighten(@text-color-day-speaker, 10%);
+			}
+			@media(max-width:625px){
+			    margin-left:0;
+			    width:100%;
+			    float:none;
+			    margin-top:3px;
+			}
+		}
+	}
+
+@media (max-width: @desktop-large) {
+	.mz-mailing-list__title:after,
+	.mz-mailing-list__title::after {
+		content: 'Get 10% off!';
+	}
+}
+
+
+
+
+
+
+

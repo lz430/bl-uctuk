@@ -1,0 +1,131 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle labels.logIn %} - {% parent %}{% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-loginpage {% endblock body-tag-classes %}
+
+{% block body-content %}
+<div class="mz-l-container">
+	{% include "modules/common/message-bar" with model=model.messages %}
+	{% require_script "modules/login-prompt" %}
+	<section class="bl-login-prompt" data-bl-role="login-prompt">
+		<h2 class="mz-pagetitle">{{ labels.logIn }}</h2>
+		{% dropzone "login-top" scope="template" %}
+		<div class="bl-login-prompt-message" data-bl-role="login-prompt-message"></div>
+		<section class="mz-loginform mz-loginform-page" data-bl-role="login-form">
+			<input type="hidden" name="returnUrl" value="{{ model.returnUrl }}" />
+			<div class="mz-l-formfieldgroup">
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell">
+						<label for="email">{{ labels.email }}</label>
+					</div>
+					<div class="mz-l-formfieldgroup-cell">
+						<input name="email" data-mz-login-email value="{{model.email|default:user.email}}" type="email"/>
+					</div>
+				</div>
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell">
+						<label for="password">{{ labels.password }}</label>
+					</div>
+					<div class="mz-l-formfieldgroup-cell">
+						<input name="password" data-mz-login-password type="password"/>
+					</div>
+				</div>
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell"></div>
+					<div class="mz-l-formfieldgroup-cell">
+						<button class="mz-button mz-button-large" data-bl-action="submit-login">
+							{{ labels.logIn }}
+						</button>
+						<a href="javascript:;" data-bl-action="show-forgot">{{ labels.forgotPasswordLink }}</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section data-bl-role="forgot-form" class="bl-login-prompt-forgot" style="display:none;">
+			<h2 class="bl-login-prompt-title">Forget Your Password?</h2>
+			<p class="bl-login-prompt-text">
+				Fill in your email address below to get the password reset process started.
+			</p>
+			<div class="mz-l-formfieldgroup">
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell">
+						<label for="bl-login-prompt-reset-password">{{ labels.resetPassword }}</label>
+					</div>
+					<div class="mz-l-formfieldgroup-cell">
+						<input id="bl-login-prompt-reset-password" type="email" data-mz-forgotpassword-email name="reset-password" placeholder="{{ labels.emailAddress }}" />
+					</div>
+				</div>
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell">
+						<div class="mz-popover-action">
+							(<a href="javascript:;" data-bl-action="show-login">{{ labels.cancel }}</a>)
+							<button class="mz-button" data-bl-action="submit-forgot">
+								{{ labels.sendEmail }}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+	{% require_script "modules/register-prompt" %}
+	<section class="bl-register-prompt" data-bl-role="register-prompt">
+		<h2 class="mz-pagetitle">{{ labels.register }}</h2>
+		{% dropzone "register-top" scope="template" %}
+		<div class="bl-register-prompt-message" data-bl-role="register-prompt-message"></div>
+		<section data-bl-role="register-form">
+			<div class="mz-l-formfieldgroup">
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell">
+						<label>{{ labels.firstName }}</label>
+					</div>
+					<div class="mz-l-formfieldgroup-cell">
+						<input type="text" class="mz-popover-signup-firstname" data-mz-signup-firstname />
+					</div>
+				</div>
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell">
+						<label>{{ labels.lastName }}</label>
+					</div>
+					<div class="mz-l-formfieldgroup-cell">
+						<input type="text" class="mz-popover-signup-lastname" data-mz-signup-lastname />
+					</div>
+				</div>
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell">
+						<label>{{ labels.emailAddress }}</label>
+					</div>
+					<div class="mz-l-formfieldgroup-cell">
+						<input type="email" class="mz-popover-signup-email" data-mz-signup-emailaddress />
+					</div>
+				</div>
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell">
+						<label>{{ labels.password }}</label>
+					</div>
+					<div class="mz-l-formfieldgroup-cell">
+						<input type="password" class="mz-popover-signup-password" data-mz-signup-password />
+					</div>
+				</div>
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell">
+						<label>{{ labels.confirmPassword }}</label>
+					</div>
+					<div class="mz-l-formfieldgroup-cell">
+						<input type="password" class="mz-popover-signup-confirmpassword" data-mz-signup-confirmpassword />
+					</div>
+				</div>
+				<div class="mz-l-formfieldgroup-row">
+					<div class="mz-l-formfieldgroup-cell"></div>
+					<div class="mz-l-formfieldgroup-cell">
+						<button class="mz-button mz-button-large" data-bl-action="register">
+							{{ labels.register }}
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+</div>
+{% endblock body-content %}

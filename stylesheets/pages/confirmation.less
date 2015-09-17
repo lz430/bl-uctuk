@@ -1,0 +1,109 @@
+﻿
+/*-----------[ Confirmation - Left Column ]-----------*/
+#confirmation-leftcol {
+  float: left;
+  width: 68%;
+  margin-bottom: 25px;
+  border: 1px solid #e3e3e3;
+}
+#confirmation-leftcol h3.bl-confirmation-header {
+  margin: 0 0 10px;
+  padding: 5px 5px 5px 10px;
+  color: #072f53;
+  font: 500 27px/27px 'Open Sans', sans-serif;
+  text-align: left;
+  text-transform: none;
+  background-color: #fff;
+  border-bottom: 1px solid #e1e1e1;
+}
+#confirmation-leftcol .mz-l-stack {
+  display: block;
+  margin: 8px 8px 0;
+}
+#confirmation-leftcol p {
+  margin: 13px 0;
+  font: 16px/21px 'Open Sans', sans-serif;
+}
+#confirmation-leftcol .bl-confirmation-order-number {
+  display: block;
+  margin-top: 5px;
+  color: #072f53;
+  font-size: 30px;
+}
+#confirmation-leftcol .mz-l-stack-section {
+  display: block;
+  float: left;
+  width: 100%;
+}
+#confirmation-leftcol .mz-l-stack .mz-l-stack-section .mz-l-stack-sectiontitle {
+  clear: both;
+  display: block;
+  margin-top: 10px;
+  padding: 8px 0 8px 8px;
+  color: #072f53;
+  font: 800 17px/17px 'Open Sans', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: #f2f2f2;
+}
+#confirmation-leftcol .mz-checkout-payment {
+  float: left;
+}
+#confirmation-leftcol .mz-checkout-payment .mz-checkout-paymenttitle {
+  clear: both;
+  display: block;
+  width: 100%;
+  margin: 8px 0 0;
+  padding: 5px;
+  color: #072f53;
+  font: 400 17px/17px 'Open Sans', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+#confirmation-leftcol .mz-propertylist {
+  clear: both;
+  float: left;
+}
+#confirmation-leftcol .mz-propertylist dd {
+  margin-left: 5px;
+}
+#confirmation-leftcol .mz-propertylist dt, .mz-propertylist dd {
+  float: left;
+  font: 13px/15px 'Open Sans', sans-serif;
+}
+#confirmation-leftcol .mz-propertylist dt {
+  clear: left;
+  float: left;
+  font-weight: 700;
+  margin-bottom: 12px;
+  min-width: 120px;
+}
+#confirmation-leftcol .mz-addresssummary span {
+  display: block;
+}
+#confirmation-leftcol .mz-checkout-shipping {
+  float: left;
+}
+
+/*-----------[ Confirmation - Right Column ]-----------*/
+#confirmation-rightcol {
+  float: right;
+  width: 30%;
+}
+/*-----------------------------------
+ *    Smartphone Size
+ *-----------------------------------*/
+@media only screen and ( max-width: 767px ) {  
+  /*-----------[ Confirmation - Left Column ]-----------*/
+  #confirmation-leftcol {
+    width: 100%;
+  }
+  /*-----------[ Confirmation - Right Column ]-----------*/
+  #confirmation-rightcol {
+    width: 100%;
+  }
+  #confirmation-rightcol .mz-ordersummary {
+    width: 100%;
+  }
+}

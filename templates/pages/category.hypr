@@ -1,0 +1,36 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% if PageContext.MetaTitle %}{{PageContext.MetaTitle}}{% else %}{{model.Name}}{%endif%}  - {% parent %}{% endblock title-tag-content %}
+
+
+{% block body-tag-classes %} mz-category {% endblock body-tag-classes %}
+
+{% block breadcrumbs %}{% endblock breadcrumbs %}
+{% block body-content %}
+
+{% partial_cache model.categoryId pageContext.Sorting pageContext.Pagination %}
+<div data-mz-category="{{model.categoryId}}" class="mz-l-container">
+	<div class="bl-top-description">
+		<div class="bl-category-breadcrumbs">
+	        {% if themeSettings.showBreadcrumbs %}
+	        	{% include "modules/breadcrumbs" %}
+	        {% endif %}
+        </div>
+{% require_script "pages/category" %}
+	    <div class="bl-category-header">
+			{% dropzone "bl-category-header" scope="page" %}
+		</div>
+ </div>
+ <div class="mz-l-sidebaritem bl-sidebar-menu-toggle">
+ 	<span class="bl-sidebar-menu-title">{{ labels.filterProducts }}</span>
+ 	<input id="bl-sidebar-menu-toggle" type="checkbox"></input>
+ 	<label for="bl-sidebar-menu-toggle">Refine Your Results</label>
+ </div>
+    {% include_products "modules/product/faceted-products" with includeFacets=themeSettings.showCategoryFacets and pageWithUrl=true and pageSize=themeSettings.defaultPageSize as_parameter %}
+</div>
+
+<div class="bl-bottom-description">
+	{% dropzone "bl-bottom-description" scope="page" %}
+</div>
+{% endpartial_cache %}
+{% endblock body-content %}

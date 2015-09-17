@@ -1,0 +1,49 @@
+<div class="mz-popover bl-cartsummary-container">
+	<div class="bl-cartsummary-head">{{ labels.cart }}</div>
+	<div class="bl-cartsummary-body">
+		{% if not model.isEmpty %}
+	  		{% for item in model.items %}
+			<div class="bl-cartsummary-item">
+	  			<div class="bl-cartsummary-item-photo">
+	  				{% if item.product.imageUrl and themeSettings.showCartItemImage %}
+	          		<img class="bl-cartsummarytable-item-image" src="{{ item.product.imageUrl }}?max=80" />
+	          		{% else %}
+	          		<img src="http://placehold.it/80&text=no image?max=80">
+	      			{% endif %}
+	      		</div>
+	      		<div class="bl-cartsummary-item-name">
+	  				<a class="bl-cartsummarytable-item-title" href="{{item.product.Url}}">{{ item.product.name }}</a>
+	      		</div>
+	      		<div class="bl-cartsummary-item-price">     
+	      			<span class="bl-cartsummarytable-price">{{ item.unitPrice.extendedAmount|currency }}</span>
+	      		</div>
+	      		<div class="bl-cartsummary-item-price-seperator">X</div>
+	      		<div class="bl-cartsummary-item-qty">
+	      			<input class="bl-cartsummary-qty-field" type="number" min="1" {% if model.isLoading %}disabled="disabled"{% endif %} data-mz-cart-item="{{ item.id }}" data-mz-value="quantity" value="{{ item.quantity }}" />
+	      		</div>
+	      		<div class="bl-cartsummary-item-total">
+	      			<span class="bl-cartsummary-rowtotal">{{ item.total|currency }}</span>
+	      		</div>
+	      		<div class="bl-cartsummary-remove">
+	      			 <a href="javascript:;" data-mz-action="removeItem" data-mz-cart-item="{{ item.id }}" class="mz-icon mz-icon-close">{{ labels.remove }}</a>
+	      		</div>
+	      	</div>
+	      	{% endfor %}
+		{% else %}
+ 		<div class="bl-cartsummary-no-items">
+       		{{ labels.cartEmpty }}
+  		</div>
+  		{% endif %}
+      </div>
+      <div class="bl-cartsummary-footer">
+      	<div class="bl-cartsummary-cart-total">
+      		{{ labels.orderTotal }}:
+        	<span id="bl-cartsummary-total" class="bl-cartsummary-total">
+          		<strong>{{ model.discountedTotal|currency }}</strong>
+        	</span>
+        </div>
+        <div class="bl-cartsummary-checkout">
+        	<button id="cart-checkout" class="mz-button mz-button-large"  {% if model.isEmpty %} disabled="disabled" {% endif %} data-mz-action="proceedToCheckout">{{ labels.proceedToCheckout }}</button>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,142 @@
+//------------------------------------
+//    $BRAND COLORS
+//------------------------------------
+
+@mz-brand--seismic:     @brand-primary;
+@mz-brand--facebook:    #3B5998;
+@mz-brand--twitter:     #00ACED;
+@mz-brand--google-plus: #C63D2D;
+@mz-brand--linkedin:    #4875B4;
+@mz-brand--pinterest:   #CB2027;
+@mz-brand--instagram:   #5b99cb;
+@mz-brand--flickr:      #FE0883;
+@mz-brand--youtube:     #FF3333;
+@mz-brand--vimeo:       #1ab7ea;
+@mz-brand--foursquare:  #8FD400;
+@mz-brand--tumblr:      #2B4964;
+@errorBackground:       #f2dede;
+@errorText:             #b94a48;
+@errorBorder:           darken(spin(@errorBackground, -10), 3%);
+@errorIcon:				"../resources/images/error-exclamation.png";
+
+
+//------------------------------------
+//    $COLORS
+//------------------------------------
+
+@white:               #fff;
+
+@black:               #1e1e1e;
+
+@blue:                @mz-brand--seismic;
+@blue-dark:           darken(@blue, 15%);
+@red:                 #f80101;
+@gray:                #f2f2f2;
+
+
+@mz-color--alpha:     @mz-brand--seismic;
+@mz-color--beta:      #f5e170;
+@mz-color--gamma:     #1e1e1e;
+
+@mz-color--red:       #f80101;
+@mz-color--yellow:    #d1c000;
+@mz-color--green:     #1e9212;
+
+@mz-bg--alpha:        #ffffff;
+@mz-bg--beta:         #ebebeb;
+@mz-bg--gamma:        #bebebe;
+
+@mz-border--alpha:    darken(@mz-bg--beta, 5%);
+@mz-border--beta:     @mz-bg--gamma;
+
+@mz-text--alpha:      #1e1e1e;
+@mz-text--beta:       #666666;
+@mz-text--gamma:      #999999;
+
+@mz-link--alpha:      #045493;
+@mz-link--beta:       @mz-text--beta;
+@mz-link--gamma:      @mz-text--alpha;
+
+
+//------------------------------------
+//    $FONTS
+//------------------------------------
+
+@mz-font--alpha:      'Noto Sans', sans-serif;
+@mz-font--beta:       'Tauri', sans-serif;
+@mz-font-speaker--title:'Roboto Condensed', sans-serif;
+@fontSize:            10px;
+@fontSizeSmall:       @fontSize - 2px;
+@fontSizeLarger:      @fontSize + 2px;
+@fontSizeLarge:       @fontSize + 6px;
+
+
+//------------------------------------
+//    $OTHER
+//------------------------------------
+
+@mz-highlight-color:  lighten(@mz-brand--seismic, 20%);
+
+@mz-border-radius:    3px;
+
+@mz-z--max:           2147483647;
+@mz-z--top:           10000;
+@mz-z--middle:        5000;
+@mz-z--bottom:        1000;
+@mz-z--min:           1;
+
+
+
+//------------------------------------
+//    $VIEWPORTS
+//------------------------------------
+
+@tablet-portrait:     768px;
+@tablet-landscape:    1024px;
+@desktop-min:         550px;
+@desktop-small:       960px;
+@desktop-large:       1100px;
+
+
+// REMOVE THESE EVENTUALLY
+@mz-brand--volusion:  hotpink;
+@mz-brand--mozu:      hotpink;
+@mz-trans:            transparent;
+@mz-full-size:        100%;
+@full-width:      		@mz-full-size;
+@mz-one-third:        (@mz-full-size / 3);
+
+
+
+//------------------------------------
+//    $LAYOUT DIMENSIONS
+//------------------------------------
+
+@max-width:           1200px;
+
+@full-size:           100%;
+
+@one-half:            (@full-size / 2);
+@one-third:           round((@full-size / 3), 3);
+@one-fourth:          (@full-size / 4);
+@one-fifth:           round((@full-size / 5), 3);
+@one-sixth:           round((@full-size / 6), 3);
+
+@border-radius:       3px;
+
+@gutter:              10px;
+@box-shadow:          0 0 8px rgba(0,0,0,0.25);
+
+//------------------------------------
+//    $ORIGINAL VARS
+//------------------------------------
+@tileHeight:            				360;
+@tileWidth:             				250;
+@productImagesContainerWidth: 	350;
+@orderDetailWidth:      				200;
+// @itemListingThumbSize:  				{{ themeSettings.itemListingThumbSize }};
+@itemListingThumbSize:  				80px;
+
+
+
+

@@ -1,0 +1,87 @@
+{% if model.content.productShortDescription and themeSettings.showProductDetailShortDesc %}
+<div class="mz-productdetail-shortdesc mz-l-stack-section">
+	<span itemscope="description">{{ model.content.productShortDescription|safe }}</span>
+	<span class="bl-productdetail-productcode">{{ labels.productCode }}: <span itemprop="sku">{{ model.productCode }}</span></span>
+</div>
+{% endif %}
+
+<div class="bl-productdetail-action-section">
+	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="mz-productdetail-price mz-l-stack-section">
+		<span class="bl-productdetail-price">{{ labels.price }}</span>: {% include "widgets/catalog/quick-view/quick-view-price-stack" %}
+	</div>
+	{% if model.options %}
+	<div class="mz-productdetail-options mz-l-stack-section">
+		{% include "widgets/catalog/quick-view/quick-view-product-options" %}
+	</div>
+	{% endif %}
+
+	<section class="mz-l-stack-section mz-productdetail-conversion">
+		<div class="mz-productdetail-conversion-controls">
+			<span class="mz-qty-label">{{ labels.qty }}</span>
+			<input class="mz-productdetail-qty" type="number" value="1" min="1" {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-mz-value="quantity" />
+			<span class="mz-validationmessage" data-mz-validationmessage-for="quantity"></span>
+		</div>
+		{% if not model.purchasableState.isPurchasable %}
+		<p class="mz-productdetail-notpurchasable">
+			Not Purchasable:
+			{% for message in model.purchasableState.messages %}
+			<span>{{ message.message }}</span>
+			{% endfor %}
+		</p>
+		{% endif %}
+		<div class="mz-productdetail-conversion-buttons">
+			<button id="add-to-cart" class="mz-productdetail-addtocart mz-button mz-button-large {% if not model.purchasableState.isPurchasable %}is-disabled{% endif %}" {% if not model.purchasableState.isPurchasable %} disabled="disabled" {% endif %} data-bl-action="addToCart" >
+				{{ labels.addToCart }}
+			</button>
+
+			{% if not user.isAnonymous and themeSettings.allowWishlist %}
+			<button id="add-to-wishlist" {% if model.notDoneConfiguring %} disabled="disabled" {% endif %} class="mz-productdetail-addtowishlist mz-button" data-blz-action="addToWishlist">
+				{{ labels.addToWishlist }}
+			</button>
+			{% endif %}
+		</div>
+		{% if siteContext.supportsInStorePickup %}
+		<form class="mz-instorepickup" method="POST" data-mz-localstoresform action="/location/product">
+			<button type="submit" {% if model.notDoneConfiguring %} disabled="disabled" {% endif %} class="mz-button mz-instorepickuplink-button" data-bl-action="checkLocalStores">
+				{{ labels.checkLocalStores }}
+			</button>
+			<input type="hidden" data-mz-localstoresform-input name="item" value="{% json_attribute model %}" />
+		</form>
+		{% endif %}
+	</section>
+
+	{% if themeSettings.warrantyURL != "" %}
+	<a class="bl-product-metalink" href="{{ themeSettings.warrantyURL }}" title="{{ lables.warrantyURLText }}">{{ labels.warrantyURLText }}</a>
+	{% endif %}
+	{% if themeSettings.guaranteeURL != "" %}
+	<a class="bl-product-metalink" href="{{ themeSettings.guaranteeURL }}" title="{{ lables.guaranteeURLText }}">{{ labels.guaranteeURLText }}</a>
+	{% endif %}
+	{% if themeSettings.policyURL != "" %}
+	<a class="bl-product-metalink" href="{{ themeSettings.policyURL }}" title="{{ lables.policyURLText }}">{{ labels.policyURLText }}</a>
+	{% endif %}
+</div>
+
+<div class="mz-productdetail-fulldesc mz-l-stack-section">
+  <h4 class="mz-l-stack-sectiontitle">{{ labels.fullDesc }}</h4>
+  {{ model.content.productFullDescription|safe }}
+</div>
+
+{% if model.productUsage == 'Bundle' %}
+<div class="mz-productdetail-bundleitems mz-l-stack-section">
+  <h4 class="mz-l-stack-sectiontitle">{{ labels.bundleContents }}</h4>
+  <dl class="mz-propertylist mz-propertylist-justified">
+  {% for prod in model.bundledProducts %}
+	<dt>
+	  {% if prod.quantity != 1 %}{{ prod.quantity }} x {% endif %}
+	  {{ prod.content.productName }}
+	</dt>
+	<dd>
+	  {{ prod.content.productShortDescription|safe }}
+	  {% comment %}
+	    {{ prod.productCode }}
+      {% endcomment %}
+    </dd>
+  {% endfor %}
+  </dl>
+</div>
+{% endif %}

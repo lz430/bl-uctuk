@@ -1,0 +1,52 @@
+{% require_script "modules/contact-form" %}
+<div class="seismic-box seismic-contact-form">
+  <h2 class="seismic-box-header">{{ model.config.title|default("Contact Us") }}</h2>
+  <form class="seismic-box-inner" data-mz-role="contact-form" action="{{ model.config.formUrl }}">
+    <input type="hidden" name="adminEmail" value="{{ model.config.adminEmail }}">
+    <div class="mz-l-formfieldgroup">
+      <div class="mz-l-formfieldgroup-row seismic-contact-form__fullname">
+        <div class="mz-l-formfieldgroup-cell">
+          <label>Full Name<span class="is-required">*</span></label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+          <input name="fullName" type="text">
+        </div>
+      </div>
+      <div class="mz-l-formfieldgroup-row seismic-contact-form__email">
+        <div class="mz-l-formfieldgroup-cell">
+          <label>Email Address<span class="is-required">*</span></label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+          <input name="email" type="email">
+        </div>
+      </div>
+      <div class="mz-l-formfieldgroup-row seismic-contact-form__subject">
+        <div class="mz-l-formfieldgroup-cell">
+          <label>What is this all about?<span class="is-required">*</span></label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+          <select name="subject">
+            {% for subjectOption in model.config.subjectOptions %}
+            <option value="{{ subjectOption }}">{{ subjectOption }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="mz-l-formfieldgroup-row seismic-contact-form__message">
+        <div class="mz-l-formfieldgroup-cell">
+          <label>Message<span class="is-required">*</span></label>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+          <textarea name="message"></textarea>
+        </div>
+      </div>
+      <div class="mz-l-formfieldgroup-row seismic-contact-form__submit">
+        <div class="mz-l-formfieldgroup-cell">
+          <button type="submit">Submit</button>
+        </div>
+        <div class="mz-l-formfieldgroup-cell">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

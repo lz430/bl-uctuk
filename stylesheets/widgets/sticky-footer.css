@@ -1,0 +1,215 @@
+﻿/*.mz-sticky-footer {
+	.transition(.25s left ease-in-out);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: @full-size;
+	border-top: 4px solid @blue;
+	background-color: #1e1d1d;
+	background-image: -webkit-gradient(linear, 0 0, 0 84%, from(#1a1a19), color-stop(0.13, #272726), color-stop(0.28, #272726), to(#0a0b0a));
+	background-image: -webkit-linear-gradient(#1a1a19 0%, #272726 13%, #272726 28%, #0a0b0a 84%);
+	background-image: -moz-linear-gradient(#1a1a19 0%, #272726 13%, #272726 28%, #0a0b0a 84%);
+	background-image: -o-linear-gradient(#1a1a19 0%, #272726 13%, #272726 28%, #0a0b0a 84%);
+	background-image: linear-gradient(#1a1a19 0%, #272726 13%, #272726 28%, #0a0b0a 84%);
+	z-index: (@mz-z--top + 10);
+
+
+	@sticky-footer-black: #0b0a0b;
+	@sticky-footer-white: #353535;
+
+
+	.mz-sticky-footer__wrapper {
+		position: relative;
+		display: table;
+		margin: 0 auto;
+		max-width: 1100px;
+		width: @full-size;
+		border-right: 1px solid @sticky-footer-white;
+		border-left: 1px solid @sticky-footer-black;
+	}
+
+		.mz-sticky-footer__container {
+			display: table-row;
+		}
+
+		.mz-sticky-footer__block {
+			display: table-cell;
+			border: 1px solid transparent;
+			border-right: 1px solid @sticky-footer-black;
+			border-left: 1px solid @sticky-footer-white;
+			vertical-align: middle;
+			text-align: center;
+
+			img {
+				display: inline-block;
+			}
+		}
+
+
+			.mz-sticky-footer__block-link {
+				display: block;
+				width: @full-size;
+				height: @full-size;
+				position: relative;
+				text-align: center;
+			}
+
+		.mz-sticky-footer__dropzone {
+			min-height: 70px;
+			min-width: 140px;
+
+			.mz-cms-content {
+				padding: 0;
+			}
+
+			.mz-cms-editing .mz-cms-blank-block > div {
+				color: white;
+				height: auto;
+			}
+
+			img {
+				display: inline-block;
+				vertical-align: middle;
+				width: auto;
+			}
+		}
+
+		// Live chat button
+		.mz-sticky-footer__live-chat {
+			position: relative;
+
+			.mz-sticky-footer__live-chat-link {
+				width: 140px;
+				display: block;
+				height: 60px;
+				position: relative;
+			}
+
+			img {
+				position: absolute;
+				bottom: -7px;
+				left: 9px;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+
+
+		// Email signup form
+		.mz-sticky-footer__email-signup {
+			padding: 0;
+			width: 70%;
+
+			button[type="submit"] {
+				background-color: @blue;
+				background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0,0,0,0.15)), to(rgba(0,0,0,0.5)));
+				background-image: -webkit-linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.5));
+				background-image: -moz-linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.5));
+				background-image: -o-linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.5));
+				background-image: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.5));
+
+
+				&:hover {
+					background-color: lighten(@blue, 15%);
+				}
+			}
+		}
+
+
+			.mz-mailing-list__form {
+				padding: 5px 10px;
+			}
+
+			.email-form-title {
+				float: left;
+				width: 30%;
+				padding: 5px 10px 0 16px;
+				color: @white;
+				font-size: 14px;
+				vertical-align: middle;
+				height: @full-size;
+				display: block;
+			}
+		}
+
+
+
+		// Social links
+		.mz-sticky-footer__social-links {
+			width: 25%;
+			text-align: center;
+
+			.social-links-title {
+				color: @blue;
+				.uppercase();
+			}
+
+			.mz-social-links__list {
+				height: auto;
+				float: none;
+				text-align: center;
+				line-height: 0;
+				font-size: 0;
+
+				li {
+					display: inline-block;
+					float: none;
+					margin: 0;
+
+					a {
+						line-height: 0;
+						font-size: 22px;
+						margin: 2px;
+					}
+
+					.icon::before
+				, .mz-social-link__text {
+						color: darken(@white, 5%) !important;
+
+					}
+				}
+			}
+		}
+
+
+		.touch {
+			.mz-sticky-footer { display: none; }
+		}
+
+
+		@media (min-width: 0) {
+			.mz-sticky-footer {
+				display: none;
+				.mz-sticky-footer__email-signup { display: none; }
+			}
+		}
+
+
+		@media (min-width: 800px) {
+			.mz-sticky-footer {
+				.email-form-title { display: none; }
+				.mz-sticky-footer__social-links { width: 30%; }
+			}
+		}
+
+
+		@media (min-width: 900px) {
+
+			.mz-sticky-footer {
+				display: block;
+
+
+				.mz-sticky-footer__email-signup { display: table-cell; }
+			}
+		}
+
+
+		@media (min-width: 1050px) {
+			.mz-sticky-footer {
+				.email-form-title { display: block; }
+				.mz-sticky-footer__social-links { width: 25%; }
+			}
+		}*/
+/*# sourceMappingURL=sticky-footer.css.map */

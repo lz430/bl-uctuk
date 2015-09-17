@@ -1,0 +1,23 @@
+<footer class="mob-page-footer visible-xs container">
+    <div class="row bl-email-signup" style="padding-left: 10px">
+        {%spaceless%}
+            {% dropzone "email-signup" scope="site" %}
+        {%endspaceless%}
+    </div>
+    <div class="row" style="padding-left: 10px">
+        <div class="col-xs-5">
+            <p class="mob-footer-phone">
+                <i class="icon icon-phone icon-lg icon-fx"></i> <a href="tel:{{themeSettings.companyPhoneNumber}}">{{themeSettings.companyPhoneNumber}}</a>
+            </p>
+        </div>
+        <div class="col-xs-12">
+            <a class="mob-footer-item" href="/terms-conditions">Terms &amp; Conditions</a>
+        </div>
+        <div class="col-xs-12">
+            <a class="mob-footer-item" href="/privacy-policy">Privacy Policy</a>
+        </div>
+        <div class="col-xs-12">
+            <a class="mob-footer-item" href="/return-policy">Return Policy</a>
+        </div>
+    </div>
+</footer>

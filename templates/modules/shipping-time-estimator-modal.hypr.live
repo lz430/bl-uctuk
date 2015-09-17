@@ -1,0 +1,3 @@
+{% extends "modules/common/seismic-modal" %}
+{% block modal-role %}shipping-time-estimator-modal{% endblock modal-role %}
+{% block modal-inner %}{% include "modules/shipping-time-estimator" %}{% endblock modal-inner %}

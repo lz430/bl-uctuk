@@ -1,0 +1,40 @@
+<div class="mz-product-carousel__wrapper">
+	{% if model.items %}
+		<ul class="mz-product-carousel__list" data-mz-product-carousel-widget>
+			{% for prod in model.items %}
+				<li class="mz-product-carousel__listing {% block module-classes %}{% endblock module-classes %}" data-mz-product="{{ model.productCode }}">
+
+					<a class="mz-product-carousel__product-link" href="{{ prod.url }}">
+						<div class="mz-product-carousel__image">
+							<div class="mz-product-carousel__image-wrapper">
+								{% if prod.mainImage.imageUrl %}
+                                <img class="mz-product-carousel__image-image lazyOwl" data-src="{{ prod.mainImage.imageUrl }}?max={% block thumbnail-size %}{{ themeSettings.productCarouselThumbSize }}{% endblock thumbnail-size %}">
+								{% else %}
+                                <img class="mz-product-carousel__image-image lazyOwl" alt="{{ labels.productImagePlaceholder }}" data-src="http://placehold.it/{{ themeSettings.productCarouselThumbSize }}&text=no+image">
+								{% endif %}
+							</div>
+						</div>
+
+						<span class="mz-product-carousel__product-title">{{ prod.content.productName }}</span>
+					</a>
+
+					<div class="mz-product-listing-review" data-mz-role="product-listing-review" data-mz-product-code="{{ prod.productCode }}"></div>
+
+					<div class="mz-product-carousel__product-price">
+						{% if prod.price.salePrice %}
+							<div itemprop="priceSpecification" itemscope itemtype="http://schema.org/PriceSpecification" class="mz-pricestack{% if  prod.priceRange %} mz-pricestack-range{% endif %} mz-cat-product__price">
+								<i class="icon icon-tag" style="vertical-align: middle"></i>
+                                {{ themeSettings.salePriceName }}: <br /> {{ prod.price.salePrice|currency }}
+							</div>
+						{% else %}
+							<div itemprop="priceSpecification" itemscope itemtype="http://schema.org/PriceSpecification" class="mz-pricestack{% if  prod.priceRange %} mz-pricestack-range{% endif %} mz-cat-product__price">
+								{{ themeSettings.ourPriceName }}: <br /> {{ prod.price.price|currency }}
+							</div>
+						{% endif %}
+					</div>
+
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+</div>

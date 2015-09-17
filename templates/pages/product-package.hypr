@@ -1,0 +1,5 @@
+{% extends "pages/product" %}
+
+{% block body-content %}
+  {% include "modules/product/product-package-page-contents" %}
+{% endblock body-content %}

@@ -1,0 +1,67 @@
+.mob-footer-phone {
+   a, i {
+        font-size: 13px;
+        color: @brand-primary;
+        font-weight: bold;
+    }
+}
+
+.mob-footer-item {
+    color: @brand-primary;
+    font-weight: bold;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    display:inline-block;
+}
+
+.mob-footer-shipping {
+    color: @gray-darker;
+    a, i {
+         color: @gray-darker;
+         font-weight: bold;
+        }
+}
+
+
+
+.mob-category-list {
+	.border-radius(@mz-border-radius);
+	.list-reset();
+	.std-box-shadow();
+
+	li {
+		border: 1px solid @gray-light;
+		border-top-color: white;
+		font-size: 12px;
+		position: relative;
+
+		&:first-of-type {
+			.border-radius(@mz-border-radius @mz-border-radius 0 0);
+			border-top: none;
+		}
+
+		&:last-of-type {
+			.border-radius(0 0 @mz-border-radius @mz-border-radius);
+		}
+	}
+
+	a:link,
+	a:visited,
+	a:focus,
+	a:hover {
+		color: @gray-dark;
+		display: block;
+		padding: 10px;
+
+		&::after {
+			.font-smooth();
+			.transform(~"translate(-50%, -50%)");
+			color: @gray-light;
+			content: @fa-var-chevron-right;
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			font-family: 'FontAwesome';
+		}
+	}
+}

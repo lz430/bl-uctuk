@@ -1,0 +1,84 @@
+<div class="dl-menu-overlay dl-menu-close"></div>
+<nav id="dl-menu" class="dl-menuwrapper">
+    <ul class="dl-menu">
+        <li class="dl-heading">
+            <a class="dl-menu-close" href="#">Close</a>
+        </li>
+{% partial_cache %}
+    {% for link in navigation.tree %}
+        {% if link.isHidden == false %}
+        <li>
+            <a href="{{link.url}}">{{link.name|truncatechars(themeSettings.maxTopLevelNavLabelLength)}}</a>
+            {% if link.items %}
+            <ul class="dl-submenu">
+                <li>
+                    <a href="{{link.url}}">All {{link.name|truncatechars(themeSettings.maxTopLevelNavLabelLength)}}</a>
+                </li>
+                {% for sublink in link.items %}
+                {% if sublink.isHidden == false %}
+                <li>
+                    {% if not sublink.items %}
+                        <a href="{{sublink.url}}">{{sublink.name}}</a>
+                    {% else %}
+                        <a href="{{sublink.url}}">{{sublink.name}}</a>
+                        <ul class="dl-submenu">
+                            <li>
+                                <a href="{{sublink.url}}">All {{sublink.name}}</a>
+                            </li>
+                            {% for subsublink in sublink.items %}
+                            {% if subsublink.isHidden == false %}
+                            <li>
+                                <a href="{{subsublink.url}}">{{subsublink.name}}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endif %}
+    {% endfor %}
+{% endpartial_cache %}
+{% require_script "vendor/jquery-dlmenu" %}
+    </ul>
+</nav><!-- /dl-menuwrapper -->
+
+<nav class="mz-utilitynav">
+    {%spaceless%}
+	<ul class="mz-utilitynav-list">
+	
+        <li class="mz-utilitynav-item nav-menu">
+            <a href="javascript:;" class="mz-utilitynav-link dl-menu-trigger"><span>{{ labels.menu }}</span></a>
+        </li>
+
+		{% if not user.isAuthenticated %}
+		<li class="mz-utilitynav-item nav-account">
+		    <a href="/user/login" data-mz-action="login" class="mz-utilitynav-link"><span>{{ labels.logIn }}</span></a>{#data-placement="bottom"#}
+		</li>
+		{%else%}
+		<li class="mz-utilitynav-item nav-account">
+			<a href="/logout" data-mz-action="logout"><span>({{ labels.logOut }})</span></a>
+		</li>
+		{% require_script "modules/login-links" %}
+		{% endif %}
+		
+		<li class="mz-utilitynav-item nav-search">
+			<a class="mz-utilitynav-link" href="javascript:;">
+			    <input id="mz-searchbox-mobile-toggle" type="checkbox">
+				<label class="mz-searchbox-mobile-toggle" for="mz-searchbox-mobile-toggle"></label>
+				<form class="mz-searchbox-mobile" action="/search">
+					<input class="mz-searchbox-field-mobile" type="search" name="query" value="" placeholder="Search" />
+				</form>
+			</a>
+		</li>
+		
+		<li class="mz-utilitynav-item nav-cart">
+			<a class="mz-utilitynav-link" href="/cart"><span>{{ labels.viewCart }}</span></a>
+		</li>
+	</ul>
+    {%endspaceless%}
+</nav>

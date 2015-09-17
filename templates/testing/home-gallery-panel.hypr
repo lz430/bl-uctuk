@@ -1,0 +1,22 @@
+
+{% require_script "" %}
+
+<div class="mz-home-gallery__slideshow owl-carousel">
+
+  <a class="mz-home-gallery__link active" href="#">
+    <img src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-slide-1.jpg" alt="">
+  </a>
+
+  <a class="mz-home-gallery__link" href="#">
+    <img src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-slide-2.jpg" alt="">
+  </a>
+
+  <a class="mz-home-gallery__link" href="#">
+    <img src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-slide-3.jpg" alt="">
+  </a>
+
+  <a class="mz-home-gallery__link" href="#">
+    <img src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-slide-4.jpg" alt="">
+  </a>
+
+</div>

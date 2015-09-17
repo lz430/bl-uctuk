@@ -1,0 +1,85 @@
+﻿    <table bg="#eeeeee" style="color:#000000;" class="mz-ordersummary" cellpadding="0" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <td bgcolor="#072f53" style="padding:15px 0 15px 15px; text-align: left;" class="mz-ordersummary-header-product"><b><font color="#ffffff">{{ labels.product }}</font></b></td>
+                <td bgcolor="#072f53" style="padding:15px 15px 15px 0; text-align: left;" class="mz-ordersummary-header-qty"><b><font color="#ffffff">{{ labels.qty }}</font></b></td>
+                <td bgcolor="#072f53" style="padding:15px 15px 15px 0; text-align: left;" class="mz-ordersummary-header-each"><b><font color="#ffffff">{{ labels.each }}</font></b></td>
+                <td bgcolor="#072f53" style="padding:15px 15px 15px 0; text-align: right;" class="mz-ordersummary-header-total"><b><font color="#ffffff">{{ labels.total }}</font></b></td>
+            </tr>
+        </thead>
+        {% for item in model.items %}
+            <tbody class="mz-ordersummary-lineitems">
+              <tr class="mz-ordersummary-line mz-ordersummary-line-item {% if item.discountTotal > 0 %}is-discounted{% endif %}">
+                    <td bgcolor="#f4f4f4" class="mz-ordersummary-item-product" style="padding:15px 0 15px 15px; border-bottom: 1px solid #ffffff; text-align: left;">
+                      {{ item.product.name }}
+                      {% if item.product.productUsage == 'Bundle' %}
+                      <dl class="mz-propertylist">
+                        {% for bundledProduct in item.product.bundledProducts %}
+                        <dt>{{ bundledProduct.productCode }}</dt>&nbsp;
+                        <dd>{{ bundledProduct.name }} ({{ bundledProduct.quantity }})</dd>
+                        {% endfor %}
+                      </dl>
+                      {% endif %}
+                    </td>
+                    <td bgcolor="#f4f4f4" style="padding:15px 0 15px 15px; border-bottom: 1px solid #ffffff; text-align: left;">{{ item.quantity }}</td>
+                    <td bgcolor="#f4f4f4" align="right" style="padding:15px 15px 15px 0; border-bottom: 1px solid #ffffff; text-align: left;"> {% include "modules/common/email-item-price" %}</td>
+                    <td bgcolor="#f4f4f4" align="right" style="padding:15px 15px 15px 0; border-bottom: 1px solid #ffffff; text-align: right;"> {% include "modules/common/email-item-total" %}</td>
+                </tr>
+            </tbody>
+        {% endfor %}
+      
+        <tbody>
+            {% for discount in model.orderDiscounts %}
+            {% if not discount.excluded %}
+            <tr class="mz-ordersummary-discount">
+              <td bgcolor="#f4f4f4" style="padding:15px 15px 0 0;" align="right" colspan="4">
+                <span class="mz-ordersummary-discountname" style="font-size:12px; line-height:15px; font-family:Arial,Helvetica,sans-serif;"><em>{{ discount.discount.name }}:</em></span>
+                <span class="mz-ordersummary-discountamt"><font color="#ee1c24">-{{ discount.impact|currency }}</font></span>
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            <tr class="mz-ordersummary-subtotal">
+              <td bgcolor="#f4f4f4" style="padding:15px 15px 0 0;" align="right" colspan="4">
+                <span class="mz-ordersummary-totalname">{{ labels.subtotal }}:</span>
+                <span class="mz-ordersummary-totalvalue"><b>{{ model.discountedSubTotal|currency }}</b></span>
+              </td>
+            </tr>
+            {% if model.taxTotal %}
+            <tr class="mz-ordersummary-tax">
+                <td bgcolor="#f4f4f4" style="padding:15px 15px 0 0;" align="right" colspan="4">
+                    <span class="mz-ordersummary-totalname">{{ labels.tax }}:</span>
+                    <span class="mz-ordersummary-totalvalue"><b>{{ model.taxTotal|currency }}</b></span>
+                </td>
+            </tr>
+            {% endif %}
+            <tr class="mz-ordersummary-shippingtotal">
+              <td bgcolor="#f4f4f4" style="padding:15px 15px 0 0;" align="right" colspan="4">
+                <span class="mz-ordersummary-totalname">{{ labels.shippingHandling }}:</span>
+                <span class="mz-ordersummary-totalvalue"><b>{{ model.shippingSubTotal|currency }}</b></span>
+              </td>
+            </tr>
+            {% for shippingDiscount in model.shippingDiscounts %}
+            <tr class="mz-ordersummary-shippingdiscount">
+              <td bgcolor="#f4f4f4" style="padding:15px 15px 0 0;" align="right" colspan="4">
+                <span class="mz-ordersummary-totalname">{{ shippingDiscount.discount.discount.name }}:</span>
+                <span class="mz-ordersummary-totalvalue">-{{ shippingDiscount.discount.impact|currency }}</span>
+              </td>
+            </tr>
+            {% endfor %}
+            {% if model.handlingAmount %}
+            <tr class="mz-ordersummary-additionalhandling">
+                <td bgcolor="#f4f4f4" style="padding:15px 15px 15px 0;" align="right" colspan="4">
+                  <span class="mz-ordersummary-totalname">{{ labels.additionalHandling }}{% if model.handlingAmount > model.handlingTotal  %}<span class="is-crossedout" {% block crossedout-inline-style %}{% endblock crossedout-inline-style %}> ({{ model.handlingAmount|currency }})</span>{% endif %}</span>
+                  <span class="mz-ordersummary-totalvalue"><b>{{ model.handlingTotal|currency }}</b></span>
+                </td>
+            </tr>
+            {% endif %}
+            <tr class="mz-ordersummary-grandtotal">
+                <td bgcolor="#051524" style="padding:15px; font-size:20px;" align="right" colspan="4">
+                    <span class="mz-ordersummary-totalname"><font color="#ffffff">{{ labels.total }}:</font></span>
+                    <span class="mz-ordersummary-totalvalue"><b><font color="#ffffff">{{ model.total|currency }}</font></b></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>

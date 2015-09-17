@@ -1,0 +1,44 @@
+  <div class="mz-home-promo__container">
+    <div class="mz-home-promo__wrapper">
+      <div class="mz-home-promo__title mz-fancy-title blue">
+        <i class="mz-fancy-title__icon icon icon-info-circle"></i>
+        <span class="mz-fancy-title__text">{{labels.widgetTitle_whoIsSA}}</span>
+      </div>
+
+      <div class="mz-home-promo__content-container">
+        <div class="mz-home-promo__content">
+
+					{{ model.config.aboutText|safe }}
+
+          <p class="mz-home-promo__questions">
+            <span class="mz-home-promo__questions-title">Questions? Ask the Experts...</span>
+            <span class="mz-home-promo__phone-number">{{themeSettings.companyPhoneNumber}}</span>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+          <p>
+            We are musicians, guitar players, drummers, DJs, friends, fathers, husbands, and regular guys. Just like you. We want our customer service to be as good as our products.
+          </p>
+
+          <ul>
+            <li class="mz-home-promo__list-item">
+              <i class="icon icon-check"></i>
+              All new pro audio items come with a 30 day return policy and an automatic one year warranty. You do not have to fill out any warranty cards and mail them back to us.
+            </li>
+
+            <li class="mz-home-promo__list-item">
+              <i class="icon icon-check"></i>
+              We believe that you want to pay for quality sound and not some over marketed brand name. Our goal is to eliminate middlemen and sell audio gear directly to the end user.
+            </li>
+
+            <li class="mz-home-promo__list-item">
+              <i class="icon icon-check"></i>
+              We are here to help. If you need technical advice on what amplifier to get or how to plug in your DJ speaker, we can help. It does not matter if it is a Seismic Audio product or another brand. Give us a call.
+            </li>
+          </ul>

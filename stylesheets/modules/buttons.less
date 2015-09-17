@@ -1,0 +1,128 @@
+button,
+.mz-button,
+.mz-button--primary {
+	.clearfix();
+	-webkit-font-smoothing: antialiased;
+	background-color: @brand-primary;
+	color: @white;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 21px;
+	outline: none;
+	padding-top: 12px;
+    padding-bottom: 12px;
+	text-shadow: none;
+    border: 0;
+    .border-radius(3px);
+
+	&:hover {
+		background-color: lighten(@brand-primary, 10%);
+		text-decoration: none;
+	}
+
+	&:active {
+		background-color: darken(@brand-primary, 10%);
+	}
+
+	&:disabled,
+	&:disabled:hover {
+		background-color: @gray;
+		border: none;
+		color: darken(white, 50%);
+		cursor: not-allowed;
+	}
+
+	i[class^="icon"] {
+		margin-right: .35em;
+	}
+
+	&[data-loading=true] i {
+		&:before {
+			.animation(spin .4s infinite steps(8));
+			content: "\f110" !important;
+			font-family: 'FontAwesome';
+			/* WARNING: MAGIC NUMBER */
+			font-size: 105%;
+			display: inline-block;
+		}
+	}
+}
+
+	.mz-button--xsmall {
+		font-size: .75em;
+	}
+
+	.mz-button--small {
+		font-size: .85em;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding: 4px;
+	}
+
+	.mz-button--large {
+		font-size: 1.15em;
+	}
+
+	.mz-button--xlarge {
+		font-size: 1.25em;
+	}
+
+.mz-button--more-info {
+    font-weight:bold;
+    width: 110px; 
+    position: absolute; 
+    bottom: 10px; 
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    @media (max-width: @screen-xs-max) {
+        bottom: -10px;
+    }
+}
+
+.mz-button--inverse {
+	background-color: @gray-darker;
+	border: 0;
+    font-weight:normal;
+	&:hover {
+		background-color: lighten(@gray-darker, 10%);
+        color: @brand-white;
+	}
+
+	&:active {
+		background-color: darken(@gray-darker, 10%);
+        color: @brand-white;
+	}
+}
+
+.mz-button--success {
+	background-color: @brand-success;
+	border: 0;
+    font-weight:normal;
+	&:hover {
+		background-color: lighten(@brand-success, 10%);
+        color: @brand-white;
+	}
+
+	&:active {
+		background-color: darken(@brand-success, 10%);
+        color: @brand-white;
+	}
+}
+
+
+.mz-button--tertiary {
+	background-color: @mz-color--gamma;
+	border-color: darken(@mz-color--gamma, 10%);
+
+	&:hover {
+		background-color: darken(@mz-color--gamma, 5%);
+		border-color: darken(@mz-color--gamma, 15%);
+	}
+
+	&:active {
+		background-color: darken(@mz-color--gamma, 15%);
+		border-color: darken(@mz-color--gamma, 25%);
+	}
+}

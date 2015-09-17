@@ -1,0 +1,8 @@
+
+{% require_script "modules/wish-list" %}
+<a href="/myaccount/#account-wishlist"><i class="icon icon-2x icon-heart"></i><br />Wishlist</a>
+{{ customer.wishlist.name }}
+<div class="mz-wishlist__item-count__wrapper is-empty">
+  <span class="mz-wishlist__item-count">0
+  </span>
+</div>

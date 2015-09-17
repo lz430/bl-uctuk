@@ -1,0 +1,74 @@
+﻿.mz-utilitynav {
+  float: right;
+  clear: both;
+  color: @textColor;
+  font-size: @fontSizeSmall;
+
+  .mz-utilitynav-item {
+      float: left;
+      margin: 0;
+      padding: 0 10px;
+      text-align: right;
+
+      &:last-child {
+          padding-right: 0;
+          text-align: right;
+      }
+  }
+
+  .mz-utilitynav-link {
+      .permalink(@textColor);
+  }
+    
+  @media only screen {
+    @media(max-width: @tabletThreshold) {
+      clear: none;
+      position: absolute;
+      top: @pageHeaderHeight;
+      left: 0;
+      width: 100%;
+      
+      .mz-utilitynav-item {
+        width: 25%;
+        padding: 0;
+               
+        a, span, label {
+          display: none;
+          background-color: @mobileNavBackgroundColor;
+        }
+        
+        &:first-child {
+          margin: 0 0 0 25%;
+        }
+        
+        .bl-alternate-link {
+          display: block;
+          height: @navIconHeight;
+          padding: 0 @gutter/5;
+          text-align: center;
+          
+          
+          span, label {          
+            height: @navIconHeight;
+            width: 100%;
+          }
+          
+          &-cart-icon {
+            display: inline-block;
+            background: url('//t2499-s3003.sandbox.mozu.com/resources/images/cart.png') no-repeat scroll center center transparent;
+          }
+          
+          &-account-icon {
+            display: inline-block;
+            background: url('//t2499-s3003.sandbox.mozu.com/resources/images/account.png') no-repeat scroll center center transparent;
+          }
+          
+          &-search-icon {
+            display: inline-block;
+            background: url('//t2499-s3003.sandbox.mozu.com/resources/images/search.png') no-repeat scroll center center transparent;
+          }
+        }
+      }
+    }
+  }
+}

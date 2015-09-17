@@ -1,0 +1,34 @@
+.mz-loginpage {
+  .bl-login-prompt, .bl-register-prompt {
+        width: 49%;
+        float: left;
+        margin: 29px 0;
+        h2 {
+          margin: 0 0 10px;
+          padding: 0;
+          color: #072f53;
+          font: 800 27px/31px 'Open Sans', sans-serif;
+          text-transform: uppercase;
+        }
+    } 
+    
+  @media only screen { 
+    @media (max-width: 979px) {
+    }
+    @media (max-width: 767px) {
+      .bl-login-prompt, .bl-register-prompt {
+          width: 100%;
+          display: block;
+      }
+      input {
+        width: -moz-calc(~"100% - 14px");
+        width: -webkit-calc(~"100% - 14px");
+        width: calc(~"100% - 14px");
+      }
+      .mz-button[data-bl-action="register"] {
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+  }
+}

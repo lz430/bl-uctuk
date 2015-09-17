@@ -1,0 +1,196 @@
+﻿/*-----------[ Account Header ]-----------*/
+.mz-myaccount h1.mz-pagetitle:before {
+  content: "My ";
+  font: 36px/36px "Dancing Script",serif;
+}
+.mz-myaccount h1.mz-pagetitle:after {
+  content: "Account";
+  font: 800 24px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+}
+.mz-myaccount h1.mz-pagetitle {
+  float: right;
+  width: -moz-calc(~"100% - 20% - 20px");
+  width: -webkit-calc(~"100% - 20% - 20px");
+  width: calc(~"100% - 20% - 20px");
+  margin: 29px 10px 10px 0;
+  color: #072f53;
+  font-size: 0;
+}
+/*-----------[ Left Navigation ]-----------*/
+.mz-myaccount .mz-l-sidebar.mz-myaccount-nav {
+  width: -moz-calc(~"20% - 20px");
+  width: -webkit-calc(~"20% - 20px");
+  width: calc(~"20% - 20px");
+  margin-top: 28px;
+}
+.mz-scrollnav-list.nav {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+/*-----------[ Account Panels ]-----------*/
+#account-panels {
+  float: right;
+  margin-right: 10px;
+  width: -moz-calc(~"100% - 20% - 20px");
+  width: -webkit-calc(~"100% - 20% - 20px");
+  width: calc(~"100% - 20% - 20px");
+}
+/*-----------[ Order History Panels ]-----------*/
+#account-panels .mz-l-paginatedlist {
+  width: 100%;
+}
+#account-panels .mz-l-paginatedlist ul {
+  clear: both;  
+}
+#account-panels .mz-l-paginatedlist li {
+  padding-bottom: 15px;
+  list-style: none;
+  border-top: 1px solid #e1e1e1;
+}
+#account-panels h3.mz-orderlisting-date {
+  color: #072f53;
+  font: 800 22px/22px 'Open Sans', sans-serif;
+  text-transform: uppercase;
+}
+#account-panels .mz-itemlisting {
+  clear: both;
+  display: inline-block;
+  width: 100%;
+  margin: 18px 0 0;
+}
+#account-panels .mz-itemlisting-thumb, #account-panels .mz-itemlisting-details {
+  display: inline-block;
+}
+#account-panels .mz-itemlisting-thumb-img {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+#account-panels .mz-propertylist dt {
+  min-width: 115px;
+}
+/*-----------[ Payment Methods and Address Book ]-----------*/
+ul.mz-accountpaymentmethods-list, #account-addressbook ul {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul.mz-accountpaymentmethods-list li, #account-addressbook ul li {
+  margin: 0;
+  padding: 0;
+}
+ul.mz-accountpaymentmethods-list li .mz-addressform-firstname, #account-addressbook ul li .mz-addressform-firstname {
+  margin-right: 15px;
+}
+.mz-contactselector-new input, #account-addressbook input {
+  width: -moz-calc(~"100% - 14px");
+  width: -webkit-calc(~"100% - 14px");
+  width: calc(~"100% - 14px");
+  margin-bottom: 0;
+}
+.mz-contactselector-new select, #account-addressbook select {
+  width: 100%;
+  margin-bottom: 0;
+  padding: 2px 6px;
+}
+.mz-contactselector-new input[type="radio"], #account-addressbook input[type="radio"], #account-addressbook input[type="checkbox"] {
+  width: auto;
+}
+/*-----------[ Gift Cards and Store Credit ]-----------*/
+#account-storecredit input {
+  width: -moz-calc(~"100% - 65px");
+  width: -webkit-calc(~"100% - 65px");
+  width: calc(~"100% - 65px");
+  margin-bottom: 0;
+}
+.mz-accountstorecredit-table table {
+  width: 100%;
+}
+.mz-accountstorecredit-table {
+  margin: 10px 0;
+}
+.mz-accountstorecredit-table .mz-table th {
+  width: 25%;
+  text-align: left;
+}
+.mz-accountstorecredit-totallabelcell {
+    text-align: left;
+}
+/*-----------[ Default Syles - Headers, Labels, Buttons ]-----------*/
+#account-panels .mz-l-stack-sectiontitle {
+  display: block;
+  margin: 5px 0;
+  padding: 10px;
+  color: #072f53;
+  font: 600 16px/16px "Open Sans", sans-serif;
+  text-align: left;
+  background-color: #f4f4f4;
+  border: 1px solid #e1e1e1;
+}
+#account-panels .mz-l-stack-sectiontitle > a {
+  float: right;
+  font-size: 12px;
+  font-weight: 400;
+}
+#account-panels label {
+  font: 15px/20px "Open Sans",sans-serif;
+}
+#account-panels .mz-button {
+  display: inline-block;
+  width: auto;
+  height: 20px;
+  margin: 0;
+  padding: 2px 8px 8px;
+  color: #898989;
+  font: 12px/12px 'Open Sans', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  transition: all 0.25s ease-in-out 0s;
+  cursor: pointer;
+}
+#account-panels .mz-button:hover {
+  color: #fff;
+  border: 1px solid #072f53;
+  border-radius: 5px;
+  background-color: #072f53;
+}
+/* Hide Email & Phone Edit Buttons Till Mozu Fixes */
+#account-panels .mz-accountsettings-emailedit, #account-panels .mz-accountsettings-phoneedit {
+  display: none;
+}
+/*-----------------------------------
+ *    Smartphone Size
+ *-----------------------------------*/
+@media only screen and ( max-width: 767px ) {
+  /*-----------[ Account Header ]-----------*/
+  .mz-myaccount h1.mz-pagetitle {
+    float: left;
+    margin: 14px 0 20px;
+    width: 100%;
+  }
+  /*-----------[ Left Navigation ]-----------*/
+  .mz-myaccount .mz-l-sidebar.mz-myaccount-nav {
+    margin-top: 0;
+    padding: 0;
+    width: 100%;
+  }
+  /*-----------[ Account Panels ]-----------*/
+  #account-panels {
+    width: 100%;
+    margin: 0;
+  }
+  /*-----------[ Payment Methods and Address Book ]-----------*/
+ .mz-addressform-state {
+    width: 69%;
+    margin-right: 0;
+  }
+  .mz-addressform-zip {
+    clear: both;
+    width: 100%;
+  }
+}

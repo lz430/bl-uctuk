@@ -1,0 +1,58 @@
+#bl-search-toggle {
+  display: none;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  height: 0px;
+  width: 0px;
+  margin: 0;
+  padding: 0;
+}
+.mz-searchbox {
+  float: right;
+  position: relative;
+  width: 16.6%;
+  margin-bottom: 1px;
+}
+.mz-searchbox-field {
+  float: right;
+  position: relative;
+  width: 90px;
+  height: 25px;
+  padding: 0 25px 6px 7px;
+  border: 0;
+  text-align: left;
+  color: #555555;
+  font: 13px/18px 'Open Sans', sans-serif;
+  border-bottom: 2px solid #073561;
+  background-size: 15px 15px;
+  -moz-box-sizing: border-box;
+  cursor: pointer;
+  transition:all 0.5s ease 0s;
+  -webkit-transition:all 0.5s ease 0s;
+  -webkit-appearance: textfield;
+  z-index: 1;
+}
+.mz-searchbox-field:focus {
+  cursor: auto;
+  width: 200px;
+}
+.mz-searchbox-button {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  margin: 0;
+  text-indent: -9999em;
+  border: 0;
+  cursor: pointer;
+  background: transparent url('../resources/images/icon-search2x.png') no-repeat right top;
+  background-size: 15px 15px;
+  right: 4px;
+  z-index: 2;
+}
+.mz-searchbox-categories {
+    width: 100px;
+}
+::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}

@@ -1,0 +1,92 @@
+<ul class="mz-social-links__list">
+
+	{% if themeSettings.socialLinkFacebook %}
+		<li>
+			<a href="{{ themeSettings.socialLinkFacebook }}" target="_blank" class="mz-social-link mz-social-link--facebook">
+				<i class="icon icon-facebook-square"></i>
+				<span class="mz-social-link__text">Facebook</span>
+			</a>
+		</li>
+	{% endif %}
+
+
+	{% if themeSettings.socialLinkTwitter %}
+		<li>
+			<a href="{{ themeSettings.socialLinkTwitter }}" target="_blank" class="mz-social-link mz-social-link--twitter">
+				<i class="icon icon-twitter-square"></i>
+				<span class="mz-social-link__text">Twitter</span>
+			</a>
+		</li>
+	{% endif %}
+
+
+	{% if themeSettings.socialLinkGooglePlus %}
+		<li>
+			<a href="{{ themeSettings.socialLinkGooglePlus }}" target="_blank" class="mz-social-link mz-social-link--google-plus">
+				<i class="icon icon-google-plus-square"></i>
+				<span class="mz-social-link__text">Google+</span>
+			</a>
+		</li>
+	{% endif %}
+
+
+	{% if themeSettings.socialLinkYoutube %}
+		<li>
+			<a href="{{ themeSettings.socialLinkYoutube }}" target="_blank" class="mz-social-link mz-social-link--youtube">
+				<i class="icon icon-youtube-square"></i>
+				<span class="mz-social-link__text">YouTube</span>
+			</a>
+		</li>
+	{% endif %}
+
+
+	{% if themeSettings.socialLinkVimeo %}
+		<li>
+			<a href="{{ themeSettings.socialLinkVimeo }}" target="_blank" class="mz-social-link mz-social-link--vimeo">
+				<i class="icon icon-vimeo-square"></i>
+				<span class="mz-social-link__text">Vimeo</span>
+			</a>
+		</li>
+	{% endif %}
+
+
+	{% if themeSettings.socialLinkInstagram %}
+		<li>
+			<a href="{{ themeSettings.socialLinkInstagram }}" target="_blank" class="mz-social-link mz-social-link--instagram">
+				<i class="icon icon-instagram"></i>
+				<span class="mz-social-link__text">Instagram</span>
+			</a>
+		</li>
+	{% endif %}
+
+
+	{% if themeSettings.socialLinkLinkedIn %}
+		<li>
+			<a href="{{ themeSettings.socialLinkLinkedIn }}" target="_blank" class="mz-social-link mz-social-link--linkedin">
+				<i class="icon icon-linkedin-square"></i>
+				<span class="mz-social-link__text">LinkedIn</span>
+			</a>
+		</li>
+	{% endif %}
+
+
+	{% if themeSettings.socialLinkFlickr %}
+		<li>
+			<a href="{{ themeSettings.socialLinkFlickr }}" target="_blank" class="mz-social-link mz-social-link--flickr">
+				<i class="icon icon-flickr"></i>
+				<span class="mz-social-link__text">Flickr</span>
+			</a>
+		</li>
+	{% endif %}
+
+
+	{% if themeSettings.socialLinkPinterest %}
+		<li>
+			<a href="{{ themeSettings.socialLinkPinterest }}" target="_blank" class="mz-social-link mz-social-link--pinterest">
+				<i class="icon icon-pinterest-square"></i>
+				<span class="mz-social-link__text">Pinterest</span>
+			</a>
+		</li>
+	{% endif %}
+
+</ul>

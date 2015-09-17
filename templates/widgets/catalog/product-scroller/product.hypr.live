@@ -1,0 +1,4 @@
+{% extends "modules/product/product-listing"%}
+{% block module-classes %}bl-product-scroller-product{% endblock %}
+{% block product-extrainfo %}{% endblock %}
+{% block product-comparison %}{% endblock %}

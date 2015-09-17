@@ -1,0 +1,105 @@
+{% extends "email/email" %}
+
+{% block body-content %}
+	<!-- basic message -->
+	<table class="twelve columns">
+		<tr>
+			<td class="intro">
+				<p class="greeting">{{ labels.orderWelcome }} {{model.billingInfo.billingContact.firstName }} {{ model.billingInfo.billingContact.lastNameOrSurname }},</p>
+				<p>{{ labels.orderShipmentBlob1|string_format(siteContext.generalSettings.websiteName, domainName, model.fulfillmentInfo.shippingMethodName)|safe }}</p>
+			</td>
+		</tr>
+	</table>
+
+	<!-- order information -->
+	<table class="twelve columns details">
+		<thead>
+			<tr>
+				<td colspan="2">{{ labels.orderDetails }}</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td width="50%">
+					<p>
+						<strong>{{ labels.orderNo }}:</strong>
+						{{ model.orderNumber }}
+					</p>
+
+					<p>
+						<strong>{{ labels.orderDate }}:</strong>
+						{{ model.auditInfo.createDate }}
+					</p>
+
+					<p>
+						<strong>{{ labels.trackingNumber}}:</strong><br>
+						{% for package in model.packages %}
+							{{ package.trackingNumber }}<br>
+						{% endfor %}
+					</p>
+				</td>
+
+				<td width="50%">
+					<p>
+						<strong>{{ labels.shipTo }}:</strong><br>
+						{% include "modules/common/email-address-summary" with model=model.fulfillmentInfo.fulfillmentContact %}
+					</p>
+				</td>
+			</tr>
+		</tbody>
+
+		<tfoot>
+				<tr>
+						<td colspan="2">
+								<p>{{ labels.orderShipmentBlob2|safe }}</p>
+						</td>
+				</tr>
+		</tfoot>
+	</table>
+
+	<!-- each package -->
+	
+	{% for package in model.packages %}
+		<table class="twelve columns order">
+			<thead>
+				<tr class="order-shipped-header">
+						<td class="align-left">
+								{{ labels.orderShippedPkgHeader|string_format(package.fulfillmentDate, package.shippingMethodName) }}
+						</td>
+						<td class="align-right">
+								{{ package.trackingNumber }}
+						</td>
+				</tr>
+				<tr>
+					<td class="align-left">{{ labels.product }}</td>
+					<td>{{ labels.qty }}</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for packageItem in package.items %}
+					{% for item in model.items %}
+						{% if packageItem.productCode == item.product.productCode or packageItem.productCode == item.product.variationProductCode %}
+							<tr>
+								<td class="align-left">
+									{{ item.product.name }}
+									{% if item.product.productUsage == "Bundle" %}
+										<ul class="product-subproducts">
+											{% for bundleProduct in item.product.bundledProducts %}
+												<li>
+														{{ bundledProduct.productCode }}: {{ bundledProduct.name }} ({{ bundledProduct.quantity }})
+												</li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								</td>
+								<td>{{ packageItem.quantity }}</td>
+							</tr>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+			</tbody>
+		</table>    
+	{% endfor %}
+{% endblock body-content %}

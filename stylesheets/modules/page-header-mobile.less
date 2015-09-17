@@ -1,0 +1,252 @@
+.mob-page-header {
+  .clearfix();
+  .transition(left .25s ease-in-out);
+  left: 0;
+  top: 0;
+  z-index: (@mz-z--top + 1);
+    width: 100%;
+}
+
+.mob-top-logo{
+  
+  a{
+    display: block;
+    text-align: center;
+    padding: 10px 0px;
+  }
+  
+}
+
+.mob-top-header {
+    .std-gradient(@brand-primary, 15%);
+    height: 40px;
+}
+
+.mob-branding {
+  .clearfix();
+  position: absolute;
+    left:40px;
+    right: 0;
+  height: 40px;
+  max-width: 80px;
+  width: 25%;
+  z-index: @mz-z--top;
+
+  &:link,
+  &:visited,
+  &:focus,
+  &:hover {
+    color: transparent;
+  }
+
+  > .text {
+    .background-image('seismic-logo-retina.png');
+    .background-size(cover);
+    background-position: center right;
+    display: block;
+    height: 100%;
+    text-indent: -9999px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+
+.mob-menu {
+  .reset();
+  background-color: @gray-darker;
+  overflow: hidden;
+  z-index: @mz-z--top;
+    display:none;
+}
+
+.mob-top-header > .mob-menu {
+    display:block;
+    background-color:transparent;
+}
+
+
+.mob-menu-item {
+  display: block;
+  float: left;
+  line-height: 40px;
+  text-align: center;
+    position: relative;
+    width: 25%;
+}
+
+.mob-menu-item__cart {
+  .icon2-cart {
+    position: relative;
+  }
+
+  .mob-count-wrapper {
+    height: 1em;
+    position: absolute;
+    right: -50%;
+    text-align: center;
+    top: -.5em;
+    width: 100%;
+  }
+
+  .is-empty {
+    display: none;
+  }
+}
+
+// This is how it looks on the homepage only.
+.mz-homepage {
+  .mob-branding,
+  .mob-menu {
+    .clearfix();
+    float: none;
+    width: 100%;
+        display:block;
+        border-bottom: 1px solid @brand-primary;
+  }
+
+    .mob-top-header > .mob-menu {
+        display:none;
+    }
+
+  .mob-branding {
+    max-width: none;
+        left:10px;
+    > .text {
+      background-position: center left;
+    }
+  }
+}
+
+
+.mob-keep-shopping {
+    display: none;
+}
+.mz-product {
+    .mob-keep-shopping {
+        display:block;
+        height: 40px;
+        padding-left: 10px;
+        background-color: @gray-darker;
+        > div {
+            display:inline-block;
+            > a {
+                color: @white;
+                font-size: 17px;
+                text-decoration: none;
+                line-height: 40px;
+                > i {
+                    vertical-align:middle;
+                }
+            }
+        }
+    }
+}
+
+.mob-menu-link {
+  display: block;
+  height: 100%;
+
+  &:link,
+  &:visited,
+  &:focus,
+  &:hover {
+    color: white;
+        text-decoration:none;
+  }
+    text-align:center;
+  .icon {
+    display: inline-block;
+    //vertical-align: middle;
+     
+  }
+
+  p {
+        margin-top: -18px;
+        font-size: 8px;
+
+  }
+}
+
+.mob-site-search {
+  
+  //background-color: @brand-primary;
+  border-left: none !important;
+  opacity: 0;
+  z-index: (@mz-z--top - 1);
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    .tt-hint {
+        display: none;
+    }
+
+    .background-block {
+            .transition(~"background-color .3s linear, opacity .15s .25s linear");
+          background-color: transparent;
+          position: absolute;
+          width: 100%;
+          height: 40px;
+          top: 0;
+          z-index: -1;
+          left: 0;
+    }
+
+    .tt-input {
+        position: absolute;
+        background-color: transparent !important;
+        top: 0;
+    }
+
+  &.is-open {
+    .transition(~"height .15s linear, opacity .15s .25s linear");
+    height: auto;
+    opacity: 1;
+        padding: 3px;
+        width: 100%;
+        .background-block {
+            background-color: @brand-primary;
+        }
+
+        /*.tt-hint {
+            display: block;
+            left: 0 !important;
+        }*/
+        .tt-input {
+        background-color: white !important;
+        position: relative;
+        }   
+  }
+
+
+
+    .mz-input-wrapper {
+        position: static;
+        padding-right: 0 !important;
+    }
+
+    .tt-dropdown-menu {
+        width: 100%;
+        position: static !important;
+    }
+
+    //remove auto-complete images for mobile devices
+    .mz-itemlisting-thumb {
+            display: none !important;
+    }
+
+    .mz-itemlisting-title {
+        font-size: 12px !important;
+
+    }
+
+    .mz-listing-details {
+        padding: 0 !important;
+    }
+
+    .mz-itemlisting-description {
+        display: none !important;
+    }
+}

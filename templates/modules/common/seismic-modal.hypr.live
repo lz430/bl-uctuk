@@ -1,0 +1,11 @@
+<div class="mz-modal {% block modal-classes %}{% endblock modal-classes %}" data-mz-role="{% block modal-role %}{% endblock modal-role %}">
+  <div class=" mz-modal__wrapper" data-mz-role="modal-window">
+    <div class="mz-modal__inner" data-mz-role="modal-contents">
+    {% block modal-inner %}
+    {% endblock modal-inner %}
+    </div>
+    <button class="mz-button--x" href="#" data-mz-role="modal-close">
+      <i class="icon icon-times"></i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+{% extends "page" %}
+
+{% block title-tag-content %}
+	{% if PageContext.MetaTitle %}
+		{{PageContext.MetaTitle}}
+	{% else %}
+		{% if model.name == themeSettings.alternateNavName %}Home{% else %}{{model.name}}{%endif%}
+	{%endif%} - {% parent %}
+{% endblock title-tag-content %}
+
+
+{% block body-tag-classes %} mz-category mz-new-arrivals {% endblock body-tag-classes %}
+
+
+{% block body-content %}
+	{% require_script "pages/new-arrivals" %}
+	{% require_script "modules/product-quickview" %}
+	{% require_script "widgets/deal-of-the-day" %}
+	{% partial_cache model.categoryId pageContext.Sorting pageContext.Pagination %}
+	<div data-mz-newarrivals class="mz-l-container fades-in">
+
+		<div class="mz-l-row mz-category-page">
+			<div class="mz-l-wrapper">
+
+				<div class="mz-dropzone__category__below-heading">
+					{% dropzone "newarrivals-below-heading" %}
+				</div>
+
+				{% block categoryProductBlock %}
+
+		            {% include "modules/product/faceted-products" %}
+		            {% include_products "modules/product/faceted-products" with includeFacets=false and sortBy="createDate desc" and pageSize=10 as_parameter %}
+		          
+		        {% endblock categoryProductBlock %}
+
+				{% block categoryDropzoneBelowProducts %}
+					<div class="mz-dropzone__category__below-products">
+						{% dropzone "newarrivals-below-products" %}
+					</div>
+				{% endblock categoryDropzoneBelowProducts %}
+
+			</div>
+		</div>
+
+	</div>
+	{% endpartial_cache %}
+
+	<div class="clearfix"></div>
+{% endblock body-content %}

@@ -1,0 +1,63 @@
+{% require_script "pages/product" %}
+<h2 data-state-active="xs sm" data-state-key="product-specs|main|toggle">{{model.getSpecLabel|default(labels.speakerSpecs)}}</h2>
+<div data-state-active="md lg" data-state-content="product-specs|main">
+{%spaceless%}
+    <table class="mz-product__specs">
+        {% for property in model.properties %}{% if property.attributeDetail.name == "Model" %}
+        <tr>
+            <td class="mz-key">{{property.attributeDetail.name}}</td>
+            <td class="mz-value">{% for v in property.values %}{{ v.stringValue|safe }}{% endfor %}</td>
+        </tr>
+        {% endif %}{% endfor %}
+        {% for property in model.properties %}{% if property.attributeDetail.name == "Contents" %}
+        <tr>
+            <td class="mz-key">{{property.attributeDetail.name}}</td>
+            <td class="mz-value">{% for v in property.values %}{{ v.stringValue|safe }}{% endfor %}</td>
+        </tr>
+        {% endif %}{% endfor %}
+        {% for property in model.properties %}{% if property.attributeDetail.name == "Application" %}
+        <tr>
+            <td class="mz-key">{{property.attributeDetail.name}}</td>
+            <td class="mz-value">{% for v in property.values %}{{ v.stringValue|safe }}{% endfor %}</td>
+        </tr>
+        {% endif %}{% endfor %}
+        {% for property in model.properties %}{% if property.attributeDetail.name == "Condition" %}
+        <tr>
+            <td class="mz-key">{{property.attributeDetail.name}}</td>
+            <td class="mz-value">{% for v in property.values %}{{ v.stringValue|safe }}{% endfor %}</td>
+        </tr>{% endif %}{% endfor %}
+        {% for property in model.properties %}
+        {% comment %} Hides properties with blank or null values {% endcomment %}
+        {% with property.values|first as firstValue %}
+            {% with firstValue.stringValue|default(firstValue.value) as valueToDisplay %}
+                {% if not property.isHidden and valueToDisplay and property.attributeDetail.name != "Model" and property.attributeDetail.name != "Contents" and property.attributeDetail.name != "Application" and property.attributeDetail.name != "Condition" %}
+                {% comment %} Hides Up-sells and Cross-sells {% endcomment %}
+                    {% if property.attributeFQN != "tenant~product-crosssell" and property.attributeFQN != "tenant~product-upsell" and property.attributeFQN != "tenant~availability" and property.attributeFQN != "Tenant~List-Price" %}
+                    <tr>
+                        <td class="mz-key">{{ property.attributeDetail.name }}</td>
+                        <td class="mz-value">
+                        {% for v in property.values %}
+                            {% if property.attributeDetail.dataType == "Bool" %}
+                                {% if v.value %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+                            {% else %}
+                                {% if v.stringValue %}
+                                    {{ v.stringValue|safe }}
+                                {% else %}
+                                    {{ v.value|safe }}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %} 
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endif %}
+            {% endwith %}
+        {% endwith %}
+        {% endfor %}
+    </table>
+{%endspaceless%}
+</div>

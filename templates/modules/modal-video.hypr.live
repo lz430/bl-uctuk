@@ -1,0 +1,5 @@
+{% extends "modules/common/seismic-modal" %}
+{% block modal-classes %}mz-modal--video hidden{% endblock modal-classes %}
+{% block modal-role %}video-modal-wrapper{% endblock modal-role %}
+{% block modal-inner %}
+{% endblock modal-inner %}

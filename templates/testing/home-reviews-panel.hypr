@@ -1,0 +1,27 @@
+  <div class="mz-home-promo__container">
+    <div class="mz-home-promo__wrapper">
+      <div class="mz-home-promo__title mz-fancy-title blue">
+        <i class="mz-fancy-title__icon icon icon-bullhorn"></i>
+        <span class="mz-fancy-title__text">{{labels.widgetTitle_customerReviews}}</span>
+      </div>
+
+      <div class="mz-home-promo__content-container">
+        <div class="mz-home-promo__content">
+          <p>
+            <img src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-review-speaker.jpg" alt="">
+            These are great speakers. The high end is exceptional without any compromise in the mids and the bass. I use a sub (also and SA product) with these speakers, but they really do not need it unless you really want the ground to shake. As to construction, the boxes are very solid, the carpet has held its own, and the handles are solid. I use these for dances both indoor and outdoor, and they have no problem being pushed to their max.
+          </p>
+
+          <p>
+            Overall, I could not be more pleased with this product. I don't bother with any other speaker companies these days. Check out their amps, as they are great as well.
+          </p>
+
+          <div class="mz-home-review__author-block">
+            <span class="mz-home-review__author-name text-bold">By Wyoming</span>
+            <span class="mz-home-review__author-location text-italic">from Cheyenne, WY</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

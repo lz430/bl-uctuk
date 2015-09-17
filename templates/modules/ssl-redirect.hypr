@@ -1,0 +1,5 @@
+{% if PageContext.IsSecure and not PageContext.IsEditMode %}
+  {% if PageContext.PageType == "webpage" or PageContext.PageType == "cmspage" or PageContext.PageType == "product" or PageContext.PageType == "category" or PageContext.PageType == "search" %}
+     <script>window.location.protocol === "https:" && (window.location.href = "http:" + window.location.href.substring(window.location.protocol.length))</script>
+    {% endif %}  
+{% endif %}

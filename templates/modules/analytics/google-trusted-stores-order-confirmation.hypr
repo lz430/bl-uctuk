@@ -1,0 +1,39 @@
+{% if siteContext.themeSettings.isGoogleTrustedStoreEnabled %}
+<!-- START Google Trusted Stores Order -->
+<div id="gts-order" style="display:none;" translate="no">
+	<span id="gts-o-id">{{model.orderNumber}}</span>
+	<span id="gts-o-domain">{{siteContext.domains.current.domainName}}</span>
+	<span id="gts-o-email">{{model.email}}</span>
+	<span id="gts-o-country">{{model.fulfillmentInfo.fulfillmentContact.address.countryCode}}</span>
+	<span id="gts-o-currency">{{model.currencyCode}}</span>
+	<span id="gts-o-total">{{model.total}}</span>
+	<span id="gts-o-discounts">-{{model.discountTotal}}</span>
+	<span id="gts-o-shipping-total">{{model.shippingTotal}}</span>
+	<span id="gts-o-tax-total">{{model.taxTotal}}</span>
+	<span id="gts-o-has-preorder">N</span>
+	<span id="gts-o-has-digital">{{model.digitalPackages|length_is:"0"|yesno:"N,Y"}}</span>
+	
+	<script type="text/javascript">
+		(function(){
+			var submittedDate = new Date({%json model.submittedDate%});
+			
+			var shipDate = new Date(submittedDate.valueOf());
+			shipDate.setDate(submittedDate.getDate() + {{siteContext.themeSettings.googleTrustedStoreShipDays|escapejs}});
+			var deliveryDate = new Date(submittedDate.valueOf());
+			deliveryDate.setDate(submittedDate.getDate() + {{siteContext.themeSettings.googleTrustedStoreDeliveryDays|escapejs}});
+			
+			window.document.write('<span id="gts-o-est-ship-date">'+ shipDate.toISOString().slice(0,10) +'</span>');
+			window.document.write('<span id="gts-o-est-delivery-date">'+ deliveryDate.toISOString().slice(0,10) +'</span>');
+		})();
+	</script>
+
+	{% for item in model.items %}
+		<span class="gts-item">
+			<span class="gts-i-name">{{item.product.name}}</span>
+			<span class="gts-i-price">{{item.unitPrice.extendedAmount}}</span>
+			<span class="gts-i-quantity">{{item.quantity}}</span>
+		</span>
+	{% endfor %}
+</div>
+<!-- END Google Trusted Stores Order -->
+{% endif %}

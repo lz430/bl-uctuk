@@ -1,0 +1,201 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-insertCable{% endblock body-tag-classes %}
+
+{% block title-tag-content %}
+		{{ PageContext.MetaTitle }}
+{% endblock title-tag-content %}
+
+{% block body-content %}
+
+<!-- <section class="mz-body-wrap">
+	<nav class="mz-cable-nav-wrap">
+		<div>
+			<h3>Pro Audio Cable Guide</h3>
+			<div>
+				<ul>
+					<li><a href="javascript:void(0)">Insert Cables Explained</a></li>
+					<li><a href="javascript:void(0)">Speaker Cables Explained</a></li>
+					<li><a href="javascript:void(0)">Microphone Cables Explained</a></li>
+					<li><a href="javascript:void(0)">Instrument Cables Explained</a></li>
+					<li><a href="javascript:void(0)">DMX Cables Explained</a></li>
+					<li><a href="javascript:void(0)">MIDI Cables Explained</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<span class="mz-breadcrumb">Home &#187; Pro Audio Cable Guide &#187; Insert Cables Explained &#187;</span>
+	<main role="main" class="mz-indert-cable-wrap">
+ -->	<section role="main" class="mz-indert-cable-wrap">
+		<h1>Insert Cable Explained</h1>
+		<figure><img src="{{ siteContext.cdnPrefix }}/resources/images/pages/insertCable/main_insert_cable.jpg" alt="PA Speakers" /></figure>
+		<div class="mz-intro-text">
+			<h2>What is an Insert Cable?</h2>
+			<p>"What in the world is an Insert Cable or Insert Snake?" is a common question we receive.  An insert cable is a cable that takes a signal going in to a TRS plug and splits it into two TS plugs.  When this is done, two separate signals will be carried on the split plugs.  This is not the same as a traditional "Y" cable.  A "Y" cable splits the same signal on to both of the split channels.  An insert snake splits the signal into two different signals.  The traditional "Y" cable sends the same signal down both split channels.  There are several uses for insert cables.  One of the main uses would be to access the send/return on a mixer insert.  Another common application of an insert cable would be to split a stereo output carried on one TRS jack to separate right and left signals on TS connectors.</p>
+		</div>
+		<div class="mz-product-nav-bar">
+			<div class="mz-pagination">
+				<span>Page:</span>
+				<ul>
+					<li>&#60;</li>
+					<li>1</li>
+					<li class="mz-active">2</li>
+					<li>3</li>
+					<li>&#8230;</li>
+					<li>10</li>
+					<li>&#62;</li>
+				</ul>
+			</div>
+			<div class="mz-sort-menu">
+				<span>Sort By:</span>
+				<select>
+					<option value="rate_high">Rating (High)</option>
+					<option value="rate_low">Rating (Low)</option>
+					<option value="price_high">Price (High)</option>
+					<option value="price_low">Price (Low)</option>
+					<option value="name_AtoZ">Name (A &#187; Z)</option>
+					<option value="name_ZtoA">Name (Z &#187; A)</option>
+				</select>
+			</div>
+			<div class="mz-page-size-menu">
+				<span>Show:</span>
+				<select>
+					<option value="6">6 Per Page</option>
+					<option value="12">12 Per Page</option>
+					<option value="24">24 Per Page</option>
+					<option value="36">36 Per Page</option>
+				</select>
+			</div>
+		</div>
+		<div class="mz-box-grid">
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/insertCable/insert_cable.jpg" alt="Insert cable" />
+				<p>SAST-4-8-3 - 4 Channel Insert</p>
+				<p>Snake 4 TS to 8 TRS 3 Feet</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$24.99</p>
+				<ul>
+					<li><span>Model # SAST-4-8-3</span></li>
+					<li><span>3 feet from tip to tip<span></li>
+					<li><span>Channels: 4 1/4" TRS x 8 1/4" TS<span></li>
+					<li><span>Insert Snake<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/insertCable/insert_cable.jpg" alt="Insert cable" />
+				<p>SAST-4-8-3 - 4 Channel Insert</p>
+				<p>Snake 4 TS to 8 TRS 3 Feet</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$24.99</p>
+				<ul>
+					<li><span>Model # SAST-4-8-3</span></li>
+					<li><span>3 feet from tip to tip<span></li>
+					<li><span>Channels: 4 1/4" TRS x 8 1/4" TS<span></li>
+					<li><span>Insert Snake<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/insertCable/insert_cable.jpg" alt="Insert cable" />
+				<p>SAST-4-8-3 - 4 Channel Insert</p>
+				<p>Snake 4 TS to 8 TRS 3 Feet</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$24.99</p>
+				<ul>
+					<li><span>Model # SAST-4-8-3</span></li>
+					<li><span>3 feet from tip to tip<span></li>
+					<li><span>Channels: 4 1/4" TRS x 8 1/4" TS<span></li>
+					<li><span>Insert Snake<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/insertCable/insert_cable.jpg" alt="Insert cable" />
+				<p>SAST-4-8-3 - 4 Channel Insert</p>
+				<p>Snake 4 TS to 8 TRS 3 Feet</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$24.99</p>
+				<ul>
+					<li><span>Model # SAST-4-8-3</span></li>
+					<li><span>3 feet from tip to tip<span></li>
+					<li><span>Channels: 4 1/4" TRS x 8 1/4" TS<span></li>
+					<li><span>Insert Snake<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/insertCable/insert_cable.jpg" alt="Insert cable" />
+				<p>SAST-4-8-3 - 4 Channel Insert</p>
+				<p>Snake 4 TS to 8 TRS 3 Feet</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$24.99</p>
+				<ul>
+					<li><span>Model # SAST-4-8-3</span></li>
+					<li><span>3 feet from tip to tip<span></li>
+					<li><span>Channels: 4 1/4" TRS x 8 1/4" TS<span></li>
+					<li><span>Insert Snake<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/insertCable/insert_cable.jpg" alt="Insert cable" />
+				<p>SAST-4-8-3 - 4 Channel Insert</p>
+				<p>Snake 4 TS to 8 TRS 3 Feet</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$24.99</p>
+				<ul>
+					<li><span>Model # SAST-4-8-3</span></li>
+					<li><span>3 feet from tip to tip<span></li>
+					<li><span>Channels: 4 1/4" TRS x 8 1/4" TS<span></li>
+					<li><span>Insert Snake<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+		</div>
+			<div class="mz-pagination">
+				<span>Page:</span>
+				<ul>
+					<li>&#60;</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>&#8230;</li>
+					<li>10</li>
+					<li>&#62;</li>
+				</ul>
+			</div>
+<!--  	</main>
+ --></section>
+
+{% endblock body-content %}

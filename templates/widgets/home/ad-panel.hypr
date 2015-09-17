@@ -1,0 +1,6 @@
+
+<div class="mz-home-adblock__wrapper">
+  <a class="mz-home-adblock__link" href="{{ model.config.url }}" title="{{ model.config.linkDesc }}">
+    <img src="{{ siteContext.cdnPrefix }}{{ model.config.imgurl }}" alt="{{ model.config.imgDesc }}">
+  </a>
+</div>

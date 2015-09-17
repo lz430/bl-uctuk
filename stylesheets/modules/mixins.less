@@ -1,0 +1,362 @@
+// Clearfix. Used when floated children muck up the layout.
+.clearfix() {
+	*zoom: 1;
+
+	&:before,
+	&:after,
+	&::before,
+	&::after {
+		display: table;
+		content: ' ';
+	}
+
+	&:after,
+	&::after {
+		clear: both;
+	}
+}
+
+
+.permalink (@color: white) {
+    color: @color;
+    text-decoration: none;
+
+    &:visited, &:focus, &:active {
+        color: @color;
+    }
+
+    &:hover, &:focus, &:active {
+        text-decoration: underline;
+    }
+}
+
+.opacity (@opacity) {
+    @opacityPercentage: @opacity * 100;
+    opacity: @opacity;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=(@opacityPercentage));
+    filter: ~"alpha(opacity =@{opacityPercentage})";
+}
+
+// Background Size
+.background-size(@p) {
+	-webkit-background-size: @p;
+	-moz-background-size: @p;
+	background-size: @p;
+}
+
+
+// Background Image
+@image-root: "../resources/images";
+
+.background-image(@img) {
+	background-image: url("@{image-root}/@{img}");
+}
+
+// .background-image(@img, @args: repeat) {
+// 	background: url("@{image-root}/@{img}") @args;
+// }
+
+
+
+// Box Shadow
+.box-shadow(@p, @p2) {
+	-webkit-box-shadow: @p, @p2;
+	-moz-box-shadow: @p, @p2;
+	box-shadow: @p, @p2;
+}
+
+// Box Sizing
+.box-sizing(@p) {
+	-webkit-box-sizing: @p;
+	-moz-box-sizing: @p;
+	box-sizing: @p;
+}
+
+// Border Radius
+.border-radius(@p) {
+	-webkit-border-radius: @p;
+	-moz-border-radius: @p;
+	border-radius: @p;
+}
+
+// Transform
+.transform(@p) {
+	-webkit-transform: @p;
+	-ms-transform: @p;
+	-moz-transform: @p;
+	transform: @p;
+}
+
+// Transition
+.transition(@p: all .25s ease-in-out) {
+	-webkit-transition: @p;
+	-moz-transition: @p;
+	transition: @p;
+}
+
+// Text Placeholder
+.placeholder(@c) {
+	&::-webkit-input-placeholder {color: @c;}
+	&:-moz-placeholder {color: @c;}
+	&::-moz-placeholder {color: @c;}
+	&:-ms-input-placeholder {color: @c;}
+}
+
+// Animation
+.animation(@name, @duration: 300ms, @delay: 0, @ease: ease) {
+	-webkit-animation: @name @duration @delay @ease;
+	-moz-animation:    @name @duration @delay @ease;
+	animation:         @name @duration @delay @ease;
+}
+
+// Linear Gradient
+.gradient(@start, @stop) {
+	background-color: @start;
+	background-image: -webkit-linear-gradient(@start, @stop);
+	background-image: -moz-linear-gradient(@start, @stop);
+	background-image: -ms-linear-gradient(top, @start, @stop);
+	background-image: -o-linear-gradient(@start, @stop);
+	// filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d',gradientType=0)",@start,@stop));
+	// background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, @start), color-stop(1, @stop));
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@start), to(@stop));
+}
+
+
+// Line break. Breaks line before the current element.
+.line-break() {
+	&:before,
+	&::before {
+		content: '\a';
+		white-space: pre;
+	}
+}
+
+// Basic reset.
+.reset() {
+	margin: 0;
+	padding: 0;
+}
+
+// List reset.
+.list-reset() {
+	margin: 10px 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+// Absolute positioning.
+.position-top(@top) when (@top = null) { }
+.position-top(@top) when not (@top = null) {
+	top: @top;
+}
+
+.position-right(@right) when (@right = null) { }
+.position-right(@right) when not (@right = null) {
+	right: @right;
+}
+
+.position-bottom(@bottom) when (@bottom = null) { }
+.position-bottom(@bottom) when not (@bottom = null) {
+	bottom: @bottom;
+}
+
+.position-left(@left) when (@left = null) { }
+.position-left(@left) when not (@left = null) {
+	left: @left;
+}
+
+.position(@position, @top, @left, @right: null, @bottom: null) {
+	.position-top(@top);
+	.position-right(@right);
+	.position-bottom(@bottom);
+	.position-left(@left);
+	position: @position;
+}
+
+/* Usage */
+.element {
+	.position(absolute, 0, 20, null, auto);
+}
+
+// Font smoothing. Chrome only.
+.font-smooth() {
+	-webkit-font-smoothing: antialiased;
+}
+
+// I keep misspelling this...
+.font-smoothe() {
+	.font-smooth();
+}
+
+// Generic text shadow. Used in headings.
+.std-text-shadow(@params: 2px 2px 1px rgba(0,0,0,.25)) {
+	text-shadow: @params;
+}
+
+// Subtle box shadow. Used for most containers.
+.std-box-shadow() {
+	.box-shadow(0 0 8px rgba(0,0,0,.3));
+}
+
+// An even subtler box shadow. Used to wrap some form inputs.
+.tiny-shadow() {
+	.box-shadow(1px 1px rgba(0,0,0,.2));
+}
+
+// Harder box shadow. Used for most buttons.
+.btn-shadow() {
+	.box-shadow(0 3px 4px rgba(0,0,0,.4));
+}
+
+// Inner box shadow. Used for some buttons.
+.btn-inner-shadow() {
+	.box-shadow(inset 2px 2px 8px rgba(0,0,0,.2));
+}
+
+// Tiny shadow. Used for some inline-style forms.
+.tiny-shadow() {
+	.box-shadow(-1px -1px 0 rgba(0,0,0,.15));
+}
+
+// Input inner box shadow. Use for some inputs.
+.input-inner-shadow() {
+	.box-shadow(inset 3px 3px 6px rgba(0,0,0,.4));
+}
+
+// Standard gradient. Used for almost everything.
+.std-gradient(@color, @percent: 12%) {
+	.gradient(@color, darken(@color, @percent));
+}
+
+// Text Gradient. Used for some text.
+.text-gradient(@color, @percent: 20%) {
+	// So this won't work at all in the default Android browser,
+ 	// so I'm going to get rid of it everywhere. At least until
+ 	// we figure something else out.
+	// - - - - -
+	// background-image: -webkit-linear-gradient(top, @color 0%, darken(@color, @percent) 100%);
+	// -webkit-background-clip: text;
+	// color: @color;
+	// -webkit-text-fill-color: transparent;
+	color: @color;
+}
+
+.main-product-image(@img-size: 225px) {
+
+	&__ {
+	    &wrapper {
+			display: block;
+			overflow: hidden;
+			width: @full-size;
+			height: @img-size;
+			text-align: center;
+			line-height: @img-size;
+	    }
+
+	    &image {
+			display: inline-block;
+			max-height: @full-size;
+			vertical-align: middle;
+			line-height: @img-size;
+			// height: @full-size;
+			max-width: @full-size;
+	    }
+	}
+}
+
+
+
+.underline() { text-decoration: underline; }
+.text-none() { text-decoration: none; }
+
+
+.button-arrow-right() {
+	position: relative;
+	padding-right: 40px;
+
+	&::after, &:after {
+		content: "\203A";
+    right: 15px;
+    top: 8px;
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 32px;
+    vertical-align: middle;
+	}
+}
+
+
+.skewX(@angle) {
+	-webkit-transform: skewX(@angle);
+	-moz-transform: skewX(@angle);
+	-ms-transform: skewX(@angle);
+	-o-transform: skewX(@angle);
+	transform: skewX(@angle);
+}
+
+.skewY(@angle) {
+	-webkit-transform: skewY(@angle);
+	-moz-transform: skewY(@angle);
+	-ms-transform: skewY(@angle);
+	-o-transform: skewY(@angle);
+	transform: skewY(@angle);
+}
+
+.transform-origin(@origin) {
+	-webkit-transform-origin: @origin;
+	-moz-transform-origin: @origin;
+	-o-transform-origin: @origin;
+	-ms-transform-origin: @origin;
+	transform-origin: @origin;
+}
+
+.translate(@posX: 0, @posY: 0) {
+	-webkit-transform: translate(@posX, @posY);
+	-moz-transform: translate(@posX, @posY);
+	-o-transform: translate(@posX, @posY);
+	-ms-transform: translate(@posX, @posY);
+	transform: translate(@posX, @posY);
+}
+
+.translateX(@pos) {
+	-webkit-transform: translateX(@pos);
+	-moz-transform: translateX(@pos);
+	-o-transform: translateX(@pos);
+	-ms-transform: translateX(@pos);
+	transform: translateX(@pos);
+}
+
+.translateY(@pos) {
+	-webkit-transform: translateY(@pos);
+	-moz-transform: translateY(@pos);
+	-o-transform: translateY(@pos);
+	-ms-transform: translateY(@pos);
+	transform: translateY(@pos);
+}
+
+.translate3d(@x: 0, @y: 0, @z: 0) {
+	-webkit-transform: translate3d(@x,@y,@z);
+	-moz-transform: translate3d(@x,@y,@z);
+	-o-transform: translate3d(@x,@y,@z);
+	-ms-transform: translate3d(@x,@y,@z);
+	transform: translate3d(@x,@y,@z);
+}
+
+.box-sizing(@sizing: border-box) {
+	-webkit-box-sizing: @sizing;
+	-moz-box-sizing: @sizing;
+	box-sizing: @sizing;
+}
+
+.vertical-align(@position: relative) {
+  position: @position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+

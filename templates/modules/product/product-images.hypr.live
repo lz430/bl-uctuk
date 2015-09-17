@@ -1,0 +1,41 @@
+{% if model.content.productImages %}
+<figure class="mz-productimages-main">
+	<img itemprop="image" class="mz-productimages-mainimage" data-mz-productimage-main src="{{ model.mainImage.imageUrl }}?max={{ themeSettings.productImagesContainerWidth }}" />
+	{% if themeSettings.productBadgeEnabled %} 
+	  	{% for property in model.properties %}
+		    {% if property.attributeFQN == "tenant~product-image-badge" && property.values %}
+				<div class="bl-image-badge">
+					{% for imageBadge in property.values %}
+						<img class="bl-image-badge-{{themeSettings.productBadgeLocationX}} bl-image-badge-{{themeSettings.productBadgeLocationY}}" src="/resources/modules/catalog/image-badges/{{imageBadge.stringValue}}.png" />
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	
+</figure>
+<figure class="mz-productimages-thumbs">
+    {% for image in model.content.productImages %}
+    <a class="mz-productimages-thumb" data-mz-productimage-thumb="{{ image.sequence }}" href="{{ image.imageUrl }}">
+        <img class="mz-productimages-thumbimage"  src="{{ image.imageUrl }}?max={{ themeSettings.maxProductImageThumbnailSize }}" />
+    </a>
+    {% endfor %}
+    {% for property in model.properties %}
+	    {% if property.attributeFQN == "tenant~360-view-url" && property.values %}
+	         	{% for v in property.values %}
+					{% if v.stringValue %}
+						 <a class="mz-productimages-thumb bl-360-view-thumb" href="javascript:void(0)" title="{{model.content.productName}}. This is a computer generated representation. Actual Product might differ slightly.">
+					        <img class="mz-productimages-thumbimage"  src="{{v.stringValue}}/thumb.jpg?max={{ themeSettings.maxProductImageThumbnailSize }}" />
+					    </a>
+						
+					{% endif %}
+				{% endfor %}
+	    {% endif %}
+	{% endfor %}
+</figure>
+{% else %}
+<span class="mz-productimages-noimage">[{{ labels.noImages}}]</span>
+{% endif %}
+{% require_script "modules/product-videos" %}
+
+

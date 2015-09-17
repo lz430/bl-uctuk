@@ -1,0 +1,112 @@
+
+{% require_script "widgets/slideshow" %}
+<div class="slideshow-pause"><i class="icon icon-lg icon-pause"></i></div>
+<div class="mz-home-gallery__slideshow owl-carousel" data-mz-slideshow="{% json_attribute model.config %}">
+   
+	{% if model.config.slide1-image-url.0.url %}
+
+		{% if model.config.slide1-link-url%}
+			<a class="mz-home-gallery__link" href="{{ model.config.slide1-link-url }}">
+                <img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide1-image-url.0.url }}" alt="{{ model.config.slide1-image-alt }}">
+			</a>
+
+		{% else %}
+			<img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide1-image-url.0.url }}" alt="{{ model.config.slide1-image-alt }}">
+		{% endif %}
+
+	{% endif %}
+
+
+
+
+	{% if model.config.slide2-image-url.0.url %}
+
+		{% if model.config.slide2-link-url%}
+			<a class="mz-home-gallery__link" href="{{ model.config.slide2-link-url }}">
+                <img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide2-image-url.0.url }}" alt="{{ model.config.slide2-image-alt }}">
+			</a>
+
+		{% else %}
+			<img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide2-image-url.0.url }}" alt="{{ model.config.slide2-image-alt }}">
+		{% endif %}
+
+	{% endif %}
+
+
+
+	{% if model.config.slide3-image-url.0.url %}
+
+		{% if model.config.slide3-link-url%}
+			<a class="mz-home-gallery__link" href="{{ model.config.slide3-link-url }}">
+                <img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide3-image-url.0.url }}" alt="{{ model.config.slide3-image-alt }}">
+			</a>
+
+		{% else %}
+			<img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide3-image-url.0.url }}" alt="{{ model.config.slide3-image-alt }}">
+		{% endif %}
+
+	{% endif %}
+
+
+
+	{% if model.config.slide4-image-url.0.url %}
+
+		{% if model.config.slide4-link-url%}
+			<a class="mz-home-gallery__link" href="{{ model.config.slide4-link-url }}">
+                <img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide4-image-url.0.url }}" alt="{{ model.config.slide4-image-alt }}">
+			</a>
+
+		{% else %}
+			<img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide4-image-url.0.url }}" alt="{{ model.config.slide4-image-alt }}">
+		{% endif %}
+
+	{% endif %}
+
+
+
+	{% if model.config.slide5-image-url.0.url %}
+
+		{% if model.config.slide5-link-url%}
+			<a class="mz-home-gallery__link" href="{{ model.config.slide5-link-url }}">
+                <img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide5-image-url.0.url }}" alt="{{ model.config.slide5-image-alt }}">
+			</a>
+
+		{% else %}
+			<img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide5-image-url.0.url }}" alt="{{ model.config.slide5-image-alt }}">
+		{% endif %}
+
+	{% endif %}
+
+
+
+	{% if model.config.slide6-image-url.0.url %}
+
+		{% if model.config.slide6-link-url%}
+			<a class="mz-home-gallery__link" href="{{ model.config.slide6-link-url }}">
+                <img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide6-image-url.0.url }}" alt="{{ model.config.slide6-image-alt }}">
+			</a>
+
+		{% else %}
+			<img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide6-image-url.0.url }}" alt="{{ model.config.slide6-image-alt }}">
+		{% endif %}
+
+	{% endif %}
+
+
+
+	{% if model.config.slide7-image-url.0.url %}
+
+		{% if model.config.slide7-link-url%}
+			<a class="mz-home-gallery__link" href="{{ model.config.slide7-link-url }}">
+                <img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide7-image-url.0.url }}" alt="{{ model.config.slide7-image-alt }}">
+			</a>
+
+		{% else %}
+			<img class="lazyOwl" data-src="{{ siteContext.cdnPrefix }}{{ model.config.slide7-image-url.0.url }}" alt="{{ model.config.slide7-image-alt }}">
+		{% endif %}
+
+	{% endif %}
+
+
+
+</div>

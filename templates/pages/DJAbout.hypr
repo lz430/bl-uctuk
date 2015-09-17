@@ -1,0 +1,252 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-dj-about{% endblock body-tag-classes %}
+
+{% block title-tag-content %}
+		{{ PageContext.MetaTitle }}
+{% endblock title-tag-content %}
+
+{% block body-content %}
+
+	<section role="main" class="mz-dj-about-wrap">
+		<h1>About DJ Gear</h1>
+		<div class="mz-ads">
+			<div style="width: 69.5%; margin: 0 1% 0 0"></div>
+			<div style="width: 29.5%"></div>
+		</div>
+		<nav class="mz-dj-gear-nav">
+			<h2>About DJ Gear</h2>
+			<ul>
+				<li><a href="#">Best PA Speakers for DJ Gigs<span>&#62;</span></a></li>
+				<li><a href="#">DJ Gear for Birthdays<span>&#62;</span></a></li>
+				<li><a href="#">The History of DJs<span>&#62;</span></a></li>
+				<li><a href="#">DJ Gear to Rock the Wedding Reception<span>&#62;</span></a></li>
+				<li><a href="#">DJ Speakers for Weddings<span>&#62;</span></a></li>
+				<li><a href="#">DJ Speakers for Graduation Parties<span>&#62;</span></a></li>
+				<li><a href="#">Audio Cables DJs Need<span>&#62;</span></a></li>
+				<li><a href="#">Amplifiers Make DJs Rock<span>&#62;</span></a></li>
+				<li><a href="#">Types Of DJ Speakers<span>&#62;</span></a></li>
+				<li><a href="#">Benefits Of Seismic DJ Gear<span>&#62;</span></a></li>
+				<li><a href="#">DJ Speakers Keep The Party<span>&#62;</span></a></li>
+				<li><a href="#">Rockin'<span>&#62;</span></a></li>
+				<li><a href="#">Where To Use DJ Speakers<span>&#62;</span></a></li>
+				<li><a href="#">Types Of DJ Subwoofers<span>&#62;</span></a></li>
+				<li><a href="#">Pump Up The Volume With DJ Subwoofers<span>&#62;</span></a></li>
+			</ul>
+		</nav>
+		<div class="mz-intro-text">
+			<h2>Best PA Speakers for DJ Gigs</h2>
+			<p>Be heard at your next DJ Gig, whether for a wedding, birthday party, graduation or any celebration, Seismic Audio has the equipment you need to make any DJ Gig successful. Seismic Audio Speakers has a wide range of quality PA Speakers, all at great prices. Shop for your much needed audio equipment today!</p>
+			<p>Great sounding PA Speakers will add fun and excitement to any DJ event, let your voice be heard above the chattering crowd and your songs ring loud in all of the guests ears. Whether announcing a newly wed couple to the family or playing requests from prom goers, Seismic Audio DJ Gear will meet all of your expectations. Choose from 12" to 15" Audio PA Speakers. We carry floor monitors which are great for Proms, Weddings and Family reunions! But Seismic Audio Speakers doesn’t just sell speakers, we sell audio stands and accessories as well. Shop audio stands for microphones and even add wheels to speakers, perfect for all types of DJ Gigs and events when mobility is needed. Audio speakers affixed with wheels are great for moving equipment from gig to gig without any hassle or damage to your sound system. From floor stands, wheels and mounts, your DJ Gigs will look and sound professional with help from Seismic Audio Speakers. Get high quality, affordable PA speakers for your next DJ Gig at Seismic Audio Speakers.</p>
+		</div>
+		<div class="mz-product-nav-bar">
+			<div class="mz-pagination">
+				<span>Page:</span>
+				<ul>
+					<li>&#60;</li>
+					<li>1</li>
+					<li class="mz-active">2</li>
+					<li>3</li>
+					<li>&#8230;</li>
+					<li>10</li>
+					<li>&#62;</li>
+				</ul>
+			</div>
+			<div class="mz-sort-menu">
+				<span>Sort By:</span>
+				<select>
+					<option value="rate_high">Rating (High)</option>
+					<option value="rate_low">Rating (Low)</option>
+					<option value="price_high">Price (High)</option>
+					<option value="price_low">Price (Low)</option>
+					<option value="name_AtoZ">Name (A &#187; Z)</option>
+					<option value="name_ZtoA">Name (Z &#187; A)</option>
+				</select>
+			</div>
+			<div class="mz-page-size-menu">
+				<span>Show:</span>
+				<select>
+					<option value="6">6 Per Page</option>
+					<option selected="selected" value="12">12 Per Page</option>
+					<option value="24">24 Per Page</option>
+					<option value="36">36 Per Page</option>
+				</select>
+			</div>
+		</div>
+		<div class="mz-box-grid">
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/djGear/towerSpeakers.jpg" alt="Tower Speakers" />
+				<p>FL-155P - Pair of Dual Premium<br />
+				15" PA/DJ Speaker Cabinets with<br />
+				Titanium Horns</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$499.99</p>
+				<ul>
+					<li><span>Model #: FL-155P (pair of Dual 15" PA Speakers)</span></li>
+					<li><span>Two Pro Audio 15" Speakers in each Cabinet<span></li>
+					<li><span>Each DJ Speaker Cab is 800 Watts RMS at 4 Ohms<span></li>
+					<li><span>7 ply birch plywood / Titanium Horn Driver<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/djGear/towerSpeakers.jpg" alt="Tower Speakers" />
+				<p>FL-155P - Pair of Dual Premium<br />
+				15" PA/DJ Speaker Cabinets with<br />
+				Titanium Horns</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$499.99</p>
+				<ul>
+					<li><span>Model #: FL-155P (pair of Dual 15" PA Speakers)</span></li>
+					<li><span>Two Pro Audio 15" Speakers in each Cabinet<span></li>
+					<li><span>Each DJ Speaker Cab is 800 Watts RMS at 4 Ohms<span></li>
+					<li><span>7 ply birch plywood / Titanium Horn Driver<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/djGear/towerSpeakers.jpg" alt="Tower Speakers" />
+				<p>FL-155P - Pair of Dual Premium<br />
+				15" PA/DJ Speaker Cabinets with<br />
+				Titanium Horns</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$499.99</p>
+				<ul>
+					<li><span>Model #: FL-155P (pair of Dual 15" PA Speakers)</span></li>
+					<li><span>Two Pro Audio 15" Speakers in each Cabinet<span></li>
+					<li><span>Each DJ Speaker Cab is 800 Watts RMS at 4 Ohms<span></li>
+					<li><span>7 ply birch plywood / Titanium Horn Driver<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/djGear/towerSpeakers.jpg" alt="Tower Speakers" />
+				<p>FL-155P - Pair of Dual Premium<br />
+				15" PA/DJ Speaker Cabinets with<br />
+				Titanium Horns</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$499.99</p>
+				<ul>
+					<li><span>Model #: FL-155P (pair of Dual 15" PA Speakers)</span></li>
+					<li><span>Two Pro Audio 15" Speakers in each Cabinet<span></li>
+					<li><span>Each DJ Speaker Cab is 800 Watts RMS at 4 Ohms<span></li>
+					<li><span>7 ply birch plywood / Titanium Horn Driver<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/djGear/towerSpeakers.jpg" alt="Tower Speakers" />
+				<p>FL-155P - Pair of Dual Premium<br />
+				15" PA/DJ Speaker Cabinets with<br />
+				Titanium Horns</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$499.99</p>
+				<ul>
+					<li><span>Model #: FL-155P (pair of Dual 15" PA Speakers)</span></li>
+					<li><span>Two Pro Audio 15" Speakers in each Cabinet<span></li>
+					<li><span>Each DJ Speaker Cab is 800 Watts RMS at 4 Ohms<span></li>
+					<li><span>7 ply birch plywood / Titanium Horn Driver<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/djGear/towerSpeakers.jpg" alt="Tower Speakers" />
+				<p>FL-155P - Pair of Dual Premium<br />
+				15" PA/DJ Speaker Cabinets with<br />
+				Titanium Horns</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$499.99</p>
+				<ul>
+					<li><span>Model #: FL-155P (pair of Dual 15" PA Speakers)</span></li>
+					<li><span>Two Pro Audio 15" Speakers in each Cabinet<span></li>
+					<li><span>Each DJ Speaker Cab is 800 Watts RMS at 4 Ohms<span></li>
+					<li><span>7 ply birch plywood / Titanium Horn Driver<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/djGear/towerSpeakers.jpg" alt="Tower Speakers" />
+				<p>FL-155P - Pair of Dual Premium<br />
+				15" PA/DJ Speaker Cabinets with<br />
+				Titanium Horns</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$499.99</p>
+				<ul>
+					<li><span>Model #: FL-155P (pair of Dual 15" PA Speakers)</span></li>
+					<li><span>Two Pro Audio 15" Speakers in each Cabinet<span></li>
+					<li><span>Each DJ Speaker Cab is 800 Watts RMS at 4 Ohms<span></li>
+					<li><span>7 ply birch plywood / Titanium Horn Driver<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+			<div class="mz-cell">
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/djGear/towerSpeakers.jpg" alt="Tower Speakers" />
+				<p>FL-155P - Pair of Dual Premium<br />
+				15" PA/DJ Speaker Cabinets with<br />
+				Titanium Horns</p>
+				<div class="mz-rating">
+					<div class="mz-bazaarvoice">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/bazaarvoice.jpg" />
+					</div>
+					<span>Based on 37 Reviews</span>
+				</div>
+				<p class="mz-price">$499.99</p>
+				<ul>
+					<li><span>Model #: FL-155P (pair of Dual 15" PA Speakers)</span></li>
+					<li><span>Two Pro Audio 15" Speakers in each Cabinet<span></li>
+					<li><span>Each DJ Speaker Cab is 800 Watts RMS at 4 Ohms<span></li>
+					<li><span>7 ply birch plywood / Titanium Horn Driver<span></li>
+				</ul>
+				<div type="button" class="mz-add-to-cart"><button>Add to Cart</button></div>
+			</div>
+		</div>
+		<div class="mz-pagination">
+			<span>Page:</span>
+			<ul>
+				<li>&#60;</li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>&#8230;</li>
+				<li>10</li>
+				<li>&#62;</li>
+			</ul>
+		</div>
+	</section>
+
+{% endblock body-content %}

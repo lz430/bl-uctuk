@@ -1,0 +1,5 @@
+{% extends "pages/confirmation"|parent_template %}
+{% block trailing-scripts %}
+{% parent %}
+{% include "modules/analytics/google-trusted-stores-order-confirmation" %}
+{% endblock trailing-scripts %}

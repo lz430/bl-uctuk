@@ -1,0 +1,66 @@
+<div class="first-row">
+	<div class="first-row-container">
+		<div class="phone">888-278-9953</div>
+		<div class="shipping-returns"><span>FREE</span> SHIPPING IN THE US + <span>EASY</span> RETURNS + <span>30 DAY</span> MONEYBACK GUARANTEE</div>
+		<div class="mobile-first-row">
+			<div class="phone-mobile">888-278-9953</div>
+			<div class="shipping-returns-mobile"><span>FREE</span> SHIPPING + <span>EASY</span> RETURNS</div>
+		</div>
+		
+		<form id="searchbox" class="mz-searchbox" action="/search">
+			<button class="mz-searchbox-button" type="submit">{{ labels.search }}</button>
+			<input placeholder="Search" type="search" class="mz-searchbox-field"  value="" name="query" />
+			
+			{%comment%}<!-- what is this annoying select box? -->
+			<select class="mz-searchbox-categories" name="facetValueFilter" 
+		            data-mz-contextify='[value="categoryId:{{ pageContext.categoryId }}"]'
+		            data-mz-contextify-attr='selected'
+		            data-mz-contextify-val='selected'>
+				<option value="">{{ labels.all }}</option>
+		        {% partial_cache %}
+		        {% for cat in navigation.rootCategories %}
+		        <option value="categoryId:{{cat.originalId}}">{{cat.Name}}</option>
+				{% endfor %}
+		        {% endpartial_cache %}
+			</select>
+			{%endcomment%}
+			
+		    {% require_script "modules/contextify" %}
+		</form>
+	</div>
+	<br class="clear" />
+</div>
+<header {%if siteContext.themeSettings.imageBackgroundEnabled%}style="background-image: url({{siteContext.themeSettings.imageBackgroundURL}});"{%else%}{%endif%}>
+	<section id="middlebar-wrapper">
+		<div class="middlebar-container">	
+			<ul class="social-media">
+				<li><a href="https://www.facebook.com/pages/claddaghRINGcom/177470457590" target="_blank" title="Facebook" class="facebook"><span>Facebook</span></a></li>
+				<li><a href="https://twitter.com/Uctukllc" target="_blank" title="Twitter" class="twitter"><span>Twitter</span></a></li>
+				<li><a href="https://www.pinterest.com/uctukllc/" target="_blank" title="Pinterest" class="pinterest"><span>Pinterest</span></a></li>
+			</ul>
+			
+			<a href="/" title="{%if siteContext.themeSettings.companyName%}{{siteContext.themeSettings.companyName}}{%else%}Uctuck LLC{%endif%}" id="logo"><span>{%if siteContext.themeSettings.companyName%}{{siteContext.themeSettings.companyName}}{%else%}Uctuck LLC{%endif%}</span></a>
+		    	
+			<div class="shopping">
+				<a href="/cart" title="Cart" class="cart"><p>Shopping Bag <span class="mz-cartmonitor" >(<span data-bl-cart-quantity="quantity">0</span>)</span></p></a>
+				{% require_script "modules/cart-summary" %}
+	            {% require_script "vendor/jquery.notific8" %}
+			</div>
+			<div class="phone-tablet">888-278-9953</div>
+			<br class="clear" />
+		</div>
+	    <br class="clear" />
+	</section>
+	<div id="navigation">
+		<div class="bl-main-nav mobile-nav">
+			{% block site-nav %}
+		    	{% include "modules/mobile-nav" %}
+			{% endblock site-nav %}
+			<br class="clear" />
+		</div>
+		{% block site-nav %}
+		    {% include "modules/site-nav" %}
+		{% endblock site-nav %}	
+	</div>
+	<br class="clear" />
+</header>

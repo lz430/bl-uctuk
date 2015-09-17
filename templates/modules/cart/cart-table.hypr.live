@@ -1,0 +1,111 @@
+﻿
+<thead>
+	<tr class="mz-carttable-checkout-row">
+		<td colspan="5">
+			<img class="bl-security-seal" src="/resources/images/security-seal.png" alt="100% Secure Checkout" />
+			<button id="cart-checkout-top" class="mz-button mz-button-large" {% if model.isEmpty %} disabled="disabled" {% endif %} {% if not user.isAuthenticated %}data-bl-action="openLightbox"{% else %}data-mz-action="proceedToCheckout"{% endif %}>
+				{{ labels.proceedToCheckout }}
+			</button>
+			<a class="bl-continue-shopping" href="/" title="{{ labels.continueShopping }}">{{ labels.continueShopping }}</a>
+		</td>
+	</tr>
+	<tr>
+		<th class="mz-carttable-header-product">{{ labels.product }}</th>
+		<th class="mz-carttable-header-price">{{ labels.cartPrice }}</th>
+		<th class="mz-carttable-header-qty">{{ labels.qty }}</th>
+		<th class="mz-carttable-header-total">{{ labels.itemTotal }}</th>
+		<th>&nbsp;</th>
+	</tr>
+</thead>
+<tbody class="mz-table-cart-{%if Model.IsEmpty %}isempty{% else %}items{% endif %}">
+	{% if not model.isEmpty %}
+	{% for item in model.items %}
+	<tr class="mz-carttable-item">
+		<td class="mz-carttable-item-product"> {% if item.product.imageUrl and themeSettings.showCartItemImage %} <img class="mz-carttable-item-image" src="{{ item.product.imageUrl }}?max=80" /> {% endif %}
+		<div class="mz-carttable-item-info-wrap{% if not item.product.imageUrl %} mz-no-image{% endif %}">
+			<a class="mz-carttable-item-title" href="{{item.product.url}}">{{ item.product.name }}</a>
+			{% if item.product.options and themeSettings.showCartItemOptions %}
+			<dl class="mz-propertylist">
+				{% for option in item.product.options %}
+				<dt>
+					{{ option.name }}
+				</dt>
+				&nbsp;
+				<dd>
+					{{ option.value }}
+				</dd>
+				{% endfor %}
+			</dl>
+			{% endif %}
+			{% if item.product.productUsage == 'Bundle' %}
+			<dl class="mz-propertylist">
+				{% for bundledProduct in item.product.bundledProducts %}
+				<dt>
+					{{ bundledProduct.productCode }}
+				</dt>
+				&nbsp;
+				<dd>
+					{{ bundledProduct.name }} ({{ bundledProduct.quantity }})
+				</dd>
+				{% endfor %}
+			</dl>
+			{% endif %}
+			<span class="mz-carttable-item-code"> {{ labels.productCode }}: <em>{{ item.product.productCode }}</em> </span>
+			{% if item.fulfillmentMethod == 'Pickup' %}
+			<span class="mz-carttable-item-pickuplocation"> {{ labels.storePickupAt|string_format(item.fulfillmentLocationName)|safe }} </span>
+			{% endif %}
+		</div>
+		</td>
+		<td class="mz-carttable-item-price">
+			<span class="mz-carttable-price{% if item.unitPrice.discountAmount > 0 or item.unitPrice.saleAmount > 0 %} is-crossedout{% endif %}">{{ item.unitPrice.listAmount|currency }}</span>
+			{% if item.unitPrice.discountAmount or item.unitPrice.saleAmount %}
+			<span class="mz-carttable-price is-saleprice">
+			{% if item.unitPrice.saleAmount > 0 %}
+				{{ item.unitPrice.saleAmount|currency }}
+			{% else %}
+				{{ item.unitPrice.discountedAmount|currency }}
+			{% endif %}
+			</span>
+			{% endif %}
+		</td>
+		<td class="mz-carttable-item-qty">
+		<input class="mz-carttable-qty-field" type="number" min="1" {% if model.isLoading %}disabled="disabled"{% endif %} data-mz-cart-item="{{ item.id }}" data-mz-value="quantity" value="{{ item.quantity }}" />
+		</td>
+		<td class="mz-carttable-item-total">
+			{% if item.discountTotal > 0 %}<span class="bl-carttable-rowdiscount">{{ labels.cartDiscount }}: -{{ item.discountTotal|currency}}</span>{% endif %}
+			<span class="mz-carttable-rowtotal">{{ item.total|currency }}</span>
+		</td>
+		<td class="mz-carttable-item-remove"><a href="javascript:;" data-mz-action="removeItem" data-mz-cart-item="{{ item.id }}" class="mz-icon mz-icon-close">{{ labels.remove }}</a></td>
+	</tr>
+	{% endfor %}
+	{% else %}
+	<tr class="mz-carttable-noitems">
+		<td colspan="5"> {{ labels.cartEmpty }} </td>
+	</tr>
+	{% endif %}
+</tbody>
+<tfoot>
+	{% for discount in model.orderDiscounts %}
+	{% if not discount.excluded %}
+	<tr class="mz-carttable-total-row">
+		<td class="mz-carttable-total-label" colspan="3"> {{ discount.discount.name }}: </td>
+		<td class="mz-carttable-total-wrap"><span class="mz-carttable-rowtotal">- {{ discount.impact|currency }}</span></td>
+		<td></td>
+	</tr>
+	{% endif %}
+	{% endfor %}
+
+	<tr class="mz-carttable-total-row">
+		<td class="mz-carttable-total-wrap" colspan="4"> {{ labels.cartTotal }}: <span id="mz-carttable-total" class="mz-carttable-total"> <strong>{{ model.discountedTotal|currency }}</strong> </span></td>
+		<td></td>
+	</tr>
+	<tr class="mz-carttable-shipping-row">
+		<td colspan="5"><em class="mz-auxiliary-text">{{ labels.taxAtCheckout }}</em></td>
+	</tr>
+	<tr class="mz-carttable-checkout-row">
+		<td colspan="5">
+		<button id="cart-checkout" class="mz-button mz-button-large"  {% if model.isEmpty %} disabled="disabled" {% endif %} {% if not user.isAuthenticated %}data-bl-action="openLightbox"{% else %}data-mz-action="proceedToCheckout"{% endif %}>
+			{{ labels.proceedToCheckout }}
+		</button></td>
+	</tr>
+</tfoot>

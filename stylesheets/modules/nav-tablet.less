@@ -1,0 +1,152 @@
+.mz-tablet-nav-button {
+	border-right: 1px solid rgba(1, 110, 196, 0.75);
+	float: left;
+	display: none;
+
+	button {
+		.border-radius(@mz-border-radius 0 0 @mz-border-radius);
+		border: none;
+		color: white;
+		line-height: 5px;
+		font-size: 25px;
+		padding: 0 20px;
+
+		i {
+			margin: 0;
+		}
+	}
+}
+
+.mz-nav-tablet {
+	.font-smooth();
+	.box-shadow(inset -10px 0 10px rgba(0,0,0,.1));
+	background-color: @gray-alt;
+	bottom: 0;
+	font-family: @mz-font--beta;
+	left: -250px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	width: 250px;
+	z-index: 20000;
+
+	&.is-open {
+        left: 0;
+		+ .mz-outer-wrapper {
+			left: 300px;
+
+			.it-ships-today-if-you-order-by-two-thirty,
+			.mob-page-header {
+				left: 300px;
+			}
+		}
+
+		~ .mz-sticky-footer {
+			left: 300px;
+		}
+	}
+
+	ul {
+		.reset();
+		.box-shadow(inset -10px 0 10px rgba(0,0,0,.1));
+		list-style: none;
+		overflow-x: hidden;
+		overflow-y: auto;
+		z-index: (@mz-z--top + 11);
+        background-color:  @gray-alt;
+		&.has-active-child {
+			left: -300px;
+		}
+
+		ul {
+			z-index: (@mz-z--top + 12);
+
+			ul {
+				z-index: (@mz-z--top + 13);
+
+				ul {
+					z-index: (@mz-z--top + 14);
+				}
+			}
+		}
+
+		li {
+			border-bottom: 1px solid @gray-light;
+			border-top: 1px solid white;
+			font-size: 14px;
+
+			&:first-child {
+				border-top: none;
+			}
+
+			a {
+				color: @brand-white;
+				display: block;
+				padding: 10px 15px;
+				position: relative;
+
+				&:hover,
+				&:active {
+					color: @mz-brand--seismic;
+					text-decoration: none;
+				}
+			}
+
+			i {
+				.transform(translate(-50%, -50%));
+				color: @gray-light;
+				font-size: 12px;
+				line-height: 2px;
+				position: absolute;
+				right: 10px;
+				top: 50%;
+			}
+		}
+	}
+
+	.mz-nav-tablet__title {
+		font-weight: bold;
+		padding: 15px 30px;
+		position: relative;
+		text-align: center;
+        color: @brand-white;
+		i {
+			color: @brand-white;
+			left: 20px;
+			right: auto;
+            font-size: 24px;
+		}
+	}
+
+	.has-subnav {
+		a {
+			padding-right: 35px;
+		}
+
+		ul {
+			.transition(left .2s linear);
+			bottom: 0;
+			left: 100%;
+			opacity: 1;
+			position: absolute;
+			top: 0;
+			width: 300px;
+		}
+
+		&.is-active {
+			> ul {
+				left: 0;
+			}
+		}
+	}
+}
+
+#mz-outer-wrapper.is-pushed-by-nav {
+        left: 250px;
+        top: 0;
+        width: 100%;
+        position: fixed;
+        overflow-x: hidden !important;
+        background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}

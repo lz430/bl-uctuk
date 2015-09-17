@@ -1,0 +1,40 @@
+<div class="bl-login-prompt" data-bl-role="login-prompt">
+	<!--<form class="mz-login-form" data-mz-role="login-form" action="{{ pageContext.secureHost }}/user/login" method="post">-->
+	<section data-bl-role="login-form" class="mz-login-form">
+		<h2 class="bl-login-prompt-title">Returning Customer?</h2>
+		<p class="bl-login-prompt-text">
+			If you already have an account with us, please sign in below for speedier checkout experience!
+		</p>
+		<div class="mz-l-row">
+			<label for="bl-login-prompt-email">Email Address</label>
+			<input id="bl-login-prompt-email" type="email" tabindex="1" data-mz-login-email name="email">
+		</div>
+		<div class="mz-l-row">
+			<label for="bl-login-prompt-password">Password</label>
+			<input id="bl-login-prompt-password" type="password" tabindex="2" data-mz-login-password name="password">
+			<a href="javascript:;" data-bl-action="show-forgot">{{ labels.forgotPasswordLink }}</a>
+		</div>
+		<div class="mz-l-row">
+			<input type="hidden" value="/checkout/{{ pageModel.originalCartId }}" name="returnUrl">
+			<button class="mz-button" data-bl-action="submit-login">
+				{{ labels.logIn }}
+			</button>
+		</div>
+	</section>
+	<section data-bl-role="forgot-form" class="mz-forgot-password" style="display:none;">
+		<h2 class="bl-login-prompt-title">Forget Your Password?</h2>
+		<p class="bl-login-prompt-text">
+			Fill in your email address below to get the password reset process started.
+		</p>
+		<label for="bl-login-prompt-reset-password">{{ labels.resetPassword }}</label>
+		<input id="bl-login-prompt-reset-password" type="email" data-mz-forgotpassword-email name="reset-password" placeholder="{{ labels.emailAddress }}" />
+		<div class="mz-popover-action">
+			(<a href="javascript:;" data-bl-action="show-login">{{ labels.cancel }}</a>)
+			<button class="mz-button" data-bl-action="submit-forgot">
+				{{ labels.sendEmail }}
+			</button>
+		</div>
+	</section>
+	<!--</form>-->
+	<div class="bl-login-prompt-message" data-bl-role="login-prompt-message"></div>
+</div>

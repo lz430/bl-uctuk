@@ -1,0 +1,6 @@
+
+<div class="mz-home-adblock__wrapper owl-carousel">
+  <a class="mz-home-adblock__link" href="#">
+    <img src="{{ siteContext.cdnPrefix }}{{ model.config.imgurl }}" alt="">
+  </a>
+</div>

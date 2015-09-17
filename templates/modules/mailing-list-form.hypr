@@ -1,0 +1,11 @@
+	<div class="mz-mailing-list__form">
+		<form action="{{ themeSettings.constantContact_action }}" method="post" target="_blank">
+			<input type="hidden" name="llr" value="{{ themeSettings.constantContact_llr }}">
+			<input type="hidden" name="m" value="{{ themeSettings.constantContact_m }}">
+			<input type="hidden" name="p" value="{{ themeSettings.constantContact_p }}">
+			<div class="mz-input-wrapper">
+				<input type="text" name="ea" placeholder="Enter your email address..." autocomplete="off">
+			</div>
+            <button type="submit">Sign Up!</button>
+		</form>
+	</div>

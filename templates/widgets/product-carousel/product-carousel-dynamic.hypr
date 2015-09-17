@@ -1,0 +1,17 @@
+
+{% require_script "widgets/product-carousel" %}
+
+<div class="mz-product-carousel">
+	<div class="mz-product-carousel__wrapper">
+
+		<div class="mz-product-carousel__title-container">
+			<span class="mz-product-carousel__title">{{ model.config.carouselTitle }}</span>
+			{% if model.config.carouselTitleLink %}
+				<a class="mz-product-carousel__title-link mz-button gold" href="{{ model.config.carouselTitleLink }}">{{ model.config.carouselTitleLinkText }}</a>
+			{% endif %}
+		</div>
+
+		{% include_products "widgets/product-carousel/product-carousel-list" with productCodes=model.config.productCodes as_parameter %}
+
+	</div>
+</div>

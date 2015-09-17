@@ -1,0 +1,10 @@
+<div class="bl-iz-lightbox">
+	<div class="bl-iz-lightbox-overlay" data-bl-action="iz-close-lb"></div>
+	
+	<div class="bl-iz-lightbox-content">
+		<div class="bl-iz-lightbox-content-inner"></div>
+		<div class="bl-iz-lightbox-close">
+			<button  data-bl-action="iz-close-lb">Close</button>
+		</div>
+	</div>	
+</div>

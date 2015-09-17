@@ -1,0 +1,68 @@
+﻿{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle labels.checkout %} - {% parent %}{% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-checkout {% endblock body-tag-classes %}
+
+{% block site-nav %}{% endblock site-nav %}
+
+{% block body-content %}
+
+{% require_script "pages/checkout" %}
+
+{% preload_json model "checkout" %}
+
+<div class="mz-l-container">
+	<div class="bl-order-step"><img src="/resources/images/order-step-2.png" title="{{ labels.checkout }}" alt="{{ labels.checkout }}"/></div>
+	<div class="bl-checkout-header">
+		{% dropzone "bl-cart-header" scope="template" %}
+	</div>
+	<form id="checkout-form" class="mz-checkoutform fades-in" method="post" onsubmit="return false;">
+
+		{% include "modules/common/message-bar" with model=model.messages %}
+		
+
+		<div class="mz-l-column" id="checkout-leftcol">
+
+			<div class="mz-formstep bl-checkoutform-shippingaddress" id="step-shipping-address">
+				{% include "modules/checkout/step-shipping-address" %}
+			</div>
+
+			<div class="mz-formstep bl-checkoutform-shippingmethod" id="step-shipping-method" {% if not model.requiresFulfillmentInfo %}style="display:none"{% endif %}>
+				{% include "modules/checkout/step-shipping-method" %}
+			</div>
+
+			<div class="mz-formstep bl-checkoutform-paymentinfo" id="step-payment-info">
+				{% include "modules/checkout/step-payment-info" %}
+			</div>
+
+			<div class="mz-formstep bl-checkoutform-review" id="step-review">
+				{% include "modules/checkout/step-review" %}
+			</div>
+
+		</div><!-- left .column -->
+		
+		<div class="mz-l-column" id="checkout-rightcol">
+
+			<div class="mz-formstep bl-checkoutform-ordersummary" id="order-summary">
+				{% include "modules/checkout/checkout-order-summary" %}
+			</div>
+
+			<div class="bl-checkoutform-extras">
+				{% if themeSettings.showCheckoutCommentsField %}
+				<div class="bl-checkoutform-comments" id="comments-field" >
+					{% include "modules/checkout/comments-field" %}
+				</div>
+				{% endif %}
+				<div class="bl-checkoutform-couponcode" id="coupon-code-field" >
+					<div class="bl-checkoutform-section-title">Have a {{ labels.couponCode }}?</div>
+					{% include "modules/checkout/coupon-code-field" %}
+				</div>
+			</div>
+
+		</div>
+	</form>
+
+</div>
+
+{% endblock body-content %}

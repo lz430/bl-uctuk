@@ -1,0 +1,5 @@
+<div class="bl-product-scroller" data-bl-product-scroller-config="{% json_attribute Model.config|default:"{}" %}">
+	{{Model.config.content|safe}}
+</div>
+{% require_script "vendor/bxSlider/jquery.bxslider" %}
+{% require_script "widgets/product-scroller" %}

@@ -1,0 +1,93 @@
+﻿/*Hack grid since respond.js media query polyfill isn't working '*/
+
+.container {
+    width: 950px !important;
+}
+.col-sm-1, .col-md-1, .col-xs-1 {
+    width: 8.333333333% !important;
+    float: left;
+}
+
+.col-sm-2, .col-md-2, .col-xs-2 {
+    width: 16.666666667% !important;
+    float: left;
+}
+
+.col-sm-3, .col-md-3, .col-xs-3 {
+    width: 25% !important;
+    float: left;
+}
+
+.col-sm-4, .col-md-4, .col-xs-4 {
+    width: 33.333333333% !important;
+    float: left;
+}
+
+.col-sm-5, .col-md-5, .col-xs-5 {
+    width: 41.666666667% !important;
+    float: left;
+}
+
+.col-sm-6, .col-md-6, .col-xs-6 {
+    width: 50% !important;
+    float: left;
+}
+
+.col-sm-7, .col-md-7, .col-xs-7 {
+    width: 58.333333333% !important;
+    float: left;
+}
+
+.col-sm-8, .col-md-8, .col-xs-8 {
+    width: 66.666666667% !important;
+    float: left;
+}
+
+.col-sm-10, .col-md-10, .col-xs-10 {
+    width: 83.333333333% !important;
+    float: left;
+}
+
+
+.col-sm-9, .col-md-9, .col-xs-9 {
+    width: 75% !important;
+    float: left;
+}
+
+
+.pull-right-sm {
+    float: right !important;
+}
+
+.pull-none-sm {
+    float: none !important;
+}
+
+.col-sm-offset-1 {
+    margin-left: 8.333333333%;
+}
+
+
+
+/*Mozu Model fixes*/
+
+.mz-modal {
+    background:transparent;
+    background-color: transparent;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#70000000,endColorstr=#70000000);
+}
+
+
+
+/*Mozu Carousel fixes*/
+.mz-homepage .mz-widget-homepage-slider .owl-controls {
+    bottom: 4px !important;
+    margin: 0 auto !important;
+    left: 0 !important;
+}
+
+.mz-product-carousel .owl-controls {
+    bottom: 0 !important;
+    margin: 0 auto !important;
+    left: 0 !important;
+}

@@ -1,0 +1,337 @@
+{% require_script "modules/nav-tablet" %}
+
+<nav class="mz-nav-tablet">
+	<div class="mz-nav-tablet__wrapper">
+		{% partial_cache %}
+			{% if navigation.tree %}
+        <ul class="mz-nav-tablet__parents" data-mz-role="site-menu">
+
+            <li class="mz-nav-tablet__parent">
+                <a href="/">Home</a>
+            </li>
+
+            {% for parent in navigation.tree %}
+
+            {% if parent.name == "About Seismic" and not parent.isHidden %}
+            <li class="mz-nav-tablet__parent {% if parent.items %}has-subnav{% endif %}">
+                <a data-href="{{ parent.url }}">
+                    About
+                    {% if parent.items %}
+                    <i class="icon icon-chevron-right pull-right"></i>
+                    {% endif %}
+                </a>
+                {% if parent.items %}
+                <ul class="mz-nav-tablet__children">
+                    <li class="mz-nav-tablet__title">
+                        <i class="icon icon-chevron-left pull-left"></i>
+                        {{ parent.name }}
+                    </li>
+                    <li class="mz-nav-tablet__child">
+                        <a data-href="{{ parent.url }}">
+                            All {{ parent.name }}
+                        </a>
+                    </li>
+                    {% for child in parent.items %}
+                    {% if not child.isHidden %}
+                    <li class="mz-nav-tablet__child {% if child.items %}has-subnav{% endif %}">
+                        <a data-href="{{ child.url }}">
+                            {{ child.name }}
+                            {% if child.items %}
+                            <i class="icon icon-chevron-right pull-right"></i>
+                            {% endif %}
+                        </a>
+                        {% if child.items %}
+                        <ul class="mz-nav-tablet__grandchildren">
+                            <li class="mz-nav-tablet__title">
+                                <i class="icon icon-chevron-left pull-left"></i>
+                                {{ child.name }}
+                            </li>
+                            <li class="mz-nav-tablet__grandchild">
+                                <a data-href="{{ child.url }}">
+                                    All {{ child.name }}
+                                </a>
+                            </li>
+                            {% for grandchild in child.items %}
+                            {% if not grandchild.isHidden %}
+                            <li class="mz-nav-tablet__grandchild {% if grandchild.items %}has-subnav{% endif %}">
+                                <a data-href="{{ grandchild.url }}">
+                                    {{ grandchild.name }}
+                                    {% if grandchild.items %}
+                                    <i class="icon icon-chevron-right pull-right"></i>
+                                    {% endif %}
+                                </a>
+                                {% if grandchild.items %}
+                                <ul class="mz-nav-tablet__list">
+                                    <li class="mz-nav-tablet__title">
+                                        <i class="icon icon-chevron-left pull-left"></i>
+                                        {{ grandchild.name }}
+                                    </li>
+                                    <li class="mz-nav-tablet__item">
+                                        <a data-href="{{ grandchild.url }}">
+                                            All {{ grandchild.name }}
+                                        </a>
+                                    </li>
+                                    {% for item in grandchild.items %}
+                                    {% if not item.isHidden %}
+                                    <li class="mz-nav-tablet__item">
+                                        <a data-href="{{ item.url }}">{{ item.name }}</a>
+                                    </li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            {% for parent in navigation.tree %}
+
+            {% if parent.name == "Resources" and not parent.isHidden %}
+            <li class="mz-nav-tablet__parent {% if parent.items %}has-subnav{% endif %}">
+                <a data-href="{{ parent.url }}">
+                    Resources
+                    {% if parent.items %}
+                    <i class="icon icon-chevron-right pull-right"></i>
+                    {% endif %}
+                </a>
+                {% if parent.items %}
+                <ul class="mz-nav-tablet__children">
+                    <li class="mz-nav-tablet__title">
+                        <i class="icon icon-chevron-left pull-left"></i>
+                        {{ parent.name }}
+                    </li>
+                    <li class="mz-nav-tablet__child">
+                        <a data-href="{{ parent.url }}">
+                            All {{ parent.name }}
+                        </a>
+                    </li>
+                    {% for child in parent.items %}
+                    {% if not child.isHidden %}
+                    <li class="mz-nav-tablet__child {% if child.items %}has-subnav{% endif %}">
+                        <a data-href="{{ child.url }}">
+                            {{ child.name }}
+                            {% if child.items %}
+                            <i class="icon icon-chevron-right pull-right"></i>
+                            {% endif %}
+                        </a>
+                        {% if child.items %}
+                        <ul class="mz-nav-tablet__grandchildren">
+                            <li class="mz-nav-tablet__title">
+                                <i class="icon icon-chevron-left pull-left"></i>
+                                {{ child.name }}
+                            </li>
+                            <li class="mz-nav-tablet__grandchild">
+                                <a data-href="{{ child.url }}">
+                                    All {{ child.name }}
+                                </a>
+                            </li>
+                            {% for grandchild in child.items %}
+                            {% if not grandchild.isHidden %}
+                            <li class="mz-nav-tablet__grandchild {% if grandchild.items %}has-subnav{% endif %}">
+                                <a data-href="{{ grandchild.url }}">
+                                    {{ grandchild.name }}
+                                    {% if grandchild.items %}
+                                    <i class="icon icon-chevron-right pull-right"></i>
+                                    {% endif %}
+                                </a>
+                                {% if grandchild.items %}
+                                <ul class="mz-nav-tablet__list">
+                                    <li class="mz-nav-tablet__title">
+                                        <i class="icon icon-chevron-left pull-left"></i>
+                                        {{ grandchild.name }}
+                                    </li>
+                                    <li class="mz-nav-tablet__item">
+                                        <a data-href="{{ grandchild.url }}">
+                                            All {{ grandchild.name }}
+                                        </a>
+                                    </li>
+                                    {% for item in grandchild.items %}
+                                    {% if not item.isHidden %}
+                                    <li class="mz-nav-tablet__item">
+                                        <a data-href="{{ item.url }}">{{ item.name }}</a>
+                                    </li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            {% for parent in navigation.tree %}
+                {% if parent.name != themeSettings.alternateNavName and not parent.isHidden and not parent.name != "Home" %}
+                {% if parent.name != themeSettings.subNavName and parent.name != "Resources" %}
+                {% if parent.name != "About Seismic" and parent.name != "New Arrivals" %}
+                {% if parent.name != "Deal of the Day" and parent.name != "Clearance" %}
+            {% if parent.name != "Specials" %}
+            <li class="mz-nav-tablet__parent {% if parent.items %}has-subnav{% endif %}">
+                <a data-href="{{ parent.url }}">
+                    {{ parent.name }}
+                    {% if parent.items %}
+                    <i class="icon icon-chevron-right pull-right"></i>
+                    {% endif %}
+                </a>
+                {% if parent.items %}
+                <ul class="mz-nav-tablet__children">
+                    <li class="mz-nav-tablet__title">
+                        <i class="icon icon-chevron-left pull-left"></i>
+                        {{ parent.name }}
+                    </li>
+                    <li class="mz-nav-tablet__child">
+                        <a data-href="{{ parent.url }}">
+                            All {{ parent.name }}
+                        </a>
+                    </li>
+                    {% for child in parent.items %}
+                    {% if not child.isHidden %}
+                    <li class="mz-nav-tablet__child {% if child.items %}has-subnav{% endif %}">
+                        <a data-href="{{ child.url }}">
+                            {{ child.name }}
+                            {% if child.items %}
+                            <i class="icon icon-chevron-right pull-right"></i>
+                            {% endif %}
+                        </a>
+                        {% if child.items %}
+                        <ul class="mz-nav-tablet__grandchildren">
+                            <li class="mz-nav-tablet__title">
+                                <i class="icon icon-chevron-left pull-left"></i>
+                                {{ child.name }}
+                            </li>
+                            <li class="mz-nav-tablet__grandchild">
+                                <a data-href="{{ child.url }}">
+                                    All {{ child.name }}
+                                </a>
+                            </li>
+                            {% for grandchild in child.items %}
+                            {% if not grandchild.isHidden %}
+                            <li class="mz-nav-tablet__grandchild {% if grandchild.items %}has-subnav{% endif %}">
+                                <a data-href="{{ grandchild.url }}">
+                                    {{ grandchild.name }}
+                                    {% if grandchild.items %}
+                                    <i class="icon icon-chevron-right pull-right"></i>
+                                    {% endif %}
+                                </a>
+                                {% if grandchild.items %}
+                                <ul class="mz-nav-tablet__list">
+                                    <li class="mz-nav-tablet__title">
+                                        <i class="icon icon-chevron-left pull-left"></i>
+                                        {{ grandchild.name }}
+                                    </li>
+                                    <li class="mz-nav-tablet__item">
+                                        <a data-href="{{ grandchild.url }}">
+                                            All {{ grandchild.name }}
+                                        </a>
+                                    </li>
+                                    {% for item in grandchild.items %}
+                                    {% if not item.isHidden %}
+                                    <li class="mz-nav-tablet__item">
+                                        <a data-href="{{ item.url }}">{{ item.name }}</a>
+                                    </li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+            {% for grandparent in navigation.tree %}
+            {% if grandparent.name == themeSettings.alternateNavName and not grandparent.isHidden %}
+            {% for parent in grandparent.items %}
+            {% if not parent.isHidden %}
+            <li class="mz-nav-tablet__parent {% if parent.items %}has-subnav{% endif %}">
+                <a data-href="{{ parent.url }}">
+                    {{ parent.name }}
+                    {% if parent.items %}
+                    <i class="icon icon-chevron-right pull-right"></i>
+                    {% endif %}
+                </a>
+                {% if parent.items %}
+                <ul class="mz-nav-tablet__grandchildren">
+                    <li class="mz-nav-tablet__title">
+                        <i class="icon icon-chevron-left pull-left"></i>
+                        {{ parent.name }}
+                    </li>
+                    <li class="mz-nav-tablet__grandchild">
+                        <a data-href="{{ parent.url }}">
+                            All {{ parent.name }}
+                        </a>
+                    </li>
+                    {% for child in parent.items %}
+                    {% if not child.isHidden %}
+                    <li class="mz-nav-tablet__child {% if child.items %}has-subnav{% endif %}">
+                        <a data-href="{{ child.url }}">
+                            {{ child.name }}
+                            {% if child.items %}
+                            <i class="icon icon-chevron-right pull-right"></i>
+                            {% endif %}
+                        </a>
+                        {% if child.items %}
+                        <ul class="mz-nav-tablet__list">
+                            <li class="mz-nav-tablet__title">
+                                <i class="icon icon-chevron-left pull-left"></i>
+                                {{ child.name }}
+                            </li>
+                            <li class="mz-nav-tablet__grandchild">
+                                <a data-href="{{ child.url }}">
+                                    All {{ child.name }}
+                                </a>
+                            </li>
+                            {% for grandchild in child.items %}
+                            {% if not grandchild.isHidden %}
+                            <li class="mz-nav-tablet__grandchild">
+                                <a data-href="{{ grandchild.url }}">{{ grandchild.name }}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </ul>
+			{% endif %}
+		{% endpartial_cache %}
+	</div>
+</nav>

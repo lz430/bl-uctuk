@@ -1,0 +1,50 @@
+﻿{% comment %}
+	If you get confused, just know that we never show a link to the parent.
+	In this case, "Alternate Navigation" won't be shown. Just its children
+	and grandchildren.
+{% endcomment %}
+
+{% partial_cache %}
+{% if navigation.tree %}
+<div class="container">
+    <nav class="mz-nav-secondary row hidden-xs">
+        <div class="col-sm-12">
+            {% for parent in navigation.tree %}
+            {% if parent.name == themeSettings.alternateNavName and not parent.isHidden %}
+            <ul class="mz-nav-secondary__list" data-mz-role="site-menu">
+                {% if parent.items %}
+                {% for child in parent.items %}
+                {% if not child.isHidden %}
+                <li class="mz-nav-secondary__child">
+                    <div class="mz-nav-position-wrapper">
+                        <a href="{{ child.url }}">
+                            <span class="mz-nav-secondary__child-wrapper">{{ child.name }}</span>
+                        </a>
+
+                        {% if child.items %}
+                        <ul class="mz-nav-secondary__grandchildren-list">
+                            {% for grandchild in child.items %}
+                            {% if not grandchild.isHidden %}
+                            <li class="mz-nav-secondary__grandchild">
+                                <a href="{{ grandchild.url}}">{{ grandchild.name }}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </ul>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </nav>
+    </div>
+
+    {% else %}
+    <!-- LOG: There is no secondary navigation. SiteContext.Navigation.CurrentNode.items does not exist or is empty. -->
+    {% endif %}
+    {% endpartial_cache %}

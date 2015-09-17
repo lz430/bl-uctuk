@@ -1,0 +1,21 @@
+{% extends "email/email" %}
+
+{% block body-content %}
+	<table class="twelve columns">
+		<tr>
+			<td class="intro">
+				<p class="greeting">
+					{{ labels.orderWelcome }}{% if user.firstName %} {{user.firstName}}{% if user.lastName %} {{user.lastName}}{% endif %}{% endif %},
+				</p>
+
+				<p>
+					Your account has been created, and you can log in anytime at <a href="http://{{domainName}}/">{{domainName}}</a> as <strong>{% if model.UserEmailAddress %}{{model.UserEmailAddress}}{% else %}user@email.com{% endif %}</strong>.
+				</p>
+
+				<p>
+					{{ labels.newUserWelcome|safe }}
+				</p>
+			</td>
+		</tr>
+	</table>
+{% endblock body-content %}

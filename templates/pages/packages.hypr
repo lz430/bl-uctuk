@@ -1,0 +1,64 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-packages{% endblock body-tag-classes %}
+
+{% block title-tag-content %}
+		{{ PageContext.MetaTitle }}
+{% endblock title-tag-content %}
+
+{% block body-content %}
+
+<section id="PackageWrap">
+	<h1>Packages</h1>
+	<div class="mz-box-grid" >
+		<div>
+			<div class="mz-cell">
+				<h3>PA Speackers Packages</h3>
+				<figure><img src="{{ siteContext.cdnPrefix }}/resources/images/pages/packages/PA_Speakers.jpg" alt="PA Speakers" /></figure>
+				<p>PA Speaker Packages are the ultimate way to save time and money! With our pre-designed PA speaker packages, you'll get a whole set of rockin' pa speakers for one low price. We're always creating new PA Speaker package combinations, so check back often for your perfect speaker package.</p>
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>Floor Monitor</h3>
+				<figure><img src="{{ siteContext.cdnPrefix }}/resources/images/pages/packages/Floor_Monitor.jpg" alt="Floor Monitor" /></figure>
+				<p>Floor Monitor Packages are perfect for replacing your old monitors, or building a new PA System. With our floor monitor packages, you'll get all the monitors you need for your band or DJ setup for one low price. Floor monitor packages can also be paired with PA Speaker packages for the ultimate speaker deal.</p>
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>Subwoofer</h3>
+				<figure><img src="{{ siteContext.cdnPrefix }}/resources/images/pages/packages/Subwoofer.jpg" alt="Subwoofer" /></figure>
+				<p>Seismic's Subwoofer Packages pack maximum sound punch. Enhance any PA System or speaker package with a customized subwoofer package. You'll get a variety of great subwoofers to make your music sound even better. Keep the club jumpin' jumpin' by adding a subwoofer package to your audio system.</p>
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>Guitar &#38; Bass</h3>
+				<figure><img src="{{ siteContext.cdnPrefix }}/resources/images/pages/packages/Guitar_and_Bass.jpg" alt="Guitar &#38; Bass" /></figure>
+				<p>Guitar &#38; Bass Packages are essential for any band. By choosing a package, you'll take the guesswork out of choosing the proper speakers to accompany your instruments. Using Guitar and Bass packages are the perfect way to get your band out of the garage and onto some real stages.</p>
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>Rack Case</h3>
+				<figure><img src="{{ siteContext.cdnPrefix }}/resources/images/pages/packages/Rack_Case.jpg" alt="Rack Case" /></figure>
+				<p>Any PA System will need rack cases for transport and travel. Get ready to load up your tour bus with these professional and durable rack cases. Our package deals give you the perfect combination of rack cases to literally rock and roll with your PA system.</p>
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>Audio Cable</h3>
+				<figure><img src="{{ siteContext.cdnPrefix }}/resources/images/pages/packages/Audio_Cable.jpg" alt="Audio Cable" /></figure>
+				<p>You can never have enough audio cables! Check out our audio cable packages for great selections of popular audio cables to change up your speaker layout, or accommodate different stages. Our audio speaker cable packages have everything you need to power up your audio gear.</p>
+			</div>
+		</div>
+	</div>
+	<div class="mz-packageInfo">
+		<h2>Seismic Audio Speakers Package Deals</h2>
+		<p>At Seismic Audio Speakers, we believe the best things don't come in little boxes, but big boxes full of rockin' audio equipment. Whether you are just starting your band in your garage, or upgrading your PA System, buying our audio gear packages will get your band off to a great start.</p>
+		<p>Check out our massive selection of audio gear packages at the best prices! Find PA speaker packages, floor monitor packages, subwoofer packages, audio cable packages, bass and guitar packages, and even rack case packages.</p>
+	</div>
+</section>
+
+{% endblock body-content %}

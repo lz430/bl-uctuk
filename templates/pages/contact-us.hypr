@@ -1,0 +1,3 @@
+{% extends "page" %}
+
+{% block body-tag-classes %} bl-contact-us {% endblock body-tag-classes %}

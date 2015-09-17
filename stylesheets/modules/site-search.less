@@ -1,0 +1,72 @@
+.mz-searchbox {
+	overflow: hidden;
+    //.box-shadow(4px 4px 4px -2px rgba(0,0,0,0.20));
+
+	.mz-input-wrapper {
+		overflow: hidden;
+        padding-right: 32px;
+        input {
+		    color: @gray-darker;
+		    height: 30px;
+		    font-size: 14px;
+		    font-style: italic;
+		    overflow: hidden;
+		    padding: 0 15px;
+		    text-overflow: ellipsis;
+		    width: 100%;
+
+		    .placeholder(@mz-text--gamma); 
+
+            @media(min-width: @screen-sm-min) {
+                border: 1px solid @brand-info;
+                height: 36px;
+                .border-radius(3px);
+                &:active,:hover, :focus {
+                    border: 1px solid @brand-info;
+                    border-right: none;
+                }
+            }
+	    }
+	}
+
+
+
+	button {
+		border: none;
+
+        background-color: @brand-primary;
+		float: right;
+        padding: 1px 18px 1px 18px;
+		text-transform: uppercase;
+        z-index: 1;
+        .transition;
+		&:hover, :active {
+			background-color: lighten(@brand-primary, 10%);
+		}
+
+        @media(min-width: @screen-sm-min) {
+            .border-radius(3px);
+            position:absolute;
+            top: 2px;
+            right: 5px;
+            float: none;
+            background-color: transparent;
+            color: @brand-warning;
+            padding: 1px 10px 1px 10px;
+
+            &:hover, :active, :focus {
+			    background-color: transparent;
+                color: @brand-warning;
+		    }
+        }
+
+		> .icon {
+			margin-right: 0;
+		}
+
+		// I don't want to deal with these right now
+		> span {
+			display: none;
+		}
+	}
+}

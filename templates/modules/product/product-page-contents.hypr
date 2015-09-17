@@ -1,0 +1,117 @@
+{% require_script "pages/product" %}
+<div itemscope itemtype="http://schema.org/Product" class="product-top">
+    <div class="row">
+        <div class="col-sm-12 hidden-xs">
+            {% dropzone "product-promo-top" scope="template" %}
+        </div>
+        <div class="clearfix"></div>
+        <h1 class="mz-home-speaker__title">{%spaceless%}
+        {% if model.hasDeal %}
+            <span class="mz-home-speaker__title__label">{{labels.todaysDeal}}:</span>
+        {% else %}
+            <span class="mz-home-speaker__title__label">{{labels.todaysDealSoldOut}}: </span>
+        {% endif %}
+        <span>{{model.content.productName}}</span>
+        {%endspaceless%}</h1>
+        <div class="mz-home-speaker__price-box visible-sm visible-xs">
+            {% include "modules/speaker-of-the-day/deal-panel" %}
+        </div>
+    </div>
+    <div class="mz-home-speaker__wrapper">
+        <div class="mz-home-speaker__product">
+            {% block product-page-images %}
+            <span data-mz-productimages> {% include "modules/product/product-images" %} </span>
+            {% endblock product-page-images %}
+        </div>
+
+        <div class="mz-home-speaker__product-info pull-right col-md-6 col-sm-7">
+            <div class="mz-home-speaker__price-box hidden-sm hidden-xs">
+                {% include "modules/speaker-of-the-day/deal-panel" %}
+                {% include "modules/product/product-options" %}
+            </div>
+
+            <form class="mz-home-speaker__quantity-form">
+                <label for="select-quantity">Quantity: </label>
+                <div class="select-style">
+                    <select id="select-quantity">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <button type="submit" class="mz-home-speaker__btn-buy">
+                    Buy Now
+                </button>
+            </form>
+            <a href="/shipping-policy" class="mz-home-speaker__btn-ship hidden-xs"> <span class="icon icon-truck"></span> {% if model.nextDay %}{{labels.freeSameDayShippingNextDay}}{% else %}{{labels.freeSameDayShipping}}{% endif %}<span class="icon icon-caret-right"></span> </a>
+            <div class="mz-home-speaker__btn-ship visible-xs">
+                <span>{% if model.nextDay %}{{labels.freeSameDayShippingNextDay}}{% else %}{{labels.freeSameDayShipping}}{% endif %}</span>
+                <a href="#">Details<span class="icon icon-caret-right"></span></a>
+            </div>
+            <div class="mz-home-speaker__social-box">
+                <strong class="social-box__label">Share This Deal:</strong>
+                {% include "modules/social-links" %}
+            </div>
+            <table class="mz-home-speaker__promo-box">
+                <tbody>
+                    <tr>
+                        <td><span class="icon icon-shield"></span> 1 Year Warranty</td>
+                        <td><span class="icon icon-clock-o"></span> Ships Within 24 Hours Aftre Deal is Done</td>
+                    </tr>
+                    <tr>
+                        <td><span class="icon icon-thumbs-o-up"></span> Satisfaction Guarantee</td>
+                        <td><span class="icon icon-calendar-o"></span> 30 Day Money Back Guarantee</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="col-lg-8 col-md-7 col-sm-7">
+    {% dropzone "product-details-append" scope="template" %}
+</div>
+<div class="col-lg-8 col-md-7 col-sm-7">
+    <h2>{{labels.fullDesc}}</h2>
+    <p>{{model.content.productFullDescription|safe}}</p>
+</div>
+<div class="col-lg-8 col-md-7 col-sm-7">
+    <div class="panel panel-product">
+       {% include "modules/speaker-of-the-day/spec-panel" %}
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-offset-1 col-sm-4 col-xs-12 pull-none-sm pull-none-xs inline-block">
+    {% dropzone "product-sidebar-middle" scope="template" %}
+</div>
+<div class="col-lg-3 col-md-4 mz-product__shipping-est col-sm-offset-1 col-sm-4 col-xs-12 pull-none-sm inline-block">
+    <h3><strong>When will I get my order?</strong></h3>
+    <div class="seismic-shipping-estimator__form">
+        <label class="text-bold">Enter your shipping zip code:</label>
+        <br />
+        <input type="text" name="shippingzip" data-mz-value="postalOrZipCodeProductPage" value="{{ model.zip }}" />
+        <button class="mz-button" data-mz-action="runEstimateProductPage">
+            Estimate
+        </button><i class="hide icon icon-spin icon-spinner icon-2x shippingEstimateLoading"></i>
+        <span class="mz-validationmessage error-shipping-estimate-product-page" data-mz-role="errorContainer"></span>
+    </div>
+    <div data-mz-role="shipping-estimated-date-wrap" style="display:none">
+        {% include "modules/shipping-time-estimate" with model=estimate %}
+        <a data-mz-action="changeShippingEstimate" href="javascript:;">Change your zip code.</a>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-offset-1 col-sm-4 col-xs-12 pull-none-sm pull-none-xs inline-block">
+    {% dropzone "product-sidebar-bottom" scope="template" %}
+</div>
+{% block product-page-sidebar %}
+    {% block product-page-sidebar-contents %}
+    {% endblock product-page-sidebar-contents %}
+{% endblock product-page-sidebar %}
+<div class="col-lg-8 col-md-7 col-sm-7">
+    {% dropzone "product-bottom" scope="template" %}
+</div>
+<div class="visible-xs">
+    {% block nav-secondary-mobile %}
+    {% include "modules/nav-secondary-mobile" %}
+    {% endblock nav-secondary-mobile %}
+</div>

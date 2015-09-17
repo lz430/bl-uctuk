@@ -1,0 +1,42 @@
+
+
+.text-center()  { text-align: center; }
+.text-left()    { text-align: left; }
+.text-right()   { text-align: right; }
+
+.text-center    { .text-center(); }
+.text-left      { .text-left(); }
+.text-right     { .text-right(); }
+
+
+.text-bold()    { font-weight: bold; }
+.text-italic()  { font-style: italic; }
+
+
+
+.text-bold      { .text-bold(); }
+.text-italic    { .text-italic(); }
+
+
+.text-underline()  { text-decoration: underline; }
+
+.text-underline { .text-underline(); }
+
+
+
+// preventing FOUT since web fonts are loading asynchronously    
+html.js.fontface.mz-fontloading body {
+    visibility: hidden;
+}
+
+.capitalize() { text-transform: capitalize; }
+.uppercase() 	{ text-transform: uppercase; }
+.lowercase() 	{ text-transform: lowercase; }
+
+
+.capitalize 	{ .capitalize(); }
+.uppercase 		{ .uppercase(); }
+.lowercase 		{ .lowercase(); }
+
+
+.text-medium { font-size: 16px; }

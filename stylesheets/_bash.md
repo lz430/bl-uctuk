@@ -1,0 +1,23 @@
+
+alias watch-seismic="./MozuDevClient 3415 473 /Users/brandtley_mcminn/Dropbox/www/volusion/_github/seismic-audio"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

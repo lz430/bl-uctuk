@@ -1,0 +1,78 @@
+<footer>
+	<section class="footer-top">
+		<div class="footer-top-container">
+			<div class="email-list-mobile">
+        <p><img src="/resources/images/icon-email.png" alt="" /> Email List Sign Up</p>
+        <form data-id="embedded_signup:form" class="ctct-custom-form Form" name="embedded_signup" method="POST" action="https://visitor2.constantcontact.com/api/signup">
+          <!-- The following code must be included to ensure your sign-up form works properly. -->
+          <input data-id="ca:input" type="hidden" name="ca" value="91675841-6d2f-4367-99ff-6fb5131e310d">
+          <input data-id="list:input" type="hidden" name="list" value="1104991320">
+          <input data-id="source:input" type="hidden" name="source" value="EFD">
+          <input data-id="required:input" type="hidden" name="required" value="list,email">
+          <input data-id="url:input" type="hidden" name="url" value="">
+          <p data-id="Email Address:p">
+            <!-- <label data-id="Email Address:label" data-name="email" class="ctct-form-required">Email Address</label> -->
+            <input class="email-signup" data-id="Email Address:input" type="text" name="email" placeholder="enter your email" value="" maxlength="80">
+          <button type="submit" class="mz-emailbox-button" data-enabled="enabled">Join Now</button>
+          </p>
+        </form>
+        <!-- <a href="http://visitor.r20.constantcontact.com/d.jsp?llr=yqnikktab&amp;p=oi&amp;m=1120259028504&amp;sit=s8ynynpjb&amp;f=1ee29974-913a-46a2-a470-dc1859d6a8b7" class="mz-emailbox-button" title="Join Now" target="_blank">Join Now</a> -->
+      </div>
+
+			<ul class="social-media-footer">
+				<li><a href="https://www.facebook.com/pages/claddaghRINGcom/177470457590" target="_blank" title="Facebook" class="facebook-footer"><span>Facebook</span></a></li>
+				<li><a href="https://twitter.com/Uctukllc" target="_blank" title="Twitter" class="twitter-footer"><span>Twitter</span></a></li>
+				<li><a href="https://www.pinterest.com/uctukllc/" target="_blank" title="Pinterest" class="pinterest-footer"><span>Pinterest</span></a></li>
+			</ul>
+			<div class="footer-navigation">
+				<ul>
+					<p>Shop Products</p>
+					{% partial_cache %}
+					{% for link in navigation.tree %}
+					{% if not link.isHidden and link.url != "/home" and forloop.counter0 < themeSettings.maxTopLevelNavItems %}
+					<li><a href="{{link.url}}" title="{{link.name}}">{{link.name|truncatechars(themeSettings.maxTopLevelNavLabelLength)}}</a></li>
+					{% endif %}
+					{% endfor %}
+					{% endpartial_cache %}
+				</ul>
+				<ul>
+					<p>Customer Service</p>
+					<li><a href="/help" title="Help">Help</a></li>
+					<li><a href="/shipping-deliveries" title="Shipping &amp; Deliveries">Shipping &amp; Deliveries</a></li>
+					<li><a href="/returns-exchanges" title="Returns &amp; Exchanges">Returns &amp; Exchanges</a></li>
+				</ul>
+				<ul>
+					<p>Information</p>
+					<li><a href="/about-us" title="About Us">About Us</a></li>
+					<li><a href="/contact-us" title="Contact Us">Contact Us</a></li>
+					<!-- <li><a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a></li> -->
+					<li><a href="/terms-of-sale" title="Terms of Sale">Terms of Sale</a></li>
+				</ul>
+				<ul>
+					<p>Your Account</p>
+					<li><a href="/cart" title="Shopping Bag">Shopping Bag</a></li>
+					
+					{% if not user.isAuthenticated %}
+					<li><a href="/user/login" title="{{labels.logIn}}">Customer Login</a></li>
+					{% else %}
+					<li><a href="/logout" title="{{labels.logOut}}">Customer Logout</a></li>
+					{% endif %}
+					
+					<li><a href="" title="Register">Register</a></li>
+					<li><a href="/myaccount#orderhistory" title="Order Status">Order Status</a></li>
+				</ul>
+			</div>
+			<br class="clear" />
+		</div>
+	</section>
+	<section class="footer-bottom">
+		<div class="security">
+			<a href="http://www.bbb.org/wyoming-and-northern-colorado/business-reviews/jewelers-retail/uctuk-llc-in-fort-collins-co-46003232/#sealclick" target="_blank" title="Better Business Bureau &reg;"><img src="/resources/images/bbb.jpg" alt="Better Business Bureau &reg;" /></a>
+			<a href="http://www.jvclegal.org" title="JVC MEMBER" target="_blank"><img src="/resources/images/jvc.jpg" alt="JVC MEMBER" /></a>
+			<a href="https://www.scanalert.com/RatingVerify?ref=www.claddaghring.com" title="HACKER SAFE certified sites prevent over 99.9% of hacker crime." target="_blank"><img border="0" oncontextmenu="alert('Copying Prohibited by Law - HACKER SAFE is a Trademark of ScanAlert'); return false;" alt="HACKER SAFE certified sites prevent over 99.9% of hacker crime." src="//images.scanalert.com/meter/www.claddaghring.com/22.gif"></a>
+			<img src="/resources/images/credit-cards.jpg" alt="Accepts Visa, Discover, MasterCard, American Express" />
+		</div>
+		<p>Copyright &copy; 2015. All Rights Reserved. Designed by <a href="http://www.brandlabs.us/" target="_blank" title="Brand Labs">Brand Labs</a>.
+	</section>
+	<br class="clear" />
+</footer>

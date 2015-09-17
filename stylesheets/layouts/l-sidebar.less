@@ -1,0 +1,130 @@
+﻿.mz-l-sidebar {
+  float: left;
+  width: 16%;
+  padding: 0 1% 0;
+  height: 100%;
+  
+  /* MEDIA */
+  @media only screen {
+    @media (max-width: @tabletThreshold) {
+      width: 100%;
+      padding: 0;
+      float: none;
+    }
+  }
+}
+
+.mz-l-sidebaritem {
+  margin: 0 @gutter/5 @gutter;
+  
+  &.bl-sidebar-menu-toggle {
+    display: none;
+    border: @genericBorder;
+    height: 36px;
+    
+    span {
+      padding: @gutter/3;
+      
+      &.bl-sidebar-menu-title {
+        float: left;
+      }            
+    }
+     
+    input {
+      height: 0px;
+      width: 0px;
+      opacity: 0;
+      filter:alpha(opacity=0);
+      
+      + label {
+        border-left: @genericBorder;
+        float: right;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        background: url(//t2499-s3003.sandbox.mozu.com/resources/images/expand.png) no-repeat center transparent;
+        background-size: 14px;
+      }
+      &:checked {
+        + label {
+          background: url(//t2499-s3003.sandbox.mozu.com/resources/images/collapse.png) no-repeat center transparent;
+          background-size: 14px;
+        }
+      }
+    }
+  }
+}   
+    /* MEDIA */
+@media only screen {
+  @media (max-width: @tabletThreshold) {
+    .mz-l-sidebaritem {
+      background: @bodyBackgroundColor;
+      margin: 0 0 @gutter/2 0;
+      //height: @gutter*2;
+      
+      h4 { 
+        display: none;
+      }
+      
+      li {
+        float: left;
+        clear: none;
+        
+        input {
+          display: none;
+          + label {
+            display: none;
+          }
+        }
+        
+        input:checked {          
+          + label {
+            display:block;
+            float: left;
+            padding: 0 @gutter/2 0 0;
+            margin: 0 @gutter/2 0 0;
+            background: url(//t2499-s3003.sandbox.mozu.com/resources/images/close.png) no-repeat right center transparent;
+            background-size: 8px;
+          }
+        }
+      }
+      
+      &.bl-sidebar-menu-toggle {  
+        display: block;
+      }
+    }
+    
+    .bl-sidebar-menu-expanded {
+      display: block;
+      
+      .mz-l-sidebaritem {
+        &.bl-clearall-top {
+          display: block;
+        }
+        
+        h4 {
+          display: block;
+        }
+      
+        li {
+          float: none;
+          clear: left;
+          
+          input {
+            display: inline-block;
+            + label {
+              display: inline-block;
+            }
+          }
+        
+          input:checked {
+            + label {
+              float: none;
+              background: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}    

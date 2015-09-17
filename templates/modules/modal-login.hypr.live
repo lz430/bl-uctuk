@@ -1,0 +1,83 @@
+{% extends "modules/common/seismic-modal" %}
+{% block modal-classes %}mz-modal--login hidden{% endblock modal-classes %}
+{% block modal-role %}login-modal-wrapper{% endblock modal-role %}
+{% block modal-inner %}
+		<section class="mz-l-column">
+
+			<div class="mz-form" data-mz-role="modal-form">
+				<form method="post" action="https://{{ host }}/user/login?returnUrl=%2f{{ returnUrl }}" data-mz-role="login-form" class="mz-login-form">
+					<input type="hidden" name="returnUrl" value="{{ returnUrl }}" />
+
+					<h2 class="mz-modal__title">Returning Customers</h2>
+
+					<p class="login-text">Sign in to your account so you can checkout faster and get quicker access to order tracking.</p>
+
+					<div class="mz-l-row">
+						<label for="login-email">Email Address</label>
+
+						<input id="login-email" type="email" name="email" data-mz-login-email tabindex="1">
+					</div>
+
+					<div class="mz-l-row">
+						<label for="login-password">Password</label>
+
+						<a href="javascript:;" class="right mz-forgot" data-mz-action="forgotpasswordform">{{ labels.forgotPasswordLink }}</a>
+
+						<div class="mz-input-wrapper">
+							<input id="login-password" type="password" name="password" data-mz-login-password tabindex="2">
+						</div>
+					</div>
+
+					<div class="mz-l-row">
+						<button class="mz-button--login" data-mz-action="submitlogin" tabindex="3">
+							{{ labels.logIn }}
+						</button>
+
+						<!-- messages would go here
+						{{messages}}
+						-->
+					</div>
+				</form>
+
+				<form method="post" data-mz-role="forgotpassword-form" class="mz-login-form hidden">
+
+					<h2 class="mz-modal__title">Forgot your password?</h2>
+
+					<p>No problem! Enter your email address below and we'll send you instructions to reset your password.</p>
+
+					<div class="mz-l-row">
+						<label for="EmailAddress">Email Address</label>
+
+						<input data-mz-role="forgotpasswordemail" type="email" name="EmailAddress" tabindex="1">
+					</div>
+
+					<div class="mz-l-row">
+
+						<button class="mz-button--forgotpassword" data-mz-action="submitforgotpassword">
+							{{ labels.send|default('Submit') }}
+						</button>
+                        
+						<button class="mz-button--cancelforgotpassword" data-mz-action="loginform" tabindex="2">
+							{{ labels.cancel|default('Cancel') }}
+						</button>
+					</div>
+					<div class="mz-l-row forgotpassword-message" data-mz-role="forgotpasswordmessage">
+					</div>
+
+					<!-- messages would go here
+					<div class="mz-l-row">
+						{{messages}}
+					</div>
+					-->
+				</form>
+			</div> <!-- .mz-form -->
+		</section>
+
+		<section class="mz-l-column">
+			<h2 class="mz-modal__title">New to {{ themeSettings.companyName }}?</h2>
+
+			<p>No problem, you don't need an account to place an order. You'll have the option to register and save your information later in the checkout process.</p>
+
+			<button class="mz-button--close" data-mz-role="modal-close">Continue as Guest</button>
+		</section>
+{% endblock modal-inner %}

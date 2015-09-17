@@ -1,0 +1,151 @@
+{% comment %}
+	If you get confused, just know that we never show a link to the parent.
+	In this case, "Alternate Navigation" won't be shown. Just its children
+	and grandchildren.
+{% endcomment %}
+
+{% partial_cache %}
+{% if navigation.tree %}
+<div class="col-sm-4 col-xs-12">
+    <div class="panel-group" id="accordionAltNav">
+        {% for parent in navigation.tree %}
+
+        {% if parent.name == themeSettings.dealsNavName and not parent.isHidden %}
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a href="#dealNav" data-toggle="collapse" data-parent="#accordionAltNav">
+                    <span class="panel-title">
+                        {% if parent.items %}<i class="icon icon-fw icon-plus-square"></i>{% else %}<i class="icon icon-fw"></i>{% endif %}<span style="display: inline-block;">&emsp;</span>{{ parent.name }}
+                    </span>
+                </a>
+                <a href="/seismic-audio-special-offers" class="panel-parent-link"><i class="icon icon-2x icon-angle-right"></i></a>
+            </div>
+            {% if parent.items %}
+            <div id="dealNav" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        {% for child in parent.items %}
+                        {% if not child.isHidden %}
+                        <li>
+                            <a href="{{ child.url}}">{{ child.name }}<i class="icon icon-lg icon-angle-right pull-right"></i></a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+
+        {% if parent.name == themeSettings.alternateNavName and not parent.isHidden %}
+        {% if parent.items %}
+        {% for child in parent.items %}
+        {% if not child.isHidden %}
+        <div class="panel panel-secondary">
+            <div class="panel-heading">
+                <a href="#secNav{{ forloop.counter }}" data-toggle="collapse" data-parent="#accordionAltNav">
+                    <span class="panel-title">
+                        {% if child.items %}<i class="icon icon-fw icon-plus-square"></i>{% else %}<i class="icon icon-fw"></i>{% endif %}<span style="display: inline-block;">&emsp;</span>{{ child.name }}
+                    </span>
+                </a>
+                <a href="{{ child.url }}" class="panel-parent-link"><i class="icon icon-2x icon-angle-right"></i></a>
+            </div>
+            {% if child.items %}
+            <div id="secNav{{ forloop.counter }}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        {% for grandchild in child.items %}
+                        {% if not grandchild.isHidden %}
+                        <li>
+                            <a href="{{ grandchild.url}}">{{ grandchild.name }}<i class="icon icon-lg icon-angle-right pull-right"></i></a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for parent in navigation.tree %}
+
+        {% if parent.name == themeSettings.subNavName %}
+        {% if not parent.isHidden %}
+        {% if parent.items %}
+        {% for child in parent.items %}
+        {% if not child.isHidden %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a href="#subNav{{ forloop.counter }}" data-toggle="collapse" data-parent="#accordionAltNav">
+                    <span class="panel-title">
+                        {% if child.items %}<i class="icon icon-fw icon-plus-square"></i>{% else %}<i class="icon icon-fw"></i>{% endif %}<span style="display: inline-block;">&emsp;</span>{{ child.name }}
+                    </span>
+                </a>
+                <a href="{{ child.url }}" class="panel-parent-link"><i class="icon icon-2x icon-angle-right"></i></a>
+            </div>
+            {% if child.items %}
+            <div id="subNav{{ forloop.counter }}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        {% for grandchild in child.items %}
+                        {% if not grandchild.isHidden %}
+                        <li>
+                            <a href="{{ grandchild.url}}">{{ grandchild.name }}<i class="icon icon-lg icon-angle-right pull-right"></i></a>
+                           
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+
+        {% if parent.name == "Packages" %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a href="#subNavPackages" data-toggle="collapse" data-parent="#accordionAltNav">
+                    <span class="panel-title">
+                        <i class="icon icon-fw icon-plus-square"></i><span style="display: inline-block;">&emsp;</span>{{ parent.name }}
+                    </span>
+                </a>
+                <a href="{{ parent.url }}" class="panel-parent-link"><i class="icon icon-2x icon-angle-right"></i></a>
+            </div>
+            {% if parent.items %}
+            <div id="subNavPackages" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        {% for child in parent.items %}
+                        {% if not child.isHidden %}
+                        <li>
+                            <a href="{{ child.url}}">{{ child.name }}<i class="icon icon-lg icon-angle-right pull-right"></i></a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% endfor %}
+
+    </div>
+</div>
+{% else %}
+<!-- LOG: There is no secondary navigation. SiteContext.Navigation.CurrentNode.items does not exist or is empty. -->
+{% endif %}
+{% endpartial_cache %}

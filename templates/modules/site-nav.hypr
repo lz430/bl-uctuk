@@ -1,0 +1,23 @@
+<ul class="desktop-nav" data-mz-contextify='.bl-main-nav-link[href="{{ navigation.currentNode.url }}"]' data-mz-contextify-attr='class' data-mz-contextify-val='is-current'>
+	{% partial_cache %}
+	{% for link in navigation.tree %}
+	{% if not link.isHidden and link.url != "/home" and forloop.counter0 < themeSettings.maxTopLevelNavItems %}
+	<li>
+		<a href="{{link.url}}" title="{{link.name}}">{{link.name|truncatechars(themeSettings.maxTopLevelNavLabelLength)}}</a>
+		<div class="pointed"></div>
+		{% if link.items %}
+		<ul class="dropdown-column">
+			{% for sublink in link.items %}
+			{% if not sublink.isHidden %}
+			<li {% if not sublink.items %}class="dropdown-single"{% endif %}>
+				<a href="{{sublink.url}}" title="{{sublink.name}}">{{sublink.name}}</a>
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</li>
+	{% endif %}
+	{% endfor %}
+	{% endpartial_cache %}
+</ul>

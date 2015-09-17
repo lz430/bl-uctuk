@@ -1,0 +1,13 @@
+<div class="mz-error mz-no-products" data-bind="visible: !$data.Items().length">
+	<i class="mz-error__icon mz-no-products__icon icon-frown"></i>
+
+	<h3 class="mz-error__heading mz-no-products__heading">
+		No Products!
+	</h3>
+
+	<div class="mz-error__info mz-no-products__info">
+		<p>Try adding some products to this category or removing it from your navigation entirely.</p>
+
+		<p>Nobody likes an empty category.</p>
+	</div>
+</div>

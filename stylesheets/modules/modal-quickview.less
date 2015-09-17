@@ -1,0 +1,112 @@
+.mz-modal[data-mz-role="product-quickview-wrapper"] {
+    *:focus {outline: none !important;}
+
+    .mz-modal__wrapper {
+        overflow: auto;
+        // min-height: 90vh;
+        max-width: 90vw;
+        max-height: 80vh;
+        width: 800px;
+    }
+
+    .mz-product__title {
+        margin-top: 0;
+        width: 90%;
+        color: @gray-darker;
+        font-size: 18px;
+        line-height: 20px;
+        font-weight:bold;
+
+    }
+
+    .mz-product__images {
+        max-width: none;
+        width: 100%;
+
+        figure {
+            width: 100%;
+
+            img {
+                // max-width: 100%;
+                max-width: 80%;
+            }
+        }
+    }
+
+    .mz-button--x {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px !important;
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: none white;
+        color: @mz-text--beta;
+
+		&:hover {
+			color: @mz-color--red;
+		}
+
+		i {
+			display: block;
+			margin: 0;
+		}
+	}
+
+    .view-more-details {
+        bottom: 10px;
+        position: absolute;
+        right: 10px;
+    }
+
+    .mz-quickview__details {
+        .mz-tabs__container {
+            border-top-color: darken(@mz-brand--seismic, 12%);
+        }
+
+        .mz-price-list {
+            font-size: 20px;
+            font-weight: bold;
+
+            dt, dd {
+                float: left;
+                margin: 0;
+            }
+
+            dt {
+                clear: left;
+                margin-right: 5px;
+            }
+
+            .clearfix()
+        }
+    }
+
+    .pr-snippet-read-write {
+        display: none !important;
+    }
+
+    .owl-prev,
+    .owl-next {
+        .transform(~"translate(0, -10px)");
+        position: absolute;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        text-indent: -9999px;
+    }
+
+    .owl-prev {
+        left: -20px;
+        border-right-color: gray;
+        content:
+        display: block;
+    }
+
+    .owl-next {
+        right: -20px;
+        border-left-color: gray;
+    }
+}

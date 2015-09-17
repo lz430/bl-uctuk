@@ -1,0 +1,21 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %}  - {% parent %}{% endblock title-tag-content %}
+{% block body-tag-classes %} bl-sotd-page {% endblock body-tag-classes %}
+{% block body-content %}
+
+<div class="row" data-bl-role="sotd-display">
+	{% include "modules/speaker-of-the-day/product-panel" with model %}
+</div>
+
+<script type="text/javascript">
+	var google_tag_params = {
+	ecomm_prodid: '',
+	ecomm_pagetype: 'home',
+	ecomm_totalvalue: '',
+	hasaccount: {% if PageContext.User.IsAnonymous %} 'n' {% else %} 'y' {% endif %}
+	}
+</script>
+
+{% require_script "pages/bl-sotd-display" %}
+{% endblock body-content %}

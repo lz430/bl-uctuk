@@ -1,0 +1,17 @@
+<div class="bl-info-tile bl-info-tile-{{Model.config.tileRatio}}">
+	<a class="bl-info-tile-link" title="{{Model.config.tileTitle}}" href="{{Model.config.tileLink|default:"javascript:;"}}">
+		<img class="bl-info-tile-image" alt="{{Model.config.tileTitle}}" title="{{Model.config.tileTitle}}" 
+			src="{%if Model.config.tileImageURL%}
+				{{Model.config.tileImageURL}}
+			{%else%}
+				{{Model.config.tileImageLocalURL.0.url}}{%if Model.config.tileImageSize > 0%}?max={{Model.config.tileImageSize}}{%endif%}
+			{%endif%}"
+			style="width:{%if Model.config.tileImageSize > 0 %}{{Model.config.tileImageSize}}px;{%else%}100%;{%endif%}height:auto;"/>
+	<span class="bl-info-tile-overlay" style="background-color:{{Model.config.overlayColor}};"></span>
+	<span class="bl-info-tile-content" style="color:{{Model.config.contentColor}};">
+		<span style="color:{{Model.config.contentColor}};">{{Model.config.tileTitle|safe}}</span>
+		{{Model.config.overlayContent|safe}}
+	</span>
+	<h3 class="bl-info-tile-title" style="color:{{Model.config.titleColor}};">{{Model.config.tileTitle|default:""|safe}}</h3>
+	</a>
+</div> 

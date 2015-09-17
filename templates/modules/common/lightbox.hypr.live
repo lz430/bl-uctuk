@@ -1,0 +1,4 @@
+<div class="bl-l-lightbox">
+	<div class="bl-l-lightbox-overlay" data-bl-action="close-lightbox"></div>
+	<div class="bl-l-lightbox-content-wrapper"><div class="bl-l-lightbox-content"></div></div>
+</div>

@@ -1,0 +1,35 @@
+.bl-image-badge {
+  position: relative;
+  top: 0;
+  z-index: 4;
+  
+  img {
+    position: absolute;
+    height: 60px;
+  }
+ 
+  &-top {
+    top: 0;
+  }
+  
+  &-middle {
+    top: @productTileHeight/2 - @gutter/2 - 30px;
+  }
+  
+  &-bottom {
+    top: @productTileHeight - @gutter - 60px;
+  }
+  
+  &-left {
+    left: 0px;
+  }
+
+  &-right {
+    left: 100% - @gutter;
+  }
+  
+  &-center {
+    left: 50% - @gutter/2;
+  }
+}
+  

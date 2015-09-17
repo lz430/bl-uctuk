@@ -1,0 +1,15 @@
+<div class="mz-searchbox">
+  <form id="searchbox" class="mz-searchbox{% if themeSettings.useSearchAutocomplete %} mz-searchbox-expands{% endif %}" action="/search">
+		<button type="submit">
+			<i class="icon icon-search"></i>
+			<span>Search</span>
+		</button>
+
+		<div class="mz-input-wrapper">
+      <input placeholder="{{ labels.search }}" type="search" autocomplete="off" name="query" data-mz-role="searchquery" />
+		</div>
+    {% if themeSettings.useSearchAutocomplete %}
+    {% require_script "modules/search-autocomplete" %}
+    {% endif %}
+  </form>
+</div>

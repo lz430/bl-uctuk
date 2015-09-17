@@ -1,0 +1,18 @@
+	<div class="mz-home-promo__container" data-mz-youtubefeed="{% json_attribute model.config %}">
+		<div class="mz-home-promo__wrapper">
+			<div class="mz-home-promo__title mz-fancy-title blue">
+				<i class="mz-fancy-title__icon icon icon-youtube-square"></i>
+				<span class="mz-fancy-title__text">{{labels.widgetTitle_videoFeedPanel}}</span>
+			</div>
+
+			<div class="mz-home-promo__content-container">
+				<ul class="mz-home-promo__content" data-mz-youtubefeed-container>
+
+					{% require_script "widgets/youtubefeed" %}
+					{% include "widgets/home/youtube-feed-list" %}
+
+				</ul>
+			</div>
+		</div>
+	</div>
+

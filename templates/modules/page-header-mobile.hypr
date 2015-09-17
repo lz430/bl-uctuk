@@ -1,0 +1,47 @@
+<header class="visible-xs mob-page-header">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-12 mob-top-logo">
+	    		<a href="/"><img src="{{ themeSettings.companyLogoSmallURL }}" alt="" /></a>
+        	</div>
+    	</div>
+        <div class="row">
+            <div class="col-md-12 mob-top-header">
+
+                <ul class="mob-menu">
+					<li class="mob-menu-item">
+		                <a href="javascript:;" class="dl-menu-trigger mob-menu-link">
+		                    <i class="icon icon-2x icon-fw icon-bars"></i>
+		                </a>              
+					</li>
+                    <li class="mob-menu-item">
+                        <a href="/contact-us/" class="mob-menu-link">
+                            <i class="icon icon-2x icon-fw icon-user"></i>
+                        </a>
+                    </li>
+
+                    <li class="mob-menu-item">
+                        <a href="/myaccount/#account-wishlist" class="mob-menu-link">
+                            <i class="icon icon-2x icon-fw icon-heart"></i>
+                        </a>
+                        <div class="mz-wishlist__item-count__wrapper is-empty">
+                          <span class="mz-wishlist__item-count">0
+                          </span>
+                        </div>
+                    </li>
+                     <li class="mob-menu-item mob-menu-item__cart">
+                        <a href="/cart/" class="mob-menu-link">
+                            <i class="icon icon-2x icon-fw icon-shopping-cart" style="margin-top: 3px;">
+                            </i>
+                        </a>
+                        <div class="mz-soft-cart__item-count__wrapper is-empty">
+				            <span class="mz-soft-cart__item-count">
+				            </span>
+		                </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+{% include "modules/nav-mobile" %}

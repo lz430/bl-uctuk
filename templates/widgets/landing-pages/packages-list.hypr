@@ -1,0 +1,42 @@
+<div class="mz-widget-packages-list">
+	<div class="mz-l-row">
+		<div class="mz-l-wrapper">
+
+			<style>
+				.mz-cms-content { padding: 0 !important; }
+			</style>
+
+			<div data-mz-breadcrumbs class="mz-breadcrumbs-container">
+				{% include "modules/breadcrumbs" %}
+			</div>
+
+			<div class="mz-category-header">
+				<h1>{{ pageModel.title }}</h1>
+			</div>
+
+
+			<div class="mz-widget-packages__container" data-mz-packages-list-widget>
+			</div>
+
+		</div>
+	</div>
+
+
+	<script type="text/x-mz-template" id="mz-packages-list-template">
+		<div class="mz-fancy-list__container">
+			<div class="mz-fancy-list__wrapper">
+				<div class="mz-fancy-list__title mz-fancy-title black">
+					<a class="mz-fancy-title__text" href="[[ url ]]">[[ name ]]</a>
+				</div>
+				[[ templateName ]]
+				<div class="mz-fancy-list__list-container">
+					<img src="{{ siteContext.cdnPrefix }}[[ img ]]" alt="">
+					<p class="mz-packages-list__description">[[ description ]]</p>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	{% require_script "widgets/packages-list" %}
+
+</div>

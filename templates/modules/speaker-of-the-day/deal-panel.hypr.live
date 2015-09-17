@@ -1,0 +1,36 @@
+<div class="mz-home-speaker__price-header">
+    <div class="mz-home-speaker__price">
+        <span class="list-price">{{labels.listPrice}}: <s>{{model.price.msrp|currency}}</s></span>
+        <strong class="new-price">{{labels.price}}: <mark>{{model.price.price|currency}}</mark></strong>
+    </div>
+    {% if model.getCountdown gt 0 %}
+    <div class="mz-home-speaker__time-box">
+        <strong>{{labels.timeLeftForDeal}}</strong>
+        <div class="mz-home-speaker__time-box__clockface"></div>
+    </div>
+    {% endif %}
+</div>
+{% if model.getCountdown gt 0 %}
+<div class="mz-home-speaker__progress progress-red">
+    <div class="progress bar-red">
+        <div class="progress-mask" 
+            aria-valuenow="{{model.inventoryInfo.onlineStockAvailable}}"
+            aria-valuemin="0"
+            aria-valuemax="{{model.getStartInventory|default(100)}}"
+            style="width: {{model.getStockPercent}}%"></div>
+        <div class="progress-bar__lines"></div>
+        <div class="progress-bar__shadow"></div>
+    </div>
+    {% if model.inventoryInfo.onlineStockAvailable > model.getMediumInventory %}
+    <strong class="progress-info progress-info-green">{{labels.todaysDealMessageGreen}}</strong>
+    {% else %}
+        {% if model.inventoryInfo.onlineStockAvailable > model.getLowInventory %}
+    <strong class="progress-info progress-info-yellow">{{labels.todaysDealMessageYellow}}</strong>
+        {% else %}
+    <strong class="progress-info progress-info-red">{{labels.todaysDealMessageRed|string_format(model.inventoryInfo.onlineStockAvailable)}}</strong>
+        {% endif %}
+    {% endif %}
+</div>
+{% endif %}
+
+

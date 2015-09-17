@@ -1,0 +1,109 @@
+{% require_script "modules/nav-primary" %}
+{% require_script "modules/nav-primary-banner" %}
+<div class="mz-nav-primary-outter-wrapper">
+    <div class="container">
+        <nav class="mz-nav-primary row hidden-xs">
+            <div class="mz-nav-primary__wrapper col-md-12">
+                {% partial_cache %}
+                {% if navigation.tree %}
+                <ul class="mz-nav-primary__parents" data-mz-role="site-menu">
+                    <li class="mz-nav-primary__parent">
+                        <a href="/"><div>{{ labels.navHome }}</div></a>
+                    </li>
+                    {% for parent in navigation.tree %}
+                    {% if parent.name != themeSettings.alternateNavName and parent.name != themeSettings.subNavName and parent.name != themeSettings.dealsNavName and not parent.isHidden and parent.name != "Home" %}
+                    <li class="mz-nav-primary__parent {% if parent.items %}mz-nav-trigger{% endif %}">
+                        {% if parent.name != "Shop By Dept" and parent.name != "Resources" %}
+                        <a href="{{ parent.url }}"><div>{{ parent.name }}</div></a>
+                        {% else %}
+                        <span class="mz-parent-name">{{ parent.name }}</span>
+                        {% endif %}
+
+                        {% if parent.items %}
+                        <ul class="mz-nav-primary__children mz-nav-target">
+                            {% for child in parent.items %}
+                            {% if not child.isHidden %}
+                            <li class="mz-nav-primary__child {% if child.items %}mz-nav-trigger{% endif %}">
+                                <a href="{{ child.url }}">{{ child.name }}</a>
+                                {% if child.items %}
+                                <div class="mz-nav-primary__mega-wrap mz-nav-target" data-mz-nav-component="category-listings">
+                                    <ul class="mz-nav-primary__grandchildren">
+                                        {% for grandchild in child.items %}
+                                        {% if not grandchild.isHidden %}
+                                        <li class="mz-nav-primary__grandchild">
+                                            <a href="{{ grandchild.url }}">{{ grandchild.name }}</a>
+                                            {% if grandchild.items %}
+                                            <ul class="mz-nav-primary__list">
+                                                {% for item in grandchild.items %}
+                                                {% if not item.isHidden %}
+                                                <li class="mz-nav-primary__item">
+                                                    <a href="{{ item.url }}">{{ item.name }}</a>
+                                                </li>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                            {% endif %}
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+
+                            {% if parent.name == "Packages" %}
+                                {% for subParent in navigation.tree %}
+                                {% if subParent.name == themeSettings.subNavName %}
+                                    
+                                    {% for child in subParent.items %}
+                                    {% if not child.isHidden %}
+                                    <li class="mz-nav-primary__child {% if child.items %}mz-nav-trigger{% endif %}">
+                                        <a href="{{ child.url }}">{{ child.name }}</a>
+                                        {% if child.items %}
+                                        <div class="mz-nav-primary__mega-wrap mz-nav-target" data-mz-nav-component="category-listings">
+                                            <ul class="mz-nav-primary__grandchildren">
+                                                {% for grandchild in child.items %}
+                                                {% if not grandchild.isHidden %}
+                                                <li class="mz-nav-primary__grandchild">
+                                                    <a href="{{ grandchild.url }}">{{ grandchild.name }}</a>
+                                                    {% if grandchild.items %}
+                                                    <ul class="mz-nav-primary__list">
+                                                        {% for item in grandchild.items %}
+                                                        {% if not item.isHidden %}
+                                                        <li class="mz-nav-primary__item">
+                                                            <a href="{{ item.url }}">{{ item.name }}</a>
+                                                        </li>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                    {% endif %}
+                                                </li>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                        {% endif %}
+                                    </li>
+                                    {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endpartial_cache %}
+                {% comment %}
+                This item needs to go at the end of the line so it can automatically resize itself.
+                {% endcomment %}
+                
+            </div>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+{% for product in Model.items %}
+<li class="bl-cart-upsell-list-item" data-mz-product="{{ product.productCode }}">
+    <div class="bl-cart-upsell-list-item-product">
+	    <div class="bl-cart-upsell-list-item-image">
+		    {% if product.content.productImages %}
+		    {% with product.content.productImages|first as productImage %}
+	        <a href="/p/{{product.content.seoFriendlyUrl}}">
+	            <img src="{{productImage.imageUrl}}?max={% block thumbnail-size %}{{ themeSettings.listProductThumbSize }}{% endblock thumbnail-size %}" alt="{{productImage.altText|default(product.content.productName)}}"/>
+	        </a>
+	        {% endwith %}
+	        {% else %}
+	            <span class="bl-cart-upsell-list-item-noimage"><span class="bl-cart-upsell-list-item-noimage-text">{{ labels.productImagePlaceholder }}</span></span>
+	        {% endif %}
+	    </div>
+	    <div class="bl-cart-upsell-list-item-title">
+        	<a class="bl-cart-upsell-list-item-title-link" href="{{product.url}}">{{product.content.productName}}</a>
+		</div>
+		<div class="bl-cart-upsell-list-item-price">
+			<span>{{labels.price}}:</span>
+		{% if product.hasPriceRange %}
+		    <span itemprop="minPrice" class="mz-pricestack-price-lower">
+		        {% include "modules/common/price" with model=product.priceRange.lower %}
+		    </span>
+		    <span itemprop="maxPrice" class="mz-pricestack-price-upper">
+		        {% include "modules/common/price" with model=product.priceRange.upper %}
+		    </span>
+	    {% else %}
+	    	{% include "modules/common/price" with model=product.price %}
+	    {% endif %}	
+		</div>
+    </div>
+    <div class="bl-cart-upsell-list-item-check">
+    	<label for="upsell-check-{{product.productCode|slugify}}">{{labels.select|default("Select Item")}}</label>
+    	<input type="checkbox" id="upsell-check-{{product.productCode|slugify}}"></input>
+    </div>
+    <div class="bl-cart-upsell-list-item-button">
+    	<button class="bl-cart-upsell-list-item-button-add" disabled data-bl-action="add-to-cart">{{labels.addToOrder|default("Add To Order")}}</button>
+    </div>
+</li>
+{% endfor %}

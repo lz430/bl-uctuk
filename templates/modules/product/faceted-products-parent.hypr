@@ -1,0 +1,85 @@
+{% comment %}
+	DUMB quickfix to get parent categories to not list category description on the DOM...
+{% endcomment %}
+
+{% preload_json model "facetedproducts" %}
+{% require_script "modules/product-quickview" %}
+
+
+
+{% if model.facets or pageModel.childrenCategories %}
+	<div class="mz-has-sidebar mz-category-page__container">
+		<div class="col-sm-3 {{ themeSettings.sidebarPosition }}">
+
+			<div class="mz-dropzone__sidebar--above-parent-categories">
+				{% dropzone "sidebar-above-parent-categories" %}
+			</div>
+
+			{% if pageModel.childrenCategories.1 and not model.facets %}
+				<div class="mz-fancy-box mz-sidebar__category-list">
+					<span class="mz-fancy-box__title mz-sidebar__parent-category-title">{{ pageModel.content.name }}</span>
+					<ul class="mz-fancy-box__content-list mz-sidebar__child-categories">
+						{% for childCat in pageModel.childrenCategories %}
+							<li class="mz-fancy-box__content-list-item mz-sidebar__child-category">
+								<a class="mz-fancy-box__content-list-link mz-sidebar__child-category-link" href="/c/{{ childCat.categoryId }}">{{ childCat.content.name }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+
+			<div class="mz-dropzone__sidebar--above-facets">
+				{% dropzone "sidebar-above-facets" %}
+			</div>
+
+			{% if model.facets %}
+				<div data-mz-facets class="mz-l-column left mz-facets-container fades-in">
+					{% include "modules/product/faceting-form" %}
+				</div>
+			{% endif %}
+
+			<div class="mz-dropzone__sidebar--below-facets">
+				{% dropzone "sidebar-below-facets" %}
+			</div>
+		</div>
+
+{% else %}
+	<div class="mz-not-has-sidebar mz-category-page__container">
+
+{% endif %}
+
+		<div class="{% if themeSettings.sidebarPosition == "left" %}right{% else %}left{% endif %} col-sm-9">
+
+			<div class="mz-category-heading-dropzone">{% dropzone "category-above-paging" %}</div>
+
+			<div class="mz-category-header__paging-controls">
+				<div data-mz-pagesort class="mz-sortby">
+					{% include "modules/common/page-sort" %}
+				</div>
+
+				<div data-mz-pagenumbers class="mz-pagenumbers">
+					{% include "modules/common/page-numbers" %}
+				</div>
+
+				<div data-mz-pagingcontrols class="mz-pagingcontrols">
+					{% include "modules/common/paging-controls" %}
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+
+			<div data-mz-productlist class="seismic-productlist">
+				{% include "modules/product/product-list-tiled" %}
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="mz-category-footer__page-numbers">
+				<div data-mz-pagenumbers class="mz-pagenumbers">
+					{% include "modules/common/page-numbers" %}
+				</div>
+			</div>
+
+		</div>
+
+	</div>

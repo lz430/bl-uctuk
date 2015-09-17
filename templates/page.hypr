@@ -1,0 +1,93 @@
+{% autoescape on %}
+{% block doctype %}
+<!doctype html>
+{% endblock doctype %}
+
+{% block open-html-tag %}
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|(!IE) ]><!-->
+<html class="no-js" lang="en">
+	<!--<![endif]-->
+	{%endblock open-html-tag %}
+
+	{% block head-tag %}
+	<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        {% include "modules/json-required-for-hyprlive" %}
+		{% block meta-tags %}
+		<meta name="description" content="{{ PageContext.MetaDescription }}" />
+		<meta name="keywords" content="{{ PageContext.MetaKeywords }}" />
+		<meta name="correlationId" content="{{ pageContext.correlationId }}" />
+		{% endblock meta-tags %}
+
+
+		{% block icons %}
+		<link rel="shortcut icon" type="image/x-icon" href="{{siteContext.cdnPrefix}}/resources/images/favicon.ico" />
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{siteContext.cdnPrefix}}/resources/images/apple-touch-icon-57x57-precomposed.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{siteContext.cdnPrefix}}/resources/images/apple-touch-icon-72x72-precomposed.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{siteContext.cdnPrefix}}/resources/images/apple-touch-icon-114x114-precomposed.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{siteContext.cdnPrefix}}/resources/images/apple-touch-icon-144x144-precomposed.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="{{siteContext.cdnPrefix}}/resources/images/apple-touch-icon.png" />
+		{% endblock icons %}
+
+		<title>{% block title-tag-content %}{{ siteContext.generalSettings.websiteName }} {% endblock title-tag-content %}</title>
+
+		{% if PageContext.FeedUrl  %}
+		<link rel="alternate" type="application/rss+xml" title="{{ PageContext.Title }}" href="{{ PageContext.FeedUrl }}" />
+		{% endif %}
+
+		{% block stylesheets %}
+		{{ "/stylesheets/storefront.less"|stylesheet_tag:"default" }}
+		{% endblock stylesheets %}
+
+		{% block head-tag-scripts %}
+		<script src="{{siteContext.cdnPrefix}}/scripts/vendor/modernizr.min.js"></script>
+		{% include "modules/web-fonts-loader" %}
+		{% include "modules/analytics/google-trusted-stores-badge" %}
+		{% endblock head-tag-scripts %}
+		{% cms_resources %}
+
+		{%header_content%}
+
+	</head>
+	{% endblock head-tag %}
+
+	{% block body-tag %}
+
+	{% block open-body-tag %}
+	<body class="{% block body-tag-classes %}{% endblock body-tag-classes %}" {%if siteContext.themeSettings.imageBackgroundEnabled%}style="background-image: url({{siteContext.themeSettings.imageBackgroundURL}});"{%else%}{%endif%}>
+	{% endblock open-body-tag %}
+	
+		<div id="bl-promo-wrapper">
+			{% dropzone "bl-promo" scope="site" %}
+		</div>
+
+		{% block page-header %}
+		{% include "modules/page-header" %}
+		{% endblock page-header %}
+		<div role="main" id="page-content" class="mz-l-pagecontent">
+
+			{% block body-content %}
+			{% dropzone "body" %}
+			{% endblock body-content %}
+			{% dropzone "body-bottom" scope="template" %}
+		</div>
+
+		{% block page-footer %}
+		{% include "modules/page-footer" %}
+		{% endblock page-footer %}
+		{% require_script "modules/sticky-header" %}
+		{% block trailing-scripts %}
+		{% include "modules/trailing-scripts" %}
+		{% endblock trailing-scripts %}
+		
+		{% visitor_tracking_pixel %}
+	</body>
+	{% endblock body-tag %}
+
+</html>
+{% endautoescape %}

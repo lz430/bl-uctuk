@@ -1,0 +1,8 @@
+﻿    <h1 class="mz-storebranding" id="store-branding">
+        <a href="/" title="{{ siteContext.generalSettings.websiteName }}">
+        	{%if siteContext.themeSettings.imageLogoEnabled%}
+        	<img alt="{{ siteContext.generalSettings.websiteName }}" src="{{siteContext.themeSettings.imageLogoURL}}" title="{{ siteContext.generalSettings.websiteName }}" alt="{{ siteContext.generalSettings.websiteName }}"/>
+        	{%else%}
+        	{{ siteContext.generalSettings.websiteName }}
+        	{%endif%}</a>
+    </h1>

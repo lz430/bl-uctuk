@@ -1,0 +1,81 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-cableGuide{% endblock body-tag-classes %}
+
+{% block title-tag-content %}{{ PageContext.MetaTitle }}{% endblock title-tag-content %}
+
+{% block body-content %}
+
+<!-- <section class="mz-body-wrap">
+	<nav class="mz-cable-nav-wrap">
+		<div>
+			<h3>Pro Audio Cable Guide</h3>
+			<div>
+				<ul>
+					<li><a href="javascript:void(0)">Insert Cables Explained</a></li>
+					<li><a href="javascript:void(0)">Speaker Cables Explained</a></li>
+					<li><a href="javascript:void(0)">Microphone Cables Explained</a></li>
+					<li><a href="javascript:void(0)">Instrument Cables Explained</a></li>
+					<li><a href="javascript:void(0)">DMX Cables Explained</a></li>
+					<li><a href="javascript:void(0)">MIDI Cables Explained</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<span class="mz-breadcrumb">Home >> Pro Audio Cable Guide >></span>
+	<main role="main" class="mz-cable-guide-wrap">
+ -->	<section class="mz-cable-guide-wrap">
+		<h1>Pro Audio Cable Guide</h1>
+		<h2>Balanced and Unbalanced Cables Defined</h2>
+		<p>Balanced electrical signals travel along 3 wires: a positive, a negative, and a ground. The positive and negative carry the same signal, just in opposite polarity to one another. Noises that may be picked up in the cable will usually be common to each leg. As long as the destination is balanced, the receiving device will flip the signal, bringing them back into polarity. This eliminates the noise by causing it to be out of phase. This is commonly referred to as Common Mode Rejection and is the primary reason balanced cables are best for long cable runs. TRS and XLR cables are made to send balanced audio from one balanced device to another balanced device. Unbalanced cables are much simpler than balanced. However, they can easily fall victim to noise issues. Unbalanced lines should be used in shorter lengths, ideally 25 foot and under. This will go a long way in reducing any noise that could be carried with the signal into your gear. Instruments, like guitars. and their users vow they can tell a difference in the tone the longer the cable gets.</p>
+		<h2>Cable Connectors</h2>
+		<p>There are six primary cable connector types in the world of Pro Audio. XLR and TRS for balanced connections; Speakon, TS, RCA, and Banana Plugs for unbalanced connections. Here is a brief overview of each:</p>
+		<div class="mz-box-grid">
+			<div>
+				<div class="mz-cell">
+					<h3>XLR<span></span></h3>
+					<p>An XLR connector has positive, negative, and ground connections.  They are primarily used for balanced line-level signals and for microphone signals.  These are commonly used for connecting mics to mixers and for hooking up various outputs to powered speakers.  <a href="javascript:void(0)">Click here to see our selection of XLR Cables.</a></p>
+					<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/cableGuide/XLR_Cable.jpg" alt="XLR cable" />
+				</div>
+			</div>
+			<div>
+				<div class="mz-cell">
+					<h3>TRS<span></span></h3>
+					<p>TRS is also referred to as Tip, Ring, Sleeve.  It has the same appearance as your standard 1/4" and 1/8" plugs.  The difference is that it has an extra ring on the plug.  TRS cables are two conductor plus a ground.  Commonly used to connect balanced equipment and for running left and right mono signals to stereo headphones.  These will also be located on Y cables for use in mixer insert jacks when the signal is sent out in one wire and comes back thru another wire. <a href="javascript:void(0)">Click here to see our selection of TRS Patch Cables.</a></p>
+					<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/cableGuide/TRS_Cable.jpg" alt="TRS cable" />
+				</div>
+			</div>
+			<div>
+				<div class="mz-cell">
+					<h3>Speakon<span></span></h3>
+					<p>Speakon connectors are used to carry amplified signals.  They are most commonly used to connect power amplifiers to PA speakers,  Monitors, and Subwoofers in studio or on stage.  They have a unique locking feature that tend to make them a more attractive option than the 1/4" TS connection.  It should be noted that is recommended to never use an instrument cable to connect an amplifier to a speaker.  <a href="javascript:void(0)">Click here to visit our selection of Speakon Cables.</a></p>
+					<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/cableGuide/Speakon.jpg" alt="Speakon" />
+				</div>
+			</div>
+			<div>
+				<div class="mz-cell">
+					<h3>TS<span></span></h3>
+					<p>TS is also referred to as Tip, Sleeve.  It is the universal name for specific type of 1/8" or 1/4" connector meant for a two conductor unbalanced operation. Only one insulator ring separates the tip and the sleeve.  The tip carries the signal and the sleeve is where the ground is connected.  These cables are best used as guitar or line level instrument cables.  <a href="javascript:void(0)">Click here to visit our selection of TS Patch Cables.</a></p>
+					<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/cableGuide/TS_Cable.jpg" alt="TS cable" />
+				</div>
+			</div>
+			<div>
+				<div class="mz-cell">
+					<h3>Banana Plugs<span></span></h3>
+					<p>Banana plugs are an electrical conductor made to connect audio wires (speaker wires) to the binding posts on the back of power amplifiers, speakers, or simply to a banana jack.  These banana jacks are most often found at the end of a binding post receptacle on power amplifiers and some speakers.  <a href="javascript:void(0)">Click here to see our selection of Banana Patch Cables.</a></p>
+					<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/cableGuide/Banana_Plugs.jpg" alt="Banana Plugs" />
+				</div>
+			</div>
+			<div>
+				<div class="mz-cell">
+					<h3>RCA<span></span></h3>
+					<p>RCA is the term most commonly used when referring to phono connectors used to connect consumer stereo gear.  You will usually see CD outputs or inputs using these RCA connections.  RCA connectors are also used in the digital audio world for connections such as S/PDIF, but are still a staple in the pro audio world.  <a href="javascript:void(0)">Click here to visit our selection of RCA Patch Cables.</a></p>
+					<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/cableGuide/RCA_Cable.jpg" alt="RCA cable" />
+				</div>
+			</div>
+		</div>
+		<p>Hopefully, this article clarifies any questions you may have had about the most common connectors used in the Pro Audio Industry.  If not, please feel free to Contact our Technicians and we will be more than happy to assist you in any and every way we can!  Make the shift to Seismic Audio quality and affordability, give us a call today!</p>
+<!-- 	</main>
+ --> </section>
+
+{% endblock body-content %}

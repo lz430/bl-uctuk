@@ -1,0 +1,20 @@
+﻿.mz-l-pagewrapper {
+    > * {
+        .clearfix();
+    }
+    
+    margin: 0 auto;
+    max-width: @bodyMaxWidth;
+    
+    @media only screen {
+      @media (max-width: @tabletThreshold) {
+        max-width: @tabletThreshold;
+        padding: 0;
+      }
+      
+      @media (max-width: @mobileThreshold) {
+        max-width: @mobileThreshold;
+        padding: 0;
+      }
+    }
+}

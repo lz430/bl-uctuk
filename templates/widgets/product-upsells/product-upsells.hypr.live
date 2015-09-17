@@ -1,0 +1,18 @@
+{% require_script "widgets/related-products" %}
+
+		<div class="mz-product-carousel mz-product-upsell" style="display: none;">
+            <div class="panel panel-product">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ model.config.title }}
+					            {% if model.config.carouselTitleLink %}
+			            <a class="mz-product-carousel__title-link mz-button gold" href="{{ model.config.carouselTitleLink }}">{{ model.config.carouselTitleLinkText }}</a>
+			            {% endif %}
+		            </h2>
+                </div>
+                <div class="panel-body panel-border-bottom-none">
+		        <div data-mz-upsells="{% json_attribute model.config %}">
+			        {% include "widgets/product-upsells/product-upsells-list" %}
+		        </div>
+		    </div>
+        </div>
+    </div>

@@ -1,0 +1,80 @@
+<div class="mz-soft-cart" data-mz-role="soft-cart" data-mz-action="show-soft-cart">
+	<div class="mz-soft-cart__icon">
+		<i class="icon icon-shopping-cart"></i>
+
+		{% if count > 0 %}
+			<div class="mz-soft-cart__item-count__wrapper">
+				<span class="mz-soft-cart__item-count">
+					{% comment %}
+						{% if count >= 1000 %}
+							{{ count|divide(1000) }}K
+						{% else %}
+					{% endcomment %}
+						{{ count }}
+					{% comment %}
+						{% endif %}
+					{% endcomment %}
+				</span>
+			</div>
+		{% endif %}
+	</div>
+	<!-- endif -->
+
+	<div class="mz-soft-cart__links">
+		<a href="/cart/" class="mz-soft-cart__view-cart-link">
+			<span class="mz-soft-cart__link-text">
+				View Cart
+			</span>
+		</a>
+
+		<a href="/checkout/" class="mz-soft-cart__checkout-link">
+			Proceed to Checkout &raquo;
+		</a>
+	</div>
+
+	{% if model.items %}
+		<div class="mz-soft-cart__list-wrap">
+			<ul class="mz-soft-cart__list">
+				{% for item in model.items %}
+					<li class="mz-soft-cart__item">
+
+						<div class="mz-soft-cart__thumb">
+							<a class="mz-soft-cart__item-link" href="/product/{{ item.ProductCode }}">
+								<img src="http://placehold.it/50&text=THUMB" alt="{{ item.product.name }}">
+								<!-- <img src="{{ item.imagePath }}?size=60" alt="{{ item.product.name }}"> -->
+							</a>
+						</div>
+
+						<div class="mz-soft-cart__item-details">
+							<a href="/product/{{ item.product.productCode }}" class="mz-soft-cart__item-title">{{ item.product.name }}</a>
+
+							<dl>
+								<dt>Qty:</dt>
+								<dd>{{ item.quantity }}</dd>
+
+								<dt>Price:</dt>
+								<dd class="mz-price">
+									{% if item.priceIsModified %}
+										{{ item.unitPrice.discountedAmount|currency }}
+									{% else %}
+										{{ item.unitPrice.baseAmount|currency }}
+									{% endif %}
+								</dd>
+							</dl>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+
+			<div class="mz-soft-cart__total">
+				<span class="mz-key">Total:</span>
+				<span class="mz-value">{{ value.discountedTotal|currency }}</span>
+			</div>
+
+			<button class="mz-soft-cart__checkout-btn" data-mz-action="proceedToCheckout" {% if model.isEmpty %}disabled{% endif %}>
+				Checkout
+				<i class="icon icon-angle-right"></i>
+			</button>
+		</div>
+	{% endif %}
+</div>

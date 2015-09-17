@@ -1,0 +1,53 @@
+  <div class="mz-home-promo__container">
+    <div class="mz-home-promo__wrapper">
+      <div class="mz-home-promo__title mz-fancy-title blue mz-fancy-title__link-container">
+        <i class="mz-fancy-title__icon icon icon-youtube-square"></i>
+        <span class="mz-fancy-title__text">{{labels.widgetTitle_videoFeedPanel}}</span>
+      </div>
+
+      <div class="mz-home-promo__content-container">
+        <ul class="mz-home-promo__content">
+          <li class="mz-home-promo__list-item">
+            <img class="mz-home-feedlist__video-thumb" src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-dummy-video.png" alt="">
+            <a href="/testing" class="mz-home-feedlist__video-link">Seismic Audio Enforcer II PW - 18" Powered Subwoofer (Official)</a>
+          </li>
+
+          <li class="mz-home-promo__list-item">
+            <img class="mz-home-feedlist__video-thumb" src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-dummy-video.png" alt="">
+            <a href="/testing" class="mz-home-feedlist__video-link">Seismic Audio Enforcer II PW - 18" Powered Subwoofer (Official)</a>
+          </li>
+
+          <li class="mz-home-promo__list-item">
+            <img class="mz-home-feedlist__video-thumb" src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-dummy-video.png" alt="">
+            <a href="/testing" class="mz-home-feedlist__video-link">Seismic Audio Enforcer II PW - 18" Powered Subwoofer (Official)</a>
+          </li>
+
+          <li class="mz-home-promo__list-item">
+            <img class="mz-home-feedlist__video-thumb" src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-dummy-video.png" alt="">
+            <a href="/testing" class="mz-home-feedlist__video-link">Seismic Audio Enforcer II PW - 18" Powered Subwoofer (Official)</a>
+          </li>
+
+          <li class="mz-home-promo__list-item">
+            <img class="mz-home-feedlist__video-thumb" src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-dummy-video.png" alt="">
+            <a href="/testing" class="mz-home-feedlist__video-link">Seismic Audio Enforcer II PW - 18" Powered Subwoofer (Official)</a>
+          </li>
+
+          <li class="mz-home-promo__list-item">
+            <img class="mz-home-feedlist__video-thumb" src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-dummy-video.png" alt="">
+            <a href="/testing" class="mz-home-feedlist__video-link">Seismic Audio Enforcer II PW - 18" Powered Subwoofer (Official)</a>
+          </li>
+
+          <li class="mz-home-promo__list-item">
+            <img class="mz-home-feedlist__video-thumb" src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-dummy-video.png" alt="">
+            <a href="/testing" class="mz-home-feedlist__video-link">Seismic Audio Enforcer II PW - 18" Powered Subwoofer (Official)</a>
+          </li>
+
+          <li class="mz-home-promo__list-item">
+            <img class="mz-home-feedlist__video-thumb" src="{{ siteContext.cdnPrefix }}/resources/images/homepage/home-dummy-video.png" alt="">
+            <a href="/testing" class="mz-home-feedlist__video-link">Seismic Audio Enforcer II PW - 18" Powered Subwoofer (Official)</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>

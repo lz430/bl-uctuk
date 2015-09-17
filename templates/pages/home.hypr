@@ -1,0 +1,105 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-homepage{% endblock body-tag-classes %}
+{% block breadcrumbs %}{% endblock breadcrumbs %}
+
+{% block body-content %}
+<div id="homepage_hero">
+	{% dropzone "bl-hero" scope="template" %}
+</div>
+
+
+<!-- Products -->
+<div id="products-wrapper">
+	<div class="products-container">
+		<div class="irish-claddagh">
+			<div class="h1-container"><h1>Discover Our Unique Collections <span>A variety of styles from around the world in both <br> traditional and contemporary designs to fit every taste. </span></h1></div>
+			<div class="product-irish-container">
+				{% dropzone "bl-claddaghs" scope="template" %}
+			</div>
+		</div>
+		<div class="popular-claddagh popular-womens">
+			<h2><span>Most Popular</span> <br />Women's Rings</h2>
+			<div class="product-slider">
+				{% dropzone "bl-product-slider-1" scope="template" %}
+			</div>
+		</div>
+		<div class="popular-claddagh popular-mens">
+			<h2><span>Most Popular</span> <br />Men's Rings</h2>
+			<div class="product-slider">
+				{% dropzone "bl-product-slider-2" scope="template" %}
+			</div>
+		</div>
+		<div class="popular-claddagh popular-wedding">
+			<h2><span>Most Popular</span> <br />Wedding &amp; Engagement Rings</h2>
+			<div class="product-slider">
+				{% dropzone "bl-product-slider-3" scope="template" %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Why CladdaghRing.com -->
+<div id="why-claddagh-wrapper">
+	<div class="why-claddagh">
+		{% dropzone "bl-why-claddagh" scope="template" %}
+	</div>
+</div>
+
+<!-- Claddagh Meaning/Misspelling -->
+<div id="claddagh-meaning-wrapper">
+	<div class="claddagh-meaning">
+		{% dropzone "bl-claddagh-meaning" scope="template" %}
+	</div>
+</div>
+<br class="clear" />
+
+<!-- Social Feed -->
+<div id="social-feed">
+	<div id="social-facebook">
+		<h4>Facebook</h4>
+		<script>
+		  window.fbAsyncInit = function() {
+			FB.init({
+			  appId      : 'your-app-id',
+			  xfbml      : true,
+			  version    : 'v2.1'
+			});
+		  };
+
+		  (function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<div class="fb-like-box" data-href="https://www.facebook.com/pages/claddaghRINGcom/177470457590" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+	</div>
+	<div id="social-twitter">
+		<h4>Twitter</h4>
+			 <a class="twitter-timeline" href="https://twitter.com/Uctukllc" data-widget-id="553281589376208896" data-link-color="#7fa147" data-chrome="noheader nofooter noborders transparent" data-tweet-limit="2">Tweets by @Uctukllc</a>
+			 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+	<div id="social-testimonials">
+		<h4>Satisfied Customers</h4>
+		{% dropzone "bl-testimonial" scope="template" %}
+	</div>
+	<br class="clear" />
+</div>
+
+<!-- Sister Sites -->
+<div id="sister-sites">
+	{% dropzone "bl-sister-sites" scope="template" %}
+	<br class="clear" />
+</div>
+{% endblock body-content %}

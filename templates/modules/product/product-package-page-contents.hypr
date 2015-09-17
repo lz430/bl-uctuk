@@ -1,0 +1,10 @@
+{% extends "modules/product/product-page-contents" %}
+
+{% block product-page-properties %}
+{% parent %}
+            <section class="mz-product__properties mz-product__properties--bundled">
+              <h3>Bundled Product Specifications</h3>
+              <div id="bundled-product-properties" class="mz-product__properties__wrapper is-notloaded">
+              </div>
+            </section>
+{% endblock product-page-properties %}

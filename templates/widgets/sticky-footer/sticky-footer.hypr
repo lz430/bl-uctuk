@@ -1,0 +1,44 @@
+{% if themeSettings.disableStickyFooter != true %}
+	<div class="mz-sticky-footer" data-mz-widget="sticky-footer">
+		<div class="mz-sticky-footer__wrapper">
+			<div class="mz-sticky-footer__container">
+
+
+				<div class="mz-sticky-footer__block mz-sticky-footer__live-chat">
+					<a class="mz-sticky-footer__block-link mz-sticky-footer__live-chat-link" onclick="return VolusionChat.startLink();" data-mz-live-chat-button>
+						<img data-mz-chat-state data-mz-online-image="https:{{ siteContext.cdnPrefix }}/resources/images/livechat/sticky-online.png" data-mz-offline-image="https:{{ siteContext.cdnPrefix }}/resources/images/livechat/sticky-offline.png" src="{{ siteContext.cdnPrefix}}/resources/images/livechat/sticky-offline.png" alt="Contact us">
+					</a>
+				</div>
+
+				<div class="mz-sticky-footer__block mz-sticky-footer__deal-of-the-day">
+					<a class="mz-sticky-footer__block-link" href="/deal-of-the-day">
+						<img src="{{ siteContext.cdnPrefix }}/resources/images/stickyfooter/sticky-footer-dotd.png" alt="">
+					</a>
+				</div>
+
+
+				<div class="mz-sticky-footer__block mz-sticky-footer__email-signup">
+					<div class="email-form-title">Sign up for emails and get 10% off!</div>
+					{% include "modules/mailing-list-form" %}
+				</div>
+
+
+				<div class="mz-sticky-footer__block mz-sticky-footer__social-links">
+					<div class="social-links-title">Follow Seismic Audio</div>
+					{% include "modules/social-links" %}
+				</div>
+
+
+				<div class="mz-sticky-footer__block mz-sticky-footer__dropzone">
+					{% dropzone "sticky-footer-right" scope="site" %}
+					{% comment %}
+						<a class="mz-sticky-footer__block-link" href="/search?query=sax">
+							<img src="{{ siteContext.cdnPrefix }}/resources/images/stickyfooter/sticky-footer-x-series.png" alt="">
+						</a>					
+					{% endcomment %}
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endif %}

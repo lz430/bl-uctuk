@@ -1,0 +1,22 @@
+<div class="bl-collapsible-block" style="
+border-color:{{Model.config.blockBorderColor}};
+border-style:{{Model.config.blockBorderStyle|default:'solid'}};
+border-width:{%if Model.config.blockBorderType == "None"%}0px{%endif%}{%if Model.config.blockBorderType == "Box"%}1px{%endif%}{%if Model.config.blockBorderType == "Double Line"%}1px 0px{%endif%}{%if Model.config.blockBorderType == "Bottom Line"%}0px 0px 1px{%endif%};
+">
+	<input id="{{Model.id}}" type="checkbox" class="bl-collapsible-block-toggle" {%if Model.config.defaultCollapsed%}checked="checked"{%endif%}/>
+	<label for="{{Model.id}}" class="bl-collapsible-block-icon" style="
+background-color:{{Model.config.titleBackgroundColor}};
+color:{{Model.config.titleColor}};
+border-color:{{Model.config.titleBorderColor}};
+border-style:{{Model.config.titleBorderStyle|default:'solid'}};
+border-width:{%if Model.config.titleBorderType == "None"%}0px{%endif%}{%if Model.config.titleBorderType == "Double Line"%}1px 0px{%endif%}{%if Model.config.titleBorderType == "Bottom Line"%}0px 0px 1px{%endif%};
+">
+    	<span class="bl-collapsible-block-title">{{Model.config.title|default:'Add Title Here'|safe}}</span>
+    </label>
+    <div class="bl-collapsible-block-content" style="background-color:{{Model.config.contentBackgroundColor}};">
+    	<div class="bl-collapsible-block-content-inner">
+			{{Model.config.content|default_edit:'add content here'|safe}}
+		</div>
+    </div>
+</div>
+{% require_script "widgets/collapsible-block" %}

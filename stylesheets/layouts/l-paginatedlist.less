@@ -1,0 +1,33 @@
+﻿.mz-l-paginatedlist {
+    overflow: auto;
+    
+    .mz-pagingcontrols, .mz-pagenumbers {
+        float: right;
+        text-align: right;
+        clear: both;
+        margin: 0 0 @gutter/3 0;
+    }
+    
+    .bl-pagingcontrols-top {
+      border-top: @genericBorder;
+      border-bottom: @genericBorder;
+      display: inline-block;
+      width: 100%;
+    
+      .mz-pagingcontrols, .mz-pagenumbers {
+        clear: none;
+      }
+      .mz-pagingcontrols {
+        float: left;
+      }
+      .mz-pagenumbers {
+        padding-top: @fontSize;
+      }
+    }
+    .mz-l-tiles {
+        clear: both;
+    }
+    .mz-l-paginatedlist-list {
+        clear: both;
+    }
+}

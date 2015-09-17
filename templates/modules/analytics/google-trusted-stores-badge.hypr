@@ -1,0 +1,20 @@
+{% if siteContext.themeSettings.isGoogleTrustedStoreEnabled %}
+<!-- BEGIN: Google Trusted Stores -->
+<script type="text/javascript">
+	var gts = gts || [];
+
+	gts.push(["id", "{{siteContext.themeSettings.googleTrustedStoreId|escapejs}}"]);
+	gts.push(["badge_position", "{{siteContext.themeSettings.googleTrustedStoreBadgePosition|escapejs}}"]);
+	gts.push(["locale", "en_US"]);
+
+	(function() {
+		var gts = document.createElement("script");
+		gts.type = "text/javascript";
+		gts.async = true;
+		gts.src = "https://www.googlecommerce.com/trustedstores/api/js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(gts, s);
+	})();
+</script>
+<!-- END: Google Trusted Stores -->
+{% endif %}

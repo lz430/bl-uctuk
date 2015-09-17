@@ -1,0 +1,117 @@
+﻿@bodyMaxWidth:  {{ themeSettings.bodyMaxWidth }};
+@bodyBackgroundColor:   {{ themeSettings.bodyBackgroundColor }};
+
+@tabletThreshold: 979px; /*768*/
+@mobileThreshold: 767px; /*480*/
+@checkoutThreshold: 600px; 
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `@screen-xs` as of v3.0.1
+@screen-xs:                  480px;
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min:              @screen-xs;
+//** Deprecated `@screen-phone` as of v3.0.1
+@screen-phone:               @screen-xs-min;
+
+// Small screen / tablet
+//** Deprecated `@screen-sm` as of v3.0.1
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+//** Deprecated `@screen-tablet` as of v3.0.1
+@screen-tablet:              @screen-sm-min;
+
+// Medium screen / desktop
+//** Deprecated `@screen-md` as of v3.0.1
+@screen-md:                  980px;
+@screen-md-min:              @screen-md;
+//** Deprecated `@screen-desktop` as of v3.0.1
+@screen-desktop:             @screen-md-min;
+
+// Large screen / wide desktop
+//** Deprecated `@screen-lg` as of v3.0.1
+@screen-lg:                  1200px;
+@screen-lg-min:              @screen-lg;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-lg-desktop:          @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+
+@pageHeaderColor: #eeeeee;
+@pageHeaderHeight: {{ themeSettings.pageHeaderHeight }};
+
+@navHeight: 37px;
+@navBackgroundColor: {{ themeSettings.navBackgroundColor }};
+@navBackgroundHoverColor: {{ themeSettings.navBackgroundHoverColor }};
+@navColor: {{ themeSettings.navColor }};
+@navHoverColor: {{ themeSettings.navHoverColor }};
+@navIconHeight: 46px;
+@navIconWidth: 40px;
+@subNavBackgroundColor: {{ themeSettings.subNavBackgroundColor }};
+@mobileNavBackgroundColor: {{ themeSettings.mobileNavBackgroundColor }};
+@maxTopLevelNavItems: {{ themeSettings.maxTopLevelNavItems }};
+
+@fontFamily:            "{{ themeSettings.primaryFont }}", {{ themeSettings.fallbackFontFamily }};
+@secondaryFontFamily:   sans-serif;
+
+@fontSize:              {{ themeSettings.fontSize }};
+@fontSizeMinusOne:      @fontSize - 1px;
+@fontSizeSmall:         @fontSize - 2px;
+
+@fontSizePlusOne:       @fontSize + 1px;
+@fontSizeLarger:        @fontSize + 2px;
+@fontSizePlusThree:     @fontSize + 3px;
+@fontSizePlusFour:      @fontSize + 4px;
+@fontSizePlusFive:      @fontSize + 5px;
+@fontSizeLarge:         @fontSize + 6px;
+@fontSizePlusEight:     @fontSize + 8px;
+
+@textColor:             {{ themeSettings.textColor }};
+@linkColor:             #916f4d;
+@linkHoverColor:        #3e3a38;
+@linkVisitedColor:      #916f4d;
+@errorText:             #734c46;
+@errorBackground:       #ffddd6;
+@warningText:           @textColor;
+@warningBackground:     #fff0bf;
+@successText:           @textColor;
+@successBackground:     #e5fdd4;
+
+@availableText:         #237e0e;
+@unavailableText:       #ae1231;
+
+@errorIcon:       "/resources/images/error-exclamation.png";
+@errorBorder:           darken(spin(@errorBackground, -10), 3%);
+@successBorder:         darken(spin(@successBackground, -10), 3%);
+@warningBorder:         darken(spin(@warningBackground, -10), 3%);
+
+@columnWidth-2col:    435px;
+@gutter:        {{themeSettings.gutterWidth}};
+@inputBorder:     #cbcbcb;
+@genericBorderColor: #e3e3e3;
+@genericBorder: 1px solid @genericBorderColor;
+
+@defaultTileHeight:            228px;
+@defaultTileWidth:             228px;
+@productTileHeight:            311px;
+@productTileWidth:             33.3%;
+
+@addressTileHeight:            240px;
+@addressTileWidth:             @defaultTileWidth;
+@productImagesContainerWidth:  {{ themeSettings.productImagesContainerWidth }}px;
+@productListingThumbSize: {{ themeSettings.listProductThumbSize }}px;
+
+@orderDetailWidth:      200px;
+@itemListingThumbSize:  {{ themeSettings.itemListingThumbSize }}px;
+
+//Widget stuff
+@lightboxOverlayColor: #eeeeee;
+@iconExpandURL:     "../resources/images/expand.png";
+@iconCollapseURL:   "../resources/images/collapse.png";

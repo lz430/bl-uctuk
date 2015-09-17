@@ -1,0 +1,97 @@
+{% extends "page" %}
+
+{% block body-tag-classes %}mz-shopSeismic{% endblock body-tag-classes %}
+
+{% block title-tag-content %}
+		{{ PageContext.MetaTitle }}
+{% endblock title-tag-content %}
+
+{% block body-content %}
+
+<section class="mz-shop-seismic-wrap">
+	<h1>Who shops at Seismic Audio?</h1>
+	<div class="mz-ads">
+		<div style="width: 69.5%; margin: 0 1% 0 0"></div>
+		<div style="width: 29.5%"></div>
+	</div>
+	<div class="mz-intro-text">
+		<h2>Who shops at Seismic Audio?</h2>
+		<p>The customers who shop at Seismic Audio Speakers range from first time musicians to professionals who have been playing for years. Seismic Audio Speakers caters to a wide range of industries and business professionals including Disc Jockeys. We have a great selection of DJ gear that's high quality and great for weddings, graduations, and other large parties. We are also very popular with church communities! Our audio speakers and equipment are ideal for groups who are looking for great sounding audio equipment on a budget. Whether you are a gigging musician, audio installer, guitar player, drummer or singer, you're going to sound great with help from Seismic Audio Speakers. The range of customers at Seismic Audio Speakers is as wide as the range of sound our great sounding speakers put out!</p>
+	</div>
+	<div class="mz-box-grid">
+		<div>
+			<div class="mz-cell">
+				<h3>The DJ</h3>
+				<p>As a DJ, your job is to keep the beats groovin' and the crowd dancin', and Seismic Audio has the equipment you need to do the job right. For the low end, we offer several different models of 18" subwoofers, both passive and active. For the highs, our FL Series and our T Series are a favorite among DJ's.</p>
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/shopSeismic/dj.jpg" alt="DJ Image" />
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>The Gigging Musician</h3>
+				<p>Being a gigging musician is tough... lots of hard work, travel expenses, usually for not much pay! Seismic Audio understands that, and that's why we offer our equipment at the lowest possible prices. Portability is sometimes an issue, and guitarists and bassists alike, will love the wide assortment of guitar cabinets and bass cabinets. Ranging from our 1x12" to our full stack 4x12" guitar cabs. If you are playing a small coffee house or a large arena, Seismic Audio has the equipment for you.</p>
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/shopSeismic/dj.jpg" alt="DJ Image" />
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>The Church</h3>
+				<p>More and more churches these days seem to be upgrading their sound systems so they can deliver their messages loud and clear. The Seismic Audio Arctic Series was designed exactly for this type of application. We have everything you need to make your house of worship sound great. From floor monitors to subwoofers, snake cables to microphones... we got you covered.</p>
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/shopSeismic/dj.jpg" alt="DJ Image" />
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>The Installer</h3>
+				<p>If you are installing sound systems, it requires several different connectors and cables. We offer several configurations of snake cables to fit your install. Need custom length cables? We have raw wire and all types of xlr, speakon, 1/4", and banana plugs for you to build exactly what you need.</p>
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/shopSeismic/dj.jpg" alt="DJ Image" />
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>The Karaoke DJ</h3>
+				<p>Karaoke is a huge industry and you have to keep up with your competition if you want to get those gigs. People who karaoke want to sound as good as possible (though sometimes nothing can help them!!!). We have a wide assortment of floor monitors from 8", 10", 12", and 15" so you can get exactly what you need. Our FL Series mains and monitors will ensure the best possible sound.</p>
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/shopSeismic/dj.jpg" alt="DJ Image" />
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>The Guitar Player</h3>
+				<p>Most guitarists are very picky about their tone. Always trying different speakers, cabinets, effects, etc... We offer empty 12" cabinets in 1x12" and 2x12" in several different colors and designs that allow the player to experiment with different speakers til' they have the "perfect" sound. If you don't want to do that, we also sell loaded cabinets from 2x12" to 4x12". Blues man or rocker, we have something for you.</p>
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/shopSeismic/dj.jpg" alt="DJ Image" />
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>The Drummer</h3>
+				<p>Drums are loud, period. Being a drummer, its sometimes tough to hear the rest of the band. Our FL Series 15" floor monitors will cut through the mix and help keep you in the groove. For larger venues add a 18" Subwoofer along with a 15" so you can feel the low end from the kick drum and the bass guitar.</p>
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/shopSeismic/dj.jpg" alt="DJ Image" />
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell">
+				<h3>The Singer</h3>
+				<p>Singers have to hear themselves on stage (in most cases, they always want more!!!) Seismic Audio has two different style microphones to help them out. Not only is a quality microphone helpful, good floor monitors are a must! For smaller acoustic type gigs, the M Series may be just what you need. For louder situations, the T Series or the FL Series is the better choice. Ranging in sizes 10", 12", and 15", with a titanium tweeter... they are sure to do the job.</p>
+				<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/shopSeismic/dj.jpg" alt="DJ Image" />
+			</div>
+		</div>
+		<div>
+			<div class="mz-cell mz-review">
+				<h3 style="background: #018af7 url('{{ siteContext.cdnPrefix }}/resources/images/pages/common/siren.png') no-repeat 10px 13px;">Customer Reviews</h3>
+				<div class="mz-review-content">
+					<p>"I have never heard of your company. Are your products good?"</p>
+					<p>Seismic Audio has been providing professional audio products at dealer costs since 2000. We do not have dealers or affiliates in an effort to keep our prices low for the musician and house of worship that is low in funds. We have received stellar reviews on all of our products and continue to provide outstanding customer support with our 1 year warranty and our 30 day return policy.</p>
+					<div class="mz-facebook-invite">
+						<div class="mz-facebook-message" >
+							<img src="{{ siteContext.cdnPrefix }}/resources/images/pages/common/facebook.png" />
+							<p>Join our 1000's of satisfied</p>
+							<p>customers on Facebook >></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock body-content %}

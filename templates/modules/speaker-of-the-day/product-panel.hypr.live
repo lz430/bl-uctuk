@@ -1,0 +1,72 @@
+<h1 class="mz-home-speaker__title">{%spaceless%}
+{% if model.hasDeal %}
+    <span class="mz-home-speaker__title__label">{{labels.todaysDeal}}:</span>
+{% else %}
+    <span class="mz-home-speaker__title__label">{{labels.todaysDealSoldOut}}: </span>
+{% endif %}
+<span>{{model.content.productName}}</span>
+{%endspaceless%}</h1>
+<div class="mz-home-speaker__wrapper" data-mz-product="{{ model.productCode }}">
+    <div class="mz-home-speaker__price-box">
+        {% include "modules/speaker-of-the-day/deal-panel" with model %}
+    </div>
+    <div class="mz-home-speaker__product-image">
+        <img class="img-responsive" alt="" src="{{model.mainImage.imageUrl}}" title="model.productName">
+    </div>
+    <div class="mz-home-speaker__product-info">
+        <div class="mz-home-speaker__quantity-form">
+            <label for="select-quantity">{{labels.quantity}}: </label>
+            <div class="select-style">
+                <select id="select-quantity">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <button id="add-to-cart" class="mz-home-speaker__btn-buy" data-mz-action="addToCart">
+                Buy Now
+            </button>
+        </div>
+        <a href="/shipping-policy" class="mz-home-speaker__btn-ship hidden-xs"> <span class="icon icon-truck"></span> {% if model.nextDay %}{{labels.freeSameDayShippingNextDay}}{% else %}{{labels.freeSameDayShipping}}{% endif %}<span class="icon icon-caret-right"></span> </a>
+        <div class="mz-home-speaker__btn-ship visible-xs">
+            <span>{{labels.freeSameDayShipping}}</span>
+            <a href="/shipping-policy">Details</a>
+            <span class="icon icon-caret-right"></span>
+        </div>
+        <div class="mz-home-speaker__social-box">
+            <strong class="social-box__label">{{labels.shareThisDeal}}:</strong>
+            {% include "modules/social-links" %}
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="mz-home-speaker__product-description">
+    <div class="mz-home-speaker__desc-box-holder">
+        <div class="mz-home-speaker__desc-box pull-left">
+            <div class="mz-home-speaker__description">
+                <h2 data-state-active="xs sm" data-state-key="product-description|main|toggle">{{labels.fullDesc}}</h2>
+                <div data-state-active="md lg" data-state-content="product-description|main">
+                    <p>
+                        {{model.content.productShortDescription|safe}}
+                    </p>
+                    <a class="mz-home-speaker__btn-more" href="/p/{{model.productCode}}">{{labels.moreTechSpecs}}</a>
+                    <div class="mz-home-speaker__description">
+                        {% dropzone "home-speaker-description-area" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if model.getSpecsCount %}
+        <div class="mz-home-speaker__desc-box pull-right">
+            <div class="mz-home-speaker__speclist">
+                {% include "modules/speaker-of-the-day/spec-panel" %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="mz-home-speaker__bottom">
+        {% dropzone "home-speaker-bottom-area" %}
+    </div>
+</div>

@@ -1,0 +1,5 @@
+{% extends "pages/blank-page" %}
+{% block body-content %}
+	{% require_script "modules/product-quickview" %}
+	{% parent %}
+{% endblock body-content %}

@@ -1,0 +1,20 @@
+<div id="bl-quick-view-setup">
+	{% require_script "widgets/quick-view/quick-view" %}
+	{% preload_json model "blQuickView" %}
+	{% if PageContext.isEditMode %}
+		{% require_script "widgets/quick-view/configure" %}
+	{% endif %}
+</div>
+<div class="bl-quick-view-lightbox">
+	<div class="bl-quick-view-lightbox-overlay" data-bl-action="iz-close-lb"></div>
+	
+	<div class="bl-quick-view-lightbox-content">
+		<div class="bl-quick-view-lightbox-close">
+			<button  data-bl-action="iz-close-lb">Close</button>
+		</div>
+		<div class="bl-quick-view-lightbox-content-inner"></div>
+		
+	</div>
+		
+	
+</div>

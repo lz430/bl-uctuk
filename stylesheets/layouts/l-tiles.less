@@ -1,0 +1,32 @@
+﻿.mz-l-tiles {
+    padding: 0px;
+    margin: 0px;
+    font-size: 0px;
+    text-align: justify;
+    text-justify: distribute-all-lines; /* distribute items in IE */
+    list-style-type: none;
+    
+    > * {
+        margin: 0px 0px @gutter/2 0px;
+        font-size: @fontSize;
+        display: inline-block;
+        vertical-align: top;
+        min-height: @defaultTileHeight;
+        width: @defaultTileWidth;
+    }
+    
+}
+
+@media only screen {      
+  @media (max-width: @tabletThreshold) {
+    .mz-l-tiles > * {
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: @mobileThreshold) {
+    .mz-l-tiles > * {
+      width: 100%;
+    }
+  }
+}

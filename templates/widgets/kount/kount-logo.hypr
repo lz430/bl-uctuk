@@ -1,0 +1,3 @@
+<iframe width=1 height=1 frameborder=0 scrolling=no src={{ model.config.tenantUrl }}/logo.htm?s={{ pageModel.id }}&m={{ model.config.merchantId }}&t={{ pageModel.tenantId }}&si={{ pageModel.siteId }}>
+    <img width=1 height=1 src={{ model.config.tenantUrl }}/logo.htm?s={{ pageModel.Id }}&m={{ model.config.merchantId }}&t={{ pageModel.tenantId }}&si={{ pageModel.siteId }}>
+</iframe>

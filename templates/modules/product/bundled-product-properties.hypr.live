@@ -1,0 +1,23 @@
+{% for product in model.bundledProducts %}
+{% if product.properties %}
+<h4 class="mz-product-name">{{ product.content.productName }}</h4>
+<table class="mz-product__specs">
+  {% for property in product.properties %}
+    {% if not property.isEmpty and not property.isHidden and property.attributeFQN != "tenant~product-crosssell" and property.attributeFQN != "tenant~product-upsell" %}
+      <tr>
+        <td class="mz-key">{{ property.attributeDetail.name }}</td>
+        <td class="mz-value">
+          {% for v in property.values %}
+            {% if v.stringValue %}
+              <div class="mz-property">{{ v.stringValue|safe }}</div>
+            {% else %}
+              <div class="mz-property">{{ v.value|safe }}</div>
+            {% endif %}
+          {% endfor %}
+        </td>
+      </tr>
+    {% endif %}
+  {% endfor %}
+</table>
+{% endif %}
+{% endfor %}

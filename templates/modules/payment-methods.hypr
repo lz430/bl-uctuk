@@ -1,0 +1,7 @@
+<ul class="mz-payment-methods hidden-xs">
+	<li><img src="{{ siteContext.cdnPrefix }}/resources/images/cards/visa.png" alt="Visa"></li>
+	<li><img src="{{ siteContext.cdnPrefix }}/resources/images/cards/mastercard.png" alt="MasterCard"></li>
+	<li><img src="{{ siteContext.cdnPrefix }}/resources/images/cards/discover.png" alt="Discover"></li>
+	<li><img src="{{ siteContext.cdnPrefix }}/resources/images/cards/amex.png" alt="American Express"></li>
+	<li><img src="{{ siteContext.cdnPrefix }}/resources/images/cards/paypal.png" alt="PayPal"></li>
+</ul>

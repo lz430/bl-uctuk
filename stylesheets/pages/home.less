@@ -1,0 +1,118 @@
+.mz-home .mz-site-header {
+	margin-bottom: 0;
+}
+
+.mz-site-title {
+	display: none;
+}
+
+.mz-home {
+	padding: 0;
+	width: 100%;
+}
+
+	.mz-home__row {
+		padding-top: 50%;
+		position: relative;
+		width: 100%;
+	}
+
+		.mz-home__row--hero {
+			padding-top: 45.833333%;
+		}
+
+	.mz-home__cell {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.mz-home__promo {
+		display: block;
+		float: left;
+		overflow: hidden;
+		position: relative;
+
+		&:hover .mz-home__promo-img {
+			opacity: 0;
+		}
+	}
+
+	.mz-home__promo-img {
+		.transition(opacity .3s linear);
+		display: block;
+		height: 100%;
+		opacity: 1;
+		position: absolute;
+		z-index: (@mz-z--middle - 1);
+		width: 100%;
+	}
+
+	.mz-home__promo-img--hero {
+		height: auto;
+	}
+
+	.mz-home__promo-title {
+		color: white;
+		font: normal 26px/28px 'Spoleto', script;
+		-webkit-font-smoothing: subpixel-antialiased;
+		position: absolute;
+		z-index: (@mz-z--middle + 1);
+
+		strong {
+			display: block;
+			text-transform: uppercase;
+			font-family: @mz-font--alpha;
+			font-size: 30px;
+			letter-spacing: 3px;
+			text-align: center;
+		}
+	}
+
+	.mz-home__promo--hero {
+		background: url(../images/mozu/home/m-hero--hover.jpg) no-repeat;
+		.background-size(cover);
+	}
+
+	.mz-home__promo--bottle {
+		background: url(../images/mozu/home/m-promo-bottle--hover.jpg) no-repeat;
+		.background-size(cover);
+	}
+
+	.mz-home__promo--notebook {
+		background: url(../images/mozu/home/m-promo-notebook--hover.jpg) no-repeat;
+		.background-size(cover);
+	}
+
+	.mz-home__promo--mophie {
+		background: url(../images/mozu/home/m-promo-mophie--hover.jpg) no-repeat;
+		.background-size(cover);
+	}
+
+	.mz-home__promo--pen {
+		background: url(../images/mozu/home/m-promo-pen--hover.jpg) no-repeat;
+		.background-size(cover);
+	}
+
+// Font size stuff
+@media (max-width: 1100) {
+	.mz-home__promo-title {
+		font-size: 22px !important;
+
+		strong {
+			font-size: 15px !important;
+		}
+	}
+
+	.mz-home__shop-now {
+		display: none;
+	}
+}
+
+@media (max-width: 960) {
+	.mz-home__promo-title {
+		font-size: 18px !important;
+	}
+}

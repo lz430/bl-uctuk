@@ -1,0 +1,27 @@
+.seismic-boxheader(@clr: @mz-brand--seismic, @text-color: white) {
+    background-color: @clr;
+    .std-text-shadow();
+    .border-radius(@mz-border-radius @mz-border-radius 0 0);
+    border-bottom: 4px solid darken(@clr, 20%);
+    text-decoration: none;
+    color: @text-color;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px 15px;
+}
+.seismic-box {
+    .border-radius(@mz-border-radius @mz-border-radius 0 0);
+    .std-box-shadow();
+    > .seismic-box-header {
+        .seismic-boxheader();
+    }
+    > .seismic-box-inner {
+        padding: 10px;
+    }
+
+    &--alt {
+        > .seismic-box-header {
+            .seismic-boxheader(lighten(@mz-color--gamma, 10%));
+        }
+    }
+}

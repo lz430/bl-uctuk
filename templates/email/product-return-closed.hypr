@@ -1,0 +1,38 @@
+﻿  {% extends "email/email" %}
+
+  {% block body-content %}
+
+	<div class="content-container" style="padding:0 15px; color:#000000;">
+		<dl class="mz-orderheader">
+		<!--
+			<dt>{{ labels.orderNo }}</dt>
+			<dd><a href="https://{{domainName}}/checkout/{{model.id}}/confirmation">{{ model.orderNumber }}</a></dd>
+			-->
+	
+			<dt>{{ labels.return }}</dt>
+			<dd>{{ model.returnNumber }}</dd>
+	
+			<dt>{{ labels.orderDate }}:</dt>
+			<dd>{{ model.auditInfo.createDate }}</dd>
+	
+			<dt>{{ labels.returnRequestDate }}</dt>
+			<dd>{{ model.rmaDeadline }}</dd>
+		</dl>
+	</div>
+	<div class="content-container" style="padding:0 15px; color:#000000;">
+		<p>
+		{% if user and user.firstName %}
+			{{ labels.emailOpening|string_format(user.firstName)|safe }}
+		{% else %}
+			{{ labels.emailOpeningAlternative|safe }}
+		{% endif %}
+		</p>
+	
+		{{ labels.returnClosedBlob1|safe }}
+	
+	
+		{{ labels.returnClosedBlob2|safe }}
+	
+		{{ labels.emailClosing|string_format(siteContext.generalSettings.websiteName)|safe }}
+	</div>
+{% endblock body-content %}

@@ -1,0 +1,121 @@
+{
+	"items": [
+		{
+			"xtype": "panel",
+			"title": "Company Information",
+			"collapsed": false,
+			"items": [
+				{
+					"xtype": "textfield",
+					"name": "companyName",
+					"fieldLabel": "Company Name"
+				}
+			],
+			"defaults": {
+		        "xtype": "textfield",
+		        "width": "100%",
+		        "labelWidth": "100%"
+	      	}
+		},
+		{
+			"xtype": "panel",
+			"title": "Background",
+			"collapsed": false,
+			"items": [
+				{
+					"xtype": "checkbox",
+					"name": "imageBackgroundEnabled",
+					"fieldLabel": "Enable Image Background",
+					"value": true
+				},
+				{
+					"xtype": "textfield",
+					"name": "imageBackgroundURL",
+					"fieldLabel": "Background Image URL"
+				}
+			],
+			"defaults": {
+		        "xtype": "textfield",
+		        "width": "100%",
+		        "labelWidth": "100%"
+	      	}
+		},
+		{
+				"xtype": "panel",
+				"title": "Navigation",
+				"collapsed": false,
+				"items": [
+					{
+						"fieldLabel": "Maximum Items In Main Nav",
+						"xtype": "numberfield",
+						"name": "maxTopLevelNavItems",
+						"hideTrigger": false,
+						"allowDecimal": false,
+						"minValue": 1
+					},
+					{
+						"fieldLabel": "Maximum Nav Item Label Length",
+						"xtype": "numberfield",
+						"name": "maxTopLevelNavLabelLength",
+						"hideTrigger": false,
+						"allowDecimal": false,
+						"minValue": 1
+					}
+				]
+			},
+		{
+			"xtype": "panel",
+			"title": "Google Trusted Stores",
+			"collapsed": false,
+			"items": [
+				{
+					"xtype": "container",
+					"items": [
+						{
+							"xtype": "radiogroup",
+							"fieldLabel": "Enable Google Trusted Store",
+							"columns": 2,
+							"vertical": false,
+							"items": [
+								{"boxLabel": "Yes", "name": "isGoogleTrustedStoreEnabled", "inputValue": true},
+								{"boxLabel": "No", "name": "isGoogleTrustedStoreEnabled", "inputValue": false, "checked": true}
+							]
+						},
+						{
+							"xtype": "mz-input-text",
+							"vtype": "num",
+							"allowBlank": true,
+							"name": "googleTrustedStoreId",
+							"fieldLabel": "Google Trusted Store ID"
+						},
+						{
+							"xtype": "radiogroup",
+							"fieldLabel": "Badge Position",
+							"columns": 2,
+							"vertical": false,
+							"items": [
+								{"boxLabel": "Bottom Left", "name": "googleTrustedStoreBadgePosition", "inputValue": "BOTTOM_LEFT", "checked": true},
+								{"boxLabel": "Bottom Right", "name": "googleTrustedStoreBadgePosition", "inputValue": "BOTTOM_RIGHT"}
+							]
+						},
+						{
+							"xtype": "mz-input-text",
+							"vtype": "num",
+							"allowBlank": false,
+							"name": "googleTrustedStoreShipDays",
+							"fieldLabel": "Number of days to ship"
+						},
+						{
+							"xtype": "mz-input-text",
+							"vtype": "num",
+							"allowBlank": false,
+							"name": "googleTrustedStoreDeliveryDays",
+							"fieldLabel": "Number of days for shipment delivery"
+						}
+						
+					]
+				}
+			]
+		}
+	]
+}

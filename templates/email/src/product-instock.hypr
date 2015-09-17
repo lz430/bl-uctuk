@@ -1,0 +1,54 @@
+{% extends "email/email" %}
+
+{% block body-content %}
+	<table class="twelve columns">
+		<tr>
+			<td class="intro">
+				<p class="greeting">{{ labels.orderWelcome }} {{model.billingInfo.billingContact.firstName }} {{ model.billingInfo.billingContact.lastNameOrSurname }},</p>
+
+				<p>{{ labels.inStockBlob1|string_format(siteContext.generalSettings.websiteName)|safe }}</p>
+			</td>
+		</tr>
+	</table>
+
+	<table class="twelve columns details">
+		<thead>
+			<tr>
+				<td class="align-center" width="100">&nbsp;</td>
+				<td class="align-left">{{ labels.item }}</td>
+				{% comment %}
+					Unfortunately, we can't quite get the currency filter to work at this point, so I'm omitting price for now.
+					Remove these comments to add it back in. Should work no problem. - tb
+					<td class="align-right">{{ labels.price }}</td>			
+				{% endcomment %}
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td class="align-center">
+					{% if model.content.productImages %}
+						<a href="https://{{ domainName }}/p/{{ model.productCode }}" class="blue block-center">
+							<img src="{{ image.imageUrl }}?size=100" alt="{{ model.content.productName }}" class="block-center">
+						</a>
+					{% endif %}
+				</td>
+
+				<td class="align-left">
+					<a href="https://{{ domainName }}/p/{{ model.productCode }}" class="blue">{{ model.content.productName }}</a>
+
+					<p>{{ model.productCode }}</p>
+				</td>
+
+				{% comment %}
+					<td class="align-right">
+						{{ model.price.price }}
+						{{ model.price.price|currency }}
+					</td>					
+				{% endcomment %}
+			</tr>
+		</tbody>
+	</table>
+
+	<p>{{ labels.inStockBlob2|string_format(domainName, model.productCode)|safe }}</p>
+{% endblock body-content %}

@@ -1,0 +1,48 @@
+<div class="dl-menu-overlay dl-menu-close"></div>
+<nav id="dl-menu" class="dl-menuwrapper">
+    <ul class="dl-menu">
+        <li class="dl-heading">
+            <a class="dl-menu-close" href="#">Close</a>
+        </li>
+{% partial_cache %}
+    {% for link in navigation.tree %}
+        {% if link.isHidden == false %}
+        <li>
+            <a href="{{link.url}}">{{link.name|truncatechars(themeSettings.maxTopLevelNavLabelLength)}}</a>
+            {% if link.items %}
+            <ul class="dl-submenu">
+                <li>
+                    <a href="{{link.url}}">All {{link.name|truncatechars(themeSettings.maxTopLevelNavLabelLength)}}</a>
+                </li>
+                {% for sublink in link.items %}
+                {% if sublink.isHidden == false %}
+                <li>
+                    {% if not sublink.items %}
+                        <a href="{{sublink.url}}">{{sublink.name}}</a>
+                    {% else %}
+                        <a href="{{sublink.url}}">{{sublink.name}}</a>
+                        <ul class="dl-submenu">
+                            <li>
+                                <a href="{{sublink.url}}">All {{sublink.name}}</a>
+                            </li>
+                            {% for subsublink in sublink.items %}
+                            {% if subsublink.isHidden == false %}
+                            <li>
+                                <a href="{{subsublink.url}}">{{subsublink.name}}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endif %}
+    {% endfor %}
+{% endpartial_cache %}
+{% require_script "vendor/jquery-dlmenu" %}
+    </ul>
+</nav><!-- /dl-menuwrapper -->

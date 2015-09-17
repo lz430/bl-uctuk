@@ -1,0 +1,119 @@
+.seismic-ordersummary {
+  @bc: @gray-light;
+  &__ {
+    &wrapper {
+      padding: 0 !important;
+    }
+    &items {
+      background: @gray-lightest;
+      .transition(height 0.3s ease);
+      &.is-scrolling {
+        position: relative;
+        height: 275px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+    }
+    &itemsinner {
+      padding: 14px;
+    }
+    &item {
+      border-bottom: 1px solid @bc;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      overflow: auto;
+      &:last-child {
+        border-bottom-color: transparent;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .mz-propertylist {
+        margin: 10px 0;
+      }
+    }
+    &thumb {
+      float: left;
+      max-width: 33%;
+      padding-right: 14px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+    &itemdetail {
+      overflow: hidden;
+      width: 66%;
+    }
+    &itemname, &itemcodelabel, &itempricelabel {
+      font-weight: bold;
+    }
+    &itemprice {
+      font-weight: bold;
+      color: @mz-color--red;
+    }
+    &expandlink {
+      display: inline-block;
+      position: relative;
+      bottom: -2px;
+      background: @mz-bg--beta;
+      padding: 0 10px 2px;
+      font-size: 10px;
+      .permalink(@gray-darker);
+    }
+    &expander {
+      display: none;
+      text-align: center;
+      border-bottom: 1px solid #bfbfbf;
+      height: 10px;
+      bottom: 9px;
+      background: @mz-bg--beta;
+    }
+
+    &items--scrollable + &expander {
+      display: block;
+    }
+    &totals {
+      padding: 14px 20px;
+      overflow: auto;
+      dt {
+        float: left;
+        margin-bottom: 14px;
+        clear: left;
+      }
+      dd {
+        float: right;
+        margin-bottom: 14px;
+        clear: right;
+      }
+      a {
+        float: left;
+        clear: both;
+        margin-bottom: 14px;
+        .permalink(black);
+        font-weight: bold;
+      }
+    }
+    &grandtotalrow {
+      .std-gradient(@mz-bg--beta);
+      .std-text-shadow(1px 1px 1px rgba(255,255,255,.25));
+      .border-radius(0 0 @mz-border-radius @mz-border-radius);
+      font-size: 14px;
+      font-weight: bold;
+      padding: 14px 20px;
+      overflow: auto;
+    }
+    &grandtotallabel {
+      font-weight: bold;
+      float: left;
+    }
+    &grandtotal {
+      font-size: 18px;
+      float: right;
+      color: @mz-color--red;
+    }
+  }
+  .mz-checkoutform-couponcode {
+    float: left;
+    clear: both;
+  }
+}

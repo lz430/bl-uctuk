@@ -1,0 +1,21 @@
+  <div class="mz-home-promo__container">
+    <div class="mz-home-promo__wrapper">
+      <div class="mz-home-promo__title mz-fancy-title blue">
+        <i class="mz-fancy-title__icon icon icon-info-circle"></i>
+        <span class="mz-fancy-title__text">{{labels.widgetTitle_whoIsSA}}</span>
+      </div>
+
+      <div class="mz-home-promo__content-container">
+        <div class="mz-home-promo__content">
+
+					{{ model.config.body|safe }}
+
+          <p class="mz-home-promo__questions">
+            <span class="mz-home-promo__questions-title">Questions? Ask the Experts...</span>
+            <span class="mz-home-promo__phone-number">{{themeSettings.companyPhoneNumber}}</span>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>

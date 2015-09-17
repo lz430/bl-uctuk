@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        	{%if pageContext.isEditMode %}
+    		    {% include "modules/json-required-for-hyprlive" %}
+    		    {% include "modules/trailing-scripts" %}
+    		    {% cms_resources %}
+    		{% endif %}
+
+</head>
+
+<body>
+  <table class="body">
+    <tr>
+      <td class="center" align="center" valign="top">
+        <center>
+          <table class="row header">
+            <tr>
+              <td class="center" align="center">
+                <center>
+                  <table class="container">
+                    <tr>
+                      <td class="wrapper last">
+                        <table class="twelve columns">
+                          <tr>
+                            <td class="six sub-columns">
+                              <img src="http://cdn-tp1.mozu.com/2199-2317/resources/images/seismic-logo-165.png">
+                            </td>
+                            <td class="six sub-columns last" style="text-align:right; vertical-align:middle;">
+                              <span class="contact-info">Questions? Call us! <strong class="blue">{{ themeSettings.companyPhoneNumber }}</strong></span>
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table> <!-- end contact info -->
+                      </td>
+                    </tr>
+                  </table> <!-- end header content -->
+                </center>
+              </td>
+            </tr>
+          </table> <!-- end header -->
+
+          <table class="container">
+            <tr>
+              <td>
+                <table class="row">
+                  <tr>
+                    <td class="wrapper last">
+                      {% block body-content %}
+                      {% endblock body-content %}
+                
+                      <div>{{ViewData.content.html_2|safe}}</div>
+                    </td>
+                  </tr>
+                </table> <!-- end body content -->
+
+                {% if themeSettings.companyEmailAddress %}
+                  <table class="row callout">
+                    <tr>
+                      <td class="wrapper last">
+                        <table class="twelve columns">
+                          <tr>
+                            <td class="panel">
+                              <p class="align-center">
+                                Do you have any questions or concerns? Email us!<br>
+                                <a href="mailto:customerservice@seismicaudiospeakers.com">{{ themeSettings.companyEmailAddress }}</a>
+                              </p>
+                            </td>
+                            <td class="expander"></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table> <!-- end callout -->
+                {% else %}
+                  <table class="row">
+                    <tr>
+                      <td class="wrapper last"></td>
+                      <td class="expander"></td>
+                    </tr>
+                  </table>
+                {% endif %}
+              </td>
+            </tr>
+          </table> <!-- end main content container -->
+
+          <table class="row footer">
+            <tr>
+              <td class="center" align="center" style="padding-bottom: 10px;">
+                <table class="container">
+                  <tr>
+                    <td class="wrapper">
+                      <table class="six columns">
+                        <tr>
+                          <td>
+                            <h5>Contact Us:</h5>
+                            <p>
+                              <strong>Seismic Audio Speakers, Inc.</strong><br/>
+                              3980 Premier Avenue<br/>
+                              Memphis, TN 38118
+                            </p>
+                            <p><strong>Toll-free:</strong> {{ themeSettings.companyPhoneNumber }}</p>
+                            <p><strong>Local:</strong> {{ themeSettings.companyLocalNumber }}</p>
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table> <!-- end contact info -->
+                    </td>
+
+                    <td class="wrapper last">
+                      <table class="six columns">
+                        <tr>
+                          <td>
+                            <h5>Connect With Us:</h5>
+
+                            {% if themeSettings.socialLinkFacebook %}
+                              <table class="tiny-button facebook">
+                                <tr>
+                                  <td>
+                                    <a href="{{ themeSettings.socialLinkFacebook }}" target="_blank">Facebook</a>
+                                  </td>
+                                </tr>
+                              </table>
+                              <br>
+                            {% endif %}
+
+                            {% if themeSettings.socialLinkTwitter %}
+                              <table class="tiny-button twitter">
+                                <tr>
+                                  <td>
+                                    <a href="{{ themeSettings.socialLinkTwitter }}" target="_blank">Twitter</a>
+                                  </td>
+                                </tr>
+                              </table>
+                              <br>
+                            {% endif %}
+
+                            {% if themeSettings.socialLinkGooglePlus %}
+                              <table class="tiny-button google-plus">
+                                <tr>
+                                  <td>
+                                    <a href="{{ themeSettings.socialLinkGooglePlus }}" target="_blank">GooglePlus</a>
+                                  </td>
+                                </tr>
+                              </table>
+                            {% endif %}
+
+                          <td class="expander"></td>
+                        </tr>
+                      </table> <!-- end social buttons -->
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table class="copyright row">
+            <tr>
+              <td class="wrapper last">
+                <table class="twelve columns">
+                  <tr>
+                    <td align="center">
+                      <center>
+                        <p style="text-align:center;" class="white last"><a href="http://www.seismicaudiospeakers.com/contact-us" target="_blank">Contact Us</a> | <a href="http://www.seismicaudiospeakers.com/terms-conditions" target="_blank">Terms &amp; Conditions</a> | <a href="http://www.seismicaudiospeakers.com/privacy-policy" target="_blank">Privacy Policy</a></p>
+                      </center>
+                    </td>
+                    <td class="expander"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table> <!-- end copyright -->
+
+        </center>
+
+      </td>
+    </tr>
+  </table> <!-- end main container -->
+</body>
+</html>

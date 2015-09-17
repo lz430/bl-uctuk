@@ -1,0 +1,29 @@
+
+  {% preload_json model "reviews" %}
+  {% require_script "modules/reviews" %}
+  
+  <div class="mz-home-promo__container">
+    <div class="mz-home-promo__wrapper">
+      <div class="mz-home-promo__title mz-fancy-title blue">
+        <i class="mz-fancy-title__icon icon icon-bullhorn"></i>
+        <span class="mz-fancy-title__text">{{labels.widgetTitle_customerReviews}}</span>
+      </div>
+
+      <div class="mz-home-promo__content-container">
+        <div class="mz-home-promo__content">
+
+        	{% if model.config.reviewImgURL1 not "" %}
+	          <img class="mz-home-promo__reviews-image" src="{{ siteContext.cdnPrefix }}{{ model.config.reviewImgURL1 }}" alt="">
+        	{% endif %}
+
+        	<span class="mz-home-review__content">{{ model.config.reviewContent1|safe }}</span>
+
+          <div class="mz-home-review__author-block">
+            <span class="mz-home-review__author-name text-bold">By {{ model.config.reviewerName1 }}</span>
+            <span class="mz-home-review__author-location text-italic">from {{ model.config.reviewerLocation1 }}</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

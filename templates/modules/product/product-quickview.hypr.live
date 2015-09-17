@@ -1,0 +1,84 @@
+{% extends "modules/common/seismic-modal" %}
+{% block modal-role %}product-quickview-wrapper{% endblock modal-role %}
+{% block modal-inner %}
+    <section class="mz-l-column">
+
+      <h1 class="mz-product__title">
+        {{ model.content.productName }}
+      </h1>
+
+      <div class="mz-quickview__wrapper mz-l-2col">
+        
+        <div data-mz-productimages class="mz-l-column mz-quickview__images">
+          {% include "modules/product/product-images" %}
+        </div>
+
+        <div class="mz-l-column mz-quickview__details mz-tabs">
+          <ul class="mz-tabs__select">
+            <li>
+              <a href="javascript:;" class="mz-tabs__link" data-mz-tabs-id="info">
+                Product Info
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" class="mz-tabs__link" data-mz-tabs-id="description">
+                Description
+              </a>
+            </li>
+          </ul>
+
+          <div class="mz-tabs__container">
+            <section class="mz-tab" data-mz-tabs-id="info">
+              {% include "modules/common/price" %}
+
+              <div data-mz-role="mz-product-quickview-review-summary" data-mz-product-code="{{ model.productCode }}"></div>
+
+              <dl class="mz-product__details__list">
+                {% if model.inventoryInfo.manageStock %}
+                  <dt>Stock Status:</dt>
+
+                  {% if model.inventoryInfo.onlineStockAvailable == 0 %}
+                    <dd class="mz-nostock">Out of Stock</dd>
+                  {% else %}
+                    {% if model.inventoryInfo.onlineStockAvailable <= 10 %}
+                      <dd class="mz-lowstock">Only {{ model.inventoryInfo.onlineStockAvailable }} left! Order now!</dd>
+                    {% endif %}
+                  {% endif %}
+
+                  {% if model.inventoryInfo.onlineStockAvailable > 10 %}
+                    <dd class="mz-instock">In Stock</dd>
+                  {% endif %}
+                {% endif %}
+
+                <dt>Product Code:</dt>
+                <dd>{{ model.productCode }}</dd>
+              </dl>
+
+              {% if model.purchasableState.isPurchasable %}
+                <button class="mz-productdetail-addtocart mz-button mz-button-large" data-mz-action="add-to-cart">
+                  Add to Cart
+                </button>
+              {% else %}
+                <button class="mz-productdetail-viewdetails mz-button mz-button-large" data-mz-action="view-details">
+                  View Details
+                </button>
+              {% endif %}
+            </section>
+
+            <section class="mz-tab" data-mz-tabs-id="description" {% if themeSettings.preformatProductShortDescriptions == true %} style="white-space:pre-line;"{% endif %}>
+              {{ model.content.productShortDescription|striptags|truncatewords(themeSettings.maxProductSummaryWords) }}
+
+              <a href="javascript:;" class="view-more-details" data-mz-action="view-details">View More Details &raquo;</a>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div>
+
+      <div class="mz-product__details">
+        
+      </div>
+
+    </section>
+{% endblock modal-inner %}

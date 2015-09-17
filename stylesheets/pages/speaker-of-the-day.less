@@ -1,0 +1,107 @@
+.mz-home-speaker__title {
+    padding: 1em;
+    color: @white;
+    background-color: @brand-secondary;
+    font-family: @mz-font-speaker--title;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    .mz-home-speaker__title__label {
+        color: @brand-primary;
+        display: block;
+        text-align: center;
+        font-size: 88.9%;
+        margin-bottom: .5em;
+    }
+}
+
+.mz-home-speaker__price-box {
+  background: @gray;
+  padding: 12px 20px 20px;
+  font-family: @mz-font--alpha;
+  font-size: 16px;
+  color: @brand-secondary;
+  margin: 0 0 25px;
+
+  .mz-home-speaker__price-header {
+    margin: 0 0 26px;
+  }
+}
+
+.mz-home-speaker__price {
+  
+  .list-price {
+    display: block;
+    margin-bottom: .25em;
+  }
+  .new-price {
+    display: block;
+    font-size: 36px;
+    mark {
+      color: @price-color;
+      background-color: inherit;
+      padding: 0;
+    }
+  }
+}
+.mz-home-speaker__time-box {
+  width: auto;
+  text-align: center;
+  display: inline-block;
+  > strong {
+    font-size: 20px;
+    margin-bottom: .5em;
+    display: block;
+  }
+  .flip-clock-wrapper {
+    display: inline-block;
+    margin: 1em auto;
+  }
+}
+
+/* progress bar styles */
+.mz-home-speaker__progress {
+  .progress-info {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+  }
+  .progress-info-red {
+    color: @price-color;
+  }
+}
+.mz-home-speaker__price-box .progress {
+  border: 2px solid #323232;
+  position: relative;
+  height: 34px;
+  background: #f2f2f2;
+  #gradient > .horizontal-three-colors(#e52828; #e5cd28 ; 50%; #86c30f);
+  border-radius: 0;
+  margin: 0 0 9px;
+}
+.progress-mask {
+  background: #e5e5e5;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+.progress-bar__lines {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  .background-image('home-speaker/progress-bar-lines.png');
+  background-repeat: repeat;
+  height: 17px;
+}
+.progress-bar__shadow {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  .background-image('home-speaker/progress-bar-shadow.png');
+  background-repeat: repeat;
+  height: 20px;
+}

@@ -1,0 +1,138 @@
+{% extends "email/email" %}
+
+{% block body-content %}
+	<!-- basic message -->
+	<table class="twelve columns">
+		<tr>
+			<td class="intro">
+				<p class="greeting">{{ labels.orderWelcome }} {{model.billingInfo.billingContact.firstName }} {{ model.billingInfo.billingContact.lastNameOrSurname }},</p>
+				<p>{{ labels.orderConfirmationBlob1|string_format(siteContext.generalSettings.websiteName, domainName)|safe }}</p>
+			</td>
+		</tr>
+	</table>
+
+	<!-- order information -->
+	<table class="twelve columns details">
+		<thead>
+			<tr>
+				<td colspan="2">{{ labels.orderDetails }}</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>
+					<p>
+						<strong>{{ labels.orderNo }}:</strong>
+						{{ model.orderNumber }}
+					</p>
+
+					<p>
+						<strong>{{ labels.shippingMethod }}:</strong>
+						{{ model.fulfillmentInfo.shippingMethodName }}
+					</p>
+
+					<p>
+						<strong>{{ labels.shipTo }}:</strong><br>
+						{% include "modules/common/email-address-summary" with model=model.fulfillmentInfo.fulfillmentContact %}
+					</p>
+				</td>
+
+				<td>
+					<p>
+						<strong>{{ labels.orderDate }}:</strong>
+						{{ model.auditInfo.createDate }}
+					</p>
+
+					<p>
+						<strong>Payment Method:</strong>
+						{% if model.billingInfo.paymentType == "CreditCard" %}
+							{{ model.billingInfo.card.paymentOrCardType }} {{ model.billingInfo.card.cardNumberPartOrMask }}
+						{% endif %}
+
+						{% if model.billingInfo.paymentType == "PaypalExpress" %}
+							PayPal Express
+						{% endif %}
+
+						{% if model.billingInfo.paymentType == "Check" %}
+							Check
+						{% endif %}
+					</p>
+
+					<p>
+						<strong>Billing Information:</strong><br>
+						{% include "modules/common/email-address-summary" with model=model.billingInfo.billingContact %}
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- order details -->
+	<table class="twelve columns order">
+		<thead>
+			<tr>
+				<td class="align-left">{{ labels.product }}</td>
+				<td>{{ labels.qty }}</td>
+				<td>{{ labels.each }}</td>
+				<td class="align-right">{{ labels.total }}</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for item in model.items %}
+				<tr>
+					<td class="align-left">
+						{{ item.product.name }}
+						{% if item.product.productUsage == "Bundle" %}
+							<br>
+							{% for bundleProduct in item.product.bundleProducts %}
+								<strong>{{bundledProduct.productCode}}:</strong> {{ bundledProduct.name }} ({{bundledProduct.quantity }})
+								{% if not forloop.last %}<br>{% endif %}
+							{% endfor %}
+						{% endif %}
+					</td>
+					<td>{{ item.quantity }}</td>
+					<td>{% include "modules/common/email-item-price" %}</td>
+					<td class="align-right">{% include "modules/common/email-item-total" with isEmail=true %}</td>
+				</tr>			 
+			{% endfor %}
+		</tbody>
+
+		<tfoot>
+			<tr>
+				<td colspan="3" class="align-right">
+					{% for discount in model.orderDiscounts %}
+						{% if not discount.excluded %}
+							<strong class="crimson">{{ discount.discount.name }}:</strong><br>
+						{% endif %}
+					{% endfor %}
+					<strong>{{ labels.subtotal }}:</strong><br>
+					<strong>{{ labels.tax }}:</strong><br>
+					<strong>{{ labels.shippingHandling }}:</strong><br>
+					{% for shippingDiscount in model.shippingDiscount %}
+						<strong class="crimson">{{ shippingDiscount.discount.discount.name }}:</strong><br>
+					{% endfor %}
+					<strong>{{ labels.additionalHandling }}:</strong><br>
+					<strong class="blue">{{ labels.total }}:</strong>
+				</td>
+
+				<td class="align-right nowrap">
+					{% for discount in model.orderDiscounts %}
+						{% if not discount.excluded %}
+							<span class="crimson">-{{ discount.impact|currency }}</span><br>
+						{% endif %}
+					{% endfor %}
+					{{ model.discountedTotal|currency }}<br>
+					{{ model.taxTotal|currency }}<br>
+					{{ model.shippingTotal|currency }}<br>
+					{% for shippingDiscount in model.shippingDiscount %}
+						 <span class="crimson">-{{ shippingDiscount.discount.impact|currency }}</span><br>
+					{% endfor %}
+					{{ model.handlingAmount|currency }}<br>
+					<strong class="blue">{{ model.total|currency }}</strong>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+{% endblock body-content %}

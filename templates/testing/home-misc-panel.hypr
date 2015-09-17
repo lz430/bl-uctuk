@@ -1,0 +1,21 @@
+  <div class="mz-catlist__container">
+    <div class="mz-catlist__wrapper">
+      <div class="mz-catlist__title mz-fancy-title black">
+        <a class="mz-fancy-title__text" href="/test">Bass/Guitar Cabinets</a>
+      </div>
+
+      <div class="mz-catlist__list-container">
+        <ul class="mz-catlist__list-wrapper">
+          <li class="mz-catlist__list-item"><a href="" class="mz-catlist__link-container">Snakes with Box</a></li>
+          <li class="mz-catlist__list-item"><a href="" class="mz-catlist__link-container">Snakes with Box</a></li>
+          <li class="mz-catlist__list-item"><a href="" class="mz-catlist__link-container">Snakes with Box</a></li>
+          <li class="mz-catlist__list-item"><a href="" class="mz-catlist__link-container">Snakes with Box</a></li>
+          <li class="mz-catlist__list-item"><a href="" class="mz-catlist__link-container">Snakes with Box</a></li>
+          <li class="mz-catlist__list-item"><a href="" class="mz-catlist__link-container">Snakes with Box</a></li>
+          <li class="mz-catlist__list-item"><a href="" class="mz-catlist__link-container">Snakes with Box</a></li>
+          <li class="mz-catlist__list-item"><a href="" class="mz-catlist__link-container">Snakes with Box</a></li>
+          <li class="mz-catlist__list-item"><a href="" class="mz-catlist__link-container">Snakes with Box</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>

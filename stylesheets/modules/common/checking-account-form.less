@@ -1,0 +1,36 @@
+.bl-payment-checking {
+  &-name, &-number, &-routing-number {
+    input {
+      width: 100%;
+      padding: 4px 5px;
+    }
+  }
+  
+  &-name {
+    float: left;
+    clear: both;
+    width: 98%;
+  }
+  
+  &-number, &-routing-number {
+    margin: 0 @gutter/2 0 0;
+    width: 300px;
+  }
+  
+  &-number {
+    float: right;
+  }
+  
+  &-routing-number {
+    float: left;
+  }
+  
+  @media only screen {
+    @media(max-width: @mobileThreshold) {
+      &-name, &-number, &-routing-number {
+        float: none;
+        width: 98%;
+      }
+    }
+  }
+}

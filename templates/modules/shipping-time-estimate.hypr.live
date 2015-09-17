@@ -1,0 +1,5 @@
+<div class="seismic-shipping-estimator__estimate">
+    <p>Order by <span data-mz-role="order-by-time">{{ model.orderByTime }}</span> Central time for delivery to zip code <strong data-mz-role="user-location">{{ model.zip }}</strong> on:</p>
+    <p class="seismic-shipping-estimator__estimateddate" data-mz-role="shipping-estimated-date">{{ model.estimatedDate }}</p>
+    <p class="seismic-shipping-estimator__note">*This is an estimate, not a guarantee.</p>
+</div>

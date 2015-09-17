@@ -1,0 +1,92 @@
+.mz-modal {
+	.transition(opacity .25s linear);
+	background-color: rgba(0,0,0,0.65);
+	height: 100%;
+	min-height: 50px;
+	min-width: 50px;
+	left: 0;
+	overflow: hidden;
+	padding: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 99998;
+
+	.mz-button--x {
+		background: none white;
+		border: none;
+		color: @mz-text--beta !important;
+		height: 32px;
+		padding: 10px !important;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 32px;
+
+		&:hover {
+			color: @mz-color--red;
+		}
+
+		i {
+			display: block;
+			margin: 0;
+		}
+	}
+
+}
+
+.mz-modal__wrapper {
+    .border-radius(@mz-border-radius);
+    .transition(opacity .25s linear);
+    // .transform(translate(-50%, -50.5%));
+    //.transform(translate(-50%, -50.1%));
+    -moz-transition-delay: .25s;
+    -o-transition-delay: .25s;
+    -webkit-transition-delay: .25s;
+    transition-delay: .25s;
+    border: 1px solid @mz-border--alpha;
+    background-color: white;
+    //left: 50%;
+    padding: 12px;
+    position: absolute;
+    //top: 50%;
+
+    top: 2%;
+    width: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    @media(max-width: @screen-xs-max) {
+        width: 90%;
+    }
+
+}
+
+	.touch .mz-modal__wrapper {
+		overflow-y: auto;
+		max-height: 860px;
+		width: 90%;
+
+		.login-text {
+			display: none;
+		}
+	}
+
+.mz-modal--video .mz-modal__wrapper {
+	max-width: 640px; // this is just in case a browser doesn't support vh units - tb
+	max-width: 940px;
+	width: 860px;      // could do a fallback for this, but it'll fall back to the 640px max-width anyway - tb
+}
+
+@media only screen and (min-width: 300px) and (orientation: portrait) {
+	.mz-modal__wrapper {
+		padding: 10px !important;
+
+		.mz-modal__title {
+			font-size: 13px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+	}
+}

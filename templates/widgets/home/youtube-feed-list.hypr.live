@@ -1,0 +1,9 @@
+
+    {% for entry in model %}
+      <li class="mz-home-promo__list-item">
+        <a class="mz-home-feedlist__video-link" href="{{entry.url}}" target="_blank">
+          <img class="mz-home-feedlist__video-thumb" src="{{entry.thumb}}" alt="">
+          <span class="mz-home-feedlist__video-link-text">{{entry.title}}</span>
+        </a>
+      </li>
+    {% endfor %}

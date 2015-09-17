@@ -1,0 +1,62 @@
+﻿.mz-addressform {
+  &-autocompletefields {
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+  }
+  
+   &-firstname, &-lastname, &-city, &-state, &-zip {
+     display: inline-block;
+   }
+   
+   &-firstname, &-country, &-city, &-state, &-phone, &-addresstype {
+     float: left;
+   }
+   
+   &-firstname, &-lastname, &-companyOrOrganization, &-country, &-city, &-address1, &-address2, &-phone {
+     input, select {
+       width: 100%;
+     }
+     input {
+       padding: 4px 5px;
+     }
+   }
+   
+   &-firstname, &-lastname {
+     margin: 0 @gutter/2 0 0;
+     width: 300px;
+   }
+   
+   &-country {
+     width: 100%;
+   }
+   
+   &-companyOrOrganization, &-address1, &-address2 {
+     float: left;
+     width: 98%;
+     
+   }
+   
+   &-lastname, &-zip {
+     float: right;
+   }
+   
+   &-city, &-phone  {
+     clear: left;
+     width: 207px;
+     margin: 0 @gutter 0 0;
+   }
+   
+   @media only screen {
+    @media(max-width: @checkoutThreshold) {
+      &-firstname, &-lastname {
+        margin: 0 @gutter/2 0 0;
+        width: 98%;
+      }
+      
+       &-lastname, &-zip {
+        float: left;
+       }
+    }
+   }
+}

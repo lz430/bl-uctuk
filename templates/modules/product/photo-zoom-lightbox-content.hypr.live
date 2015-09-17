@@ -1,0 +1,21 @@
+{% if model.content.productImages %}
+<span style="display:none">{% dump model%}</span>
+<figure class="bl-iz-productimages-main">
+  <img itemprop="image" class="bl-iz-productimages-mainimage" src="{{ model.currentImage.imageUrl}}?max={{model.maxImageSize}}" />
+</figure>
+<figure class="bl-iz-productimages-thumbs">
+    {% for image in model.content.productImages %}
+	    {% if image.sequence == model.currentImage.sequence %}
+	    <a class="bl-iz-productimages-thumb bl-iz-thumb-selected" data-bl-iz-productimage-thumb="{{ image.sequence }}" href="{{ image.imageUrl }}">
+	        <img class="mz-productimages-thumbimage"  src="{{ image.imageUrl }}?max={{ model.thumbImageSize }}" />
+	    </a>
+	    {% else %}
+	    <a class="bl-iz-productimages-thumb" data-bl-iz-productimage-thumb="{{ image.sequence }}" href="{{ image.imageUrl }}">
+	        <img class="bl-iz-productimages-thumbimage"  src="{{ image.imageUrl }}?max={{ model.thumbImageSize }}" />
+	    </a>
+	    {% endif %}
+    {% endfor %}
+</figure>
+{% else %}
+<span class="bl-iz-productimages-noimage">[{{ labels.noImages}}]</span>
+{% endif %}

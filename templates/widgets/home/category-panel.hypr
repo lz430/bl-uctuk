@@ -1,0 +1,23 @@
+<div class="mz-fancy-list__container">
+
+	{% with  navigation|find:model.config.mainCategory as navNode %}
+
+		<div class="mz-fancy-list__wrapper">
+
+			<div class="mz-fancy-list__title mz-fancy-title black mz-fancy-title__link-container">
+				<a class="mz-fancy-title__text" href="{{navNode.url}}">{{navNode.name}}</a>
+			</div>
+
+			<div class="mz-fancy-list__list-container">
+				<ul class="mz-fancy-list__list-wrapper">
+
+					{% for item in navNode.items %}
+						<li class="mz-fancy-list__list-item"><a class="mz-fancy-list__link-container" href="{{item.url}}">{{ item.name }}</a></li>
+					{% endfor %}
+
+				</ul>
+			</div>
+		</div>
+
+	{% endwith %}
+</div>

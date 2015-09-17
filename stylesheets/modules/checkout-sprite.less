@@ -1,0 +1,44 @@
+
+.checkout-sprite(@place) when (@place = "bevel") {
+  background-position: 0 0;
+  width: 80px;
+  height: 40px;
+}
+.checkout-sprite(@place) when (@place = "greencheck") {
+  background-position: -80px 0;
+  width: 40px;
+  height: 40px;
+}
+
+.cardsize() {
+  width: 51px;
+  height: 32px;
+}
+.checkout-sprite(@place) when (@place = "visa") {
+  .cardsize();
+  background-position: -121px 0;
+}
+.checkout-sprite(@place) when (@place = "mastercard") {
+  .cardsize();
+  background-position: -177px 0;
+}
+.checkout-sprite(@place) when (@place = "discover") {
+  .cardsize();
+  background-position: -234px 0;
+}
+.checkout-sprite(@place) when (@place = "amex") {
+  .cardsize();
+  background-position: -291px 0;
+}
+.checkout-sprite(@place) when (@place = "paypal") {
+  .cardsize();
+  background-position: -348px 0;
+}
+.checkout-sprite(@place) when (@place = "check") {
+  .cardsize();
+  background-position: -404px 0;
+}
+
+.checkout-sprite(@place) {
+	.background-image('checkout-sprite.png');
+}

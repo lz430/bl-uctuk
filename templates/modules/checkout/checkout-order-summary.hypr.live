@@ -1,0 +1,6 @@
+﻿<div class="mz-ordersummary-checkout">
+	<img class="bl-security-seal" alt="100% Secure Checkout" src="/resources/images/security-seal.png"/>
+    <div class="mz-formstep-body">
+        {% include "modules/common/order-summary" %}
+    </div><!-- #order-summary -->
+</div>

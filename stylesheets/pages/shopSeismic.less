@@ -1,0 +1,152 @@
+//****************************************************************************
+// **** Variables
+// ***************************************************************************
+@shopperBckgrdColor: #fff;
+@shopperTitleBassColor: #464646;
+@shopperTitleTextColor: #f7f7f7;
+@reviewTitleBassColor: #018af7;
+@reviewTitleTextColor: @shopperTitleTextColor;
+@borderColor: #bebebe;
+@Color_Box-Shadow: #dcdcdc;
+@facebookColor: #045493;
+
+@gutterSize: 10px;
+@paddingSize: @gutterSize / 2;
+
+//****************************************************************************
+// **** Styles
+// ***************************************************************************
+.mz-shop-seismic-wrap {
+	width: 100%;
+	font-family: "noto sans", sans-serif;
+	overflow: hidden;
+
+	h1 {
+		.pageTitle();
+		margin-left: @paddingSize;
+		margin-right: @paddingSize;
+	}
+
+	p {
+		font-size: 10pt;
+		line-height: 20px;
+		padding: 0 @paddingSize;
+	}
+
+	.mz-ads {
+		width: 100%;
+		overflow: hidden;
+		padding-left: @paddingSize;
+		padding-right: @paddingSize;
+		
+		div {
+			height: 180px;
+			background-color: #1c0643;
+			float: left;
+		}
+	}
+
+	.mz-intro-text {
+		margin: 15px 0;
+		> h2 {
+			.messageTitle(@Padding: 0 @paddingSize);
+		}
+	}
+
+	.mz-box-grid {
+		.grid(3);
+
+		> div {
+			padding-bottom: 10px; 
+		}
+	}
+
+	.mz-cell {
+		min-height: 380px;
+		overflow: hidden;
+		box-shadow: 0 0 10px @Color_Box-Shadow;
+		position: relative;
+
+		.border-radius(3px);
+		.mz-shopper-title, .mz-review-title {
+			width: 100%;
+			font-size: 14pt;
+			display: block;
+			padding: 12px 10px;
+		}
+
+		> h3 {
+			.titleBar();
+		}
+
+		.textShaddowBottomImg();
+
+		p {
+			padding: @gutterSize @gutterSize 0;
+			margin: 0;
+		}
+
+		&.mz-review {
+			> h3 {
+				.titleBar(@BG-Color: @reviewTitleBassColor);
+				padding-left: 50px;
+			}
+
+			.mz-review-content {
+				padding: 0 @gutterSize;
+				p {
+					box-shadow: none;
+					padding-left: 0;
+				}
+
+				.mz-facebook-invite {
+					margin: 17px 0 20px;
+					width: 100%;
+					border-top: 1px solid @borderColor;
+					padding: 20px 0 0;
+					height: 51px;
+					position: relative;
+
+					.mz-facebook-message {
+						width: 225px;
+						.center();
+
+						img {
+							float: left;
+							width: 30px;
+						}
+
+						p {
+							padding: 0 10px;
+							float: left;
+							margin: 0;
+							color: @facebookColor;
+							line-height: 15px;
+							text-transform: uppercase;
+							font-size: 12px;
+							font-weight: bold;
+							padding-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 780px) {
+	.mz-shop-seismic-wrap {
+		.mz-box-grid {
+			.grid(2);
+		}
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.mz-shop-seismic-wrap {
+		.mz-box-grid {
+			.grid(1);
+		}
+	}
+}
+

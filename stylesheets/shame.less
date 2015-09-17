@@ -1,0 +1,104 @@
+// SHAME: this is a temp fix for the "home" link in parent nav
+.mz-nav-primary__parent {
+	&:nth-of-type(1) {
+		border-radius: @mz-border-radius 0 0 0;
+	}
+}
+
+
+// Adding some hacky padding to get some consistency with the body content on homepage.
+.mz-homepage {
+
+	// [TFS: 24947] Resolve vertical rhythm of nav and homepage slideshow panel
+	.mz-nav-secondary.mz-inner-wrapper { margin-bottom: 0; }
+	.mz-content-section.mz-inner-wrapper { margin-top: 5px; }
+
+
+	// [TFS: 24161] Add BazaarVoice widget instance to products
+	// 		- Hide unecessary visual elements
+		.pr-snippet-review-count
+	, .pr-snippet-rating-decimal
+	, .pr-snippet-rating-decimal.pr-rounded {
+			display: none;
+		}
+
+	// Center stars on view
+	.pr-snippet-stars {
+		width: 100%;
+
+		.pr-stars {
+			position: relative;
+			left: 50%;
+			display: block;
+			margin: 0;
+			margin-left: -25%;
+			width: 50px;
+		}
+	}
+
+
+
+
+	// stupid layout.less forcing column padding on cms col...
+	[class*=mz-cms-col-] {
+		padding: 0;
+	}
+
+	.mz-home-smallcats__panel {
+		width: @one-third;
+	}
+
+}
+
+
+
+
+
+
+
+
+	body:not(.mz-cms-editing) {
+		.mz-homepage__content .mz-cms-content {
+			padding: 0;
+			overflow: inherit;
+		}
+	}
+
+
+.mz-cms-row {
+	width: @full-size !important;
+	min-width: @full-size !important;
+}
+
+
+
+// Fix bug 23843 in Chrome: Homepage elements shift slightly during 3d accelerated paint cycles when slideshow animates
+// - Just add any classes here that need this fix...
+.mz-page-footer,
+.mz-cms-content {
+	.translate3d();
+}
+
+
+
+
+	// hide the "edge" button for livechat cuz it's not important...
+	.VolusionChat_Button
+, #VolusionChat_Button {
+
+		display: none !important;
+	}
+
+
+
+
+
+	// [role="main"] {
+	// 	outline: 1px #f90 solid;
+	// }
+
+
+
+	// .mz-category-header__graphic-link {
+	// 	background-color: rgba(255, 90, 0, 0.5);
+	// }

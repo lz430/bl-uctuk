@@ -1,0 +1,47 @@
+﻿{% extends "page" %}
+
+{% block title-tag-content %} {{ labels.cart }} - {% parent %} {% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-cart {% endblock body-tag-classes %}
+
+{% block body-content %}
+
+{% require_script "pages/cart" %}
+
+{% preload_json model "cart" %}
+
+<div class="mz-l-container">
+
+	<div class="bl-order-step"><img src="/resources/images/order-step-1.png" title="{{ labels.cart }}" alt="{{ labels.cart }}"/></div>
+	<div class="bl-cart-header">{% dropzone "bl-cart-header" scope="template" %}</div>
+	<form method="post" action="{{ siteContext.secureHost }}/checkout" id="cartform">
+		<input type="hidden" name="id" value="{{model.Id}}" />
+		{% include "modules/common/message-bar" with model=model.messages %}
+		<table class="mz-table mz-table-cart" id="cart">
+			{% include "modules/cart/cart-table" %}
+		</table>
+	</form>
+</div>
+
+	{% if not user.isAuthenticated %}
+	<div class="bl-l-lightbox">
+		<div class="bl-l-lightbox-overlay" data-bl-action=""></div>
+		<div class="bl-l-lightbox-content-wrapper" data-bl-action="">
+			<div class="bl-l-lightbox-content">
+				{% include "modules/cart/login-prompt" %}
+				<div class="bl-proceed-to-checkout">
+					<h2 class="bl-login-prompt-title">New Customer?</h2>
+					<p class="bl-login-prompt-text">
+						Be sure to check the "create an account" box before you submit your order to have access to easy order tracking!
+					</p>
+					<button class="mz-button mz-button-large" data-bl-action="closeLightbox" data-bl-submit="cartform">
+						{{ labels.checkoutAsGuest }}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% require_script "layouts/lightbox" %}
+	{% require_script "modules/login-prompt" %}
+	{% endif %}
+{% endblock body-content %}

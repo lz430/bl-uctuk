@@ -1,0 +1,15 @@
+<div class="mz-mailing-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <strong class="mz-mailing-list__title">
+                    Sign up for emails!
+                </strong>
+                <p class="mz-mailing-list__promo-text">
+                    Sign up to receive news, special offers	and new product announcements.
+                </p>
+                {% include "modules/mailing-list-form" %}
+            </div>
+        </div>
+    </div>
+</div>

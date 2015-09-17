@@ -1,0 +1,52 @@
+    {% block meta-tag-content %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
+    <meta name="description" content="{{ PageContext.MetaDescription|default(model.content.metaDescription) }}">
+    <meta name="keywords" content="{{ PageContext.MetaKeywords|default(model.content.metaKeywords) }}">
+    <meta property="og:title" content="{% firstof PageContext.MetaTitle model.content.productName model.content.categoryName %}">
+    <meta property="og:site_name" content="{{ siteContext.generalSettings.websiteName }}">
+    {% endblock meta-tag-content %}    
+    <title>{% block title-tag-content %}{{ siteContext.generalSettings.websiteName }}{% endblock title-tag-content %}</title>
+    <!--[if IE]>
+        <link type="image/vnd.microsoft.icon" href="{{siteContext.cdnPrefix}}/resources/images/favicon.ico" rel="icon">
+    <![endif]-->
+    <link type="image/x-icon" href="{{siteContext.cdnPrefix}}/resources/images/favicon.ico" rel="icon">
+    <link type="image/x-icon" href="{{siteContext.cdnPrefix}}/resources/images/favicon.ico" rel="shortcut icon">
+    <link type='text/css' href='//fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet'>
+    <link type='text/css' href='//fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet'>
+{% include "modules/json-required-for-hyprlive" %}
+
+{% if PageContext.FeedUrl  %}
+    <link rel="alternate" type="application/rss+xml" title="{{ PageContext.Title }}" href="{{ PageContext.FeedUrl }}">
+{% endif %}
+
+{% include "modules/ssl-redirect" %}
+
+{% block stylesheets %}
+    {{ "/stylesheets/main.less"|stylesheet_tag:"default" }}
+{% endblock stylesheets %}
+
+<!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{siteContext.cdnPrefix}}/stylesheets/ie8.css?v=13">
+<![endif]-->
+
+{% block head-tag-scripts %}
+    <script src="{{siteContext.cdnPrefix}}/scripts/vendor/modernizr.min.js"></script>
+    {% include "modules/web-fonts-loader" %}
+{% endblock head-tag-scripts %}
+
+{% include "modules/analytics/channel-advisor-tracking-code" %}
+
+<meta name="google-site-verification" content="{{ themeSettings.googleSiteVerificationCode }}">
+
+    {% cms_resources %}
+
+{% if siteContext.generalSettings.isGoogleAnalyticsEnabled %}
+    {% include "modules/analytics/google-analytics-tracking-code" %}
+{% endif %}
+
+{% include "modules/analytics/facebook-ads-tracking-code" %}
+
