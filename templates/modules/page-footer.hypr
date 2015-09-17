@@ -3,7 +3,7 @@
 		<div class="footer-top-container">
 			<div class="email-list-mobile">
         <p><img src="/resources/images/icon-email.png" alt="" /> Email List Sign Up</p>
-        <form data-id="embedded_signup:form" class="ctct-custom-form Form" name="embedded_signup" method="POST" action="https://visitor2.constantcontact.com/api/signup">
+        <form data-id="embedded_signup:form" class="ctct-custom-form Form mobile-hidden" name="embedded_signup" method="POST" action="https://visitor2.constantcontact.com/api/signup">
           <!-- The following code must be included to ensure your sign-up form works properly. -->
           <input data-id="ca:input" type="hidden" name="ca" value="91675841-6d2f-4367-99ff-6fb5131e310d">
           <input data-id="list:input" type="hidden" name="list" value="1104991320">
@@ -12,11 +12,12 @@
           <input data-id="url:input" type="hidden" name="url" value="">
           <p data-id="Email Address:p">
             <!-- <label data-id="Email Address:label" data-name="email" class="ctct-form-required">Email Address</label> -->
-            <input class="email-signup" data-id="Email Address:input" type="text" name="email" placeholder="enter your email" value="" maxlength="80">
+            <input class="email-signup mobile" data-id="Email Address:input" type="text" name="email" placeholder="enter your email" value="" maxlength="80">
           <button type="submit" class="mz-emailbox-button" data-enabled="enabled">Join Now</button>
           </p>
         </form>
-        <!-- <a href="http://visitor.r20.constantcontact.com/d.jsp?llr=yqnikktab&amp;p=oi&amp;m=1120259028504&amp;sit=s8ynynpjb&amp;f=1ee29974-913a-46a2-a470-dc1859d6a8b7" class="mz-emailbox-button" title="Join Now" target="_blank">Join Now</a> -->
+        <!-- Showing this only on mobile -->
+        <a href="http://visitor.r20.constantcontact.com/d.jsp?llr=yqnikktab&amp;p=oi&amp;m=1120259028504&amp;sit=s8ynynpjb&amp;f=1ee29974-913a-46a2-a470-dc1859d6a8b7" class="mz-emailbox-button mobile" title="Join Now" target="_blank">Join Now</a>
       </div>
 
 			<ul class="social-media-footer">
