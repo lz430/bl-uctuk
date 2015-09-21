@@ -1,5 +1,14 @@
+<div class="owl-carousel dynamic bl-product-scroller" data-bl-product-scroller-config="{% json_attribute Model.config|default:"{}" %}">
+    {{Model.config.content|safe}}
+</div>
+{% require_script "vendor/owl-carousel/owl-carousel" %}
+{% require_script "widgets/product-scroller" %}
+{% comment %}
 <div class="bl-product-scroller" data-bl-product-scroller-config="{% json_attribute Model.config|default:"{}" %}">
-	{{Model.config.content|safe}}
+    {{Model.config.content|safe}}
 </div>
 {% require_script "vendor/bxSlider/jquery.bxslider" %}
 {% require_script "widgets/product-scroller" %}
+{% endcomment %}
+
+

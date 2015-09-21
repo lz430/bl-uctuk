@@ -16,7 +16,6 @@ define(["modules/jquery-mozu", "modules/backbone-mozu", "hyprlive", "modules/mod
         }
     });
 	$(document).ready(function() {
-
 		var defaults = {
 			// GENERAL
 			mode : 'horizontal',
@@ -102,15 +101,15 @@ define(["modules/jquery-mozu", "modules/backbone-mozu", "hyprlive", "modules/mod
 			var $this = $(this);
 			var widgetOptions = $.extend({}, defaults, $this.data('bl-product-scroller-config'));
             var options = {
-                navigation : false, // Show next and prev buttons
+                navigation : true, // Show next and prev buttons
                 slideSpeed : widgetOptions.speed,
                 navigationText: ["&lsaquo;","&rsaquo;"],
                 paginationSpeed : 400,
                 autoHeight: widgetOptions.adaptiveHeight,
-                items : 6,
+                items : 3,
                 itemsCustom : false,
-                itemsDesktop : [1199,5],
-                itemsDesktopSmall : [980,4],
+                itemsDesktop : [1199,3],
+                itemsDesktopSmall : [980,3],
                 itemsTablet: [768,3],
                 itemsTabletSmall: [640,2],
                 itemsMobile : [480,1]
@@ -122,6 +121,7 @@ define(["modules/jquery-mozu", "modules/backbone-mozu", "hyprlive", "modules/mod
 				});
 				var container = $('<div />');
 				product.fetch().then(function() {
+				    console.log(product.attributes.productCode);
 					var productView = new ProductScrollerProduct({
 						el : container,
 						model : product
@@ -130,16 +130,31 @@ define(["modules/jquery-mozu", "modules/backbone-mozu", "hyprlive", "modules/mod
 					$this.append(container);
 					completeCount++;
 					if (completeCount == widgetOptions.products.length) {
-    				    //$this.bxSlider(options);
+    				    //$this.bxSlider(widgetOptions);
                         $this.owlCarousel(options);
                         if (widgetOptions.wrapperClass) {
                             $this.wrap('<div class="'+widgetOptions.wrapperClass+'"></div>');
                         }
 					}
 
+				},function(){
+				    completeCount++;
+				    if (completeCount == widgetOptions.products.length) {
+    				    //$this.bxSlider(widgetOptions);
+                        $this.owlCarousel(options);
+                        if (widgetOptions.wrapperClass) {
+                            $this.wrap('<div class="'+widgetOptions.wrapperClass+'"></div>');
+                        }
+					}
 				});
+
 			});
 
 		});
   });
-}); 
+});
+
+
+
+
+

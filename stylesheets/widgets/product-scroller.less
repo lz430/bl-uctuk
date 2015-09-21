@@ -1,154 +1,86 @@
-/*** BxSlider v4.1.2 - Fully loaded, responsive content slider* http://bxslider.com** Written by: Steven Wanderski, 2014* http://stevenwanderski.com* (while drinking Belgian ales and listening to jazz)** CEO and founder of bxCreative, LTD* http://bxcreative.com*/.bl-product-scroller-wrap {
-    position: relative;
-    margin: 0 auto 60px;
-    padding: 0;
-    *zoom: 1;
+/*
+ * 	Core Owl Carousel CSS File
+ *	v1.3.3
+ */
+
+/* clearfix */
+.owl-carousel .owl-wrapper:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
 }
-.bl-product-scroller-wrap {
-    img {
-        max-width: 100%;
-        display: block;
-    }
-    .bx-viewport {
-        -moz-box-shadow: 0 0 5px #ccc;
-        -webkit-box-shadow: 0 0 5px #ccc;
-        box-shadow: 0 0 5px #ccc;
-        border:  5px solid #fff;
-        left: -5px;
-        background: #fff;
-        -webkit-transform: translatez(0);
-        -moz-transform: translatez(0);
-        -ms-transform: translatez(0);
-        -o-transform: translatez(0);
-        transform: translatez(0);
-    }
-    .bx-loading {
-        min-height: 50px;
-        background: url(../resources/images/bl-slider/bx_loader.gif) center center no-repeat #fff;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2000;
-    }
-    .bx-pager {
-        text-align: center;
-        font-size: .85em;
-        font-family: Arial;
-        font-weight: bold;
-        color: #666;
-        padding-top: 20px;
-    }
-    .bx-pager.bx-default-pager {
-        a {
-            background: #666;
-            text-indent: -9999px;
-            display: block;
-            width: 10px;
-            height: 10px;
-            margin: 0 5px;
-            outline: 0;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius: 5px;
-        }
-    }
-    .bx-prev {
-        left: 10px;
-        background: url(../resources/images/bl-slider/controls.png) no-repeat 0 -32px;
-    }
-    .bx-next {
-        right: 10px;
-        background: url(../resources/images/bl-slider/controls.png) no-repeat -43px -32px;
-    }
-    .bx-prev:hover {
-        background-position: 0 0;
-    }
-    .bx-next:hover {
-        background-position: -43px 0;
-    }
-    .bx-controls-direction {
-        a {
-            position: absolute;
-            top: 50%;
-            margin-top: -16px;
-            outline: 0;
-            width: 32px;
-            height: 32px;
-            text-indent: -9999px;
-            z-index: 9999;
-        }
-        a.disabled {
-            display: none;
-        }
-    }
-    .bx-controls-auto {
-        text-align: center;
-        .bx-start {
-            display: block;
-            text-indent: -9999px;
-            width: 10px;
-            height: 11px;
-            outline: 0;
-            background: url(../resources/images/bl-slider/controls.png) -86px -11px no-repeat;
-            margin: 0 3px;
-        }
-        .bx-stop {
-            display: block;
-            text-indent: -9999px;
-            width: 9px;
-            height: 11px;
-            outline: 0;
-            background: url(../resources/images/bl-slider/controls.png) -86px -44px no-repeat;
-            margin: 0 3px;
-        }
-    }
-    .bx-controls.bx-has-controls-auto.bx-has-pager {
-        .bx-pager {
-            text-align: left;
-            width: 80%;
-        }
-        .bx-controls-auto {
-            right: 0;
-            width: 35px;
-        }
-    }
-    .bx-caption {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background: #666\9;
-        background: rgba(80, 80, 80, 0.75);
-        width: 100%;
-        span {
-            color: #fff;
-            font-family: Arial;
-            display: block;
-            font-size: .85em;
-            padding: 10px;
-        }
-    }
-    .bl-product-scroller-product {
-        //min-width: 200px;
-    }
+/* display none until init */
+.owl-carousel{
+	display: none;
+	position: relative;
+	width: 100%;
+	-ms-touch-action: pan-y;
 }
-.bl-product-scroller-wrap .bx-pager,.bl-product-scroller-wrap .bx-controls-auto {
-    position: absolute;
-    bottom: -30px;
-    width: 100%;
+.owl-carousel .owl-wrapper{
+	display: none;
+	position: relative;
+	-webkit-transform: translate3d(0px, 0px, 0px);
 }
-.bl-product-scroller-wrap .bx-pager .bx-pager-item,.bl-product-scroller-wrap .bx-controls-auto .bx-controls-auto-item {
+.owl-carousel .owl-wrapper-outer{
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{
+	-webkit-transition: height 500ms ease-in-out;
+	-moz-transition: height 500ms ease-in-out;
+	-ms-transition: height 500ms ease-in-out;
+	-o-transition: height 500ms ease-in-out;
+	transition: height 500ms ease-in-out;
+}
+
+.owl-carousel .owl-item{
+	float: left;
+}
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div{
+	cursor: pointer;
+}
+div.owl-controls {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	float: right;
+	width: auto;
+	padding: 0 0 5px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.owl-buttons > div {
+    width: 30px;
+    height: 26px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(7, 47, 83);
+    text-align: center;
+    margin: 0px 3px;
     display: inline-block;
-    *zoom: 1;
-    *display: inline;
 }
-.bl-product-scroller-wrap .bx-pager.bx-default-pager a:hover,.bl-product-scroller-wrap .bx-pager.bx-default-pager a.active {
-    background: #000;
+
+/* mouse grab icon */
+.grabbing {
+    cursor:url(grabbing.png) 8 8, move;
 }
-.bl-product-scroller-wrap .bx-controls-auto .bx-start:hover,.bl-product-scroller-wrap .bx-controls-auto .bx-start.active {
-    background-position: -86px 0;
+
+/* fix */
+.owl-carousel  .owl-wrapper,
+.owl-carousel  .owl-item{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
 }
-.bl-product-scroller-wrap .bx-controls-auto .bx-stop:hover,.bl-product-scroller-wrap .bx-controls-auto .bx-stop.active {
-    background-position: -86px -33px;
-}
+
+
+
