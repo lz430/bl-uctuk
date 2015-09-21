@@ -1,14 +1,15 @@
 <div class="pdp-stockstatus">
+    <span style="display: none;">{% dump model %}</span>
 	{% if not model.purchasableState.isPurchasable %}
 		{% for message in model.purchasableState.messages %}
 			{% if message.validationType == "OutOfStock"%}
 				<span class="outofstock">Out of Stock</span>
 				{% else %}
-				<span class="instock">In Stock</span>
+				<span class="instock">{{ model.stockStatusMessage }}</span>
 			{% endif %}
 		{% endfor %}
 	{% else %}
-		<span class="instock">In Stock</span>
+		<span class="instock">{{ model.stockStatusMessage }}</span>
 	{% endif %}
 </div>
 		

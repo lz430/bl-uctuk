@@ -87,7 +87,7 @@ footer {
   font: 800 16px/41px 'Open Sans', sans-serif;
   text-transform: uppercase;
 }
-.mz-emailbox-button, .email-signup.email-signup {
+.mz-emailbox-button{
   float: right;
   padding: 15px 0 14px;
   color: #072f53;
@@ -98,18 +98,22 @@ footer {
   border: 1px solid #959595;
   background: transparent;
   cursor: pointer;
+  height: 43px; //Nasty hack for cross browser functionality
+  width: 150px;
 }
-.mz-emailbox-button{width:150px;}
 footer .email-list-mobile form{float:left;}
 input[type="text"].email-signup{
+  background:transparent;
   float: left;
   text-align: left;
-  padding:15px 15px 7px 15px;
+  padding:0 15px;
   border-radius: 0;
   border-right:0;
   width: 350px;
-  text-transform: lowercase;
-  font-size: 13px;
+  color: #555555;
+  margin-bottom: 0;
+  height: 43px; //Nasty hack for cross browser functionality
+  font-weight: normal;
 }
 
 /*-----------[ Footer ]-----------*/

@@ -10,7 +10,7 @@
           <input data-id="source:input" type="hidden" name="source" value="EFD">
           <input data-id="required:input" type="hidden" name="required" value="list,email">
           <input data-id="url:input" type="hidden" name="url" value="">
-          <p data-id="Email Address:p">
+          <p data-id="Email Address:p" class="email-inputs">
             <!-- <label data-id="Email Address:label" data-name="email" class="ctct-form-required">Email Address</label> -->
             <input class="email-signup mobile" data-id="Email Address:input" type="text" name="email" placeholder="enter your email address" value="" maxlength="80">
           <button type="submit" class="mz-emailbox-button" data-enabled="enabled">Join Now</button>
@@ -21,7 +21,7 @@
       </div>
 
       <ul class="social-media-footer">
-        <li><a href="https://www.facebook.com/pages/claddaghRINGcom/177470457590" target="_blank" title="Facebook" class="facebook-footer"><span>Facebook</span></a></li>
+        <li><a href="https://www.facebook.com/UCTUKcom" target="_blank" title="Facebook" class="facebook-footer"><span>Facebook</span></a></li>
         <li><a href="https://twitter.com/Uctukllc" target="_blank" title="Twitter" class="twitter-footer"><span>Twitter</span></a></li>
         <li><a href="https://www.pinterest.com/uctukllc/" target="_blank" title="Pinterest" class="pinterest-footer"><span>Pinterest</span></a></li>
       </ul>

@@ -185,7 +185,7 @@
         mozuType: 'product',
         idAttribute: 'productCode',
         handlesMessages: true,
-        helpers: ['mainImage', 'notDoneConfiguring', 'hasPriceRange', 'supportsInStorePickup'],
+        helpers: ['mainImage', 'notDoneConfiguring', 'hasPriceRange', 'supportsInStorePickup', 'stockStatusMessage'],
         defaults: {
             purchasableState: {},
             quantity: 1
@@ -259,6 +259,8 @@
             this.lastConfiguration = [];
             this.calculateHasPriceRange(conf);
             this.on('sync', this.calculateHasPriceRange);
+            
+            
         },
         mainImage: function() {
             var productImages = this.get('content.productImages');
@@ -269,6 +271,17 @@
         },
         supportsInStorePickup: function() {
             return _.contains(this.get('fulfillmentTypesSupported'), Product.Constants.FulfillmentTypes.IN_STORE_PICKUP);
+        },
+        stockStatusMessage: function() {
+          var msg = "In Stock"; //Set Default message
+          var props = this.get('properties');
+          _.each(props, function(e){
+            if(e.attributeFQN =="tenant~stock-status-override" && e.values[0] && e.values[0].stringValue !== ''){
+                msg = e.values[0].stringValue;
+            }
+          });
+          return msg;
+          //return "Something";  
         },
         getConfiguredOptions: function(options) {
             return this.get('options').reduce(function(biscuit, opt) {
