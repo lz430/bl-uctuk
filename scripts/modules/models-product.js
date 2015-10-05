@@ -276,7 +276,7 @@
           var msg = "In Stock"; //Set Default message
           var props = this.get('properties');
           _.each(props, function(e){
-            if(e.attributeFQN =="tenant~stock-status-override" && e.values[0] && e.values[0].stringValue !== ''){
+            if(e.attributeFQN.toLowerCase() =="tenant~stock-status-override" && e.values[0] && e.values[0].stringValue !== ''){
                 msg = e.values[0].stringValue;
             }
           });
