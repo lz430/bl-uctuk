@@ -35,19 +35,21 @@
 		<h4 class="bl-l-tabs-sectiontitle">{{ labels.properties }}</h4>
 		
 		<div class="bl-l-tabs-sectioncontent">
-			<dl class="mz-propertylist mz-propertylist-justified">
-			{% for property in model.properties %}
-				{% if property.values and not property.isHidden %}
-				<dt>
-					{{property.attributeDetail.name}}
-				</dt>
-					{% for v in property.values %}
-				<dd>
-					{% if v.stringValue %}{{v.stringValue}}{% else %}{{v.value}}{% endif %}
-				</dd>
-					{% endfor %}
-				{% endif %}
-			{% endfor %}
+			<dl class="mz-propertylist mz-propertylist-justified" data-mz-property="{% json_attribute model.properties %}">
+            {% with 'tenant~{0}'|string_format(themeSettings.productShippingGiftOptions) as shippingAndGiftOptionsString %}
+            {% with model.properties|findwhere('attributeFQN', shippingAndGiftOptionsString) as shippingAndGiftOptions %}
+                {% for v in shippingAndGiftOptions.values %}
+        				<dt>
+        					{{property.attributeDetail.name}}
+        				</dt>
+                   {% if v.stringValue %}
+                        <dd>
+                            {% if v.stringValue %}{{v.stringValue|linebreaksbr|safe}}{% else %}{{v.value|linebreaksbr|safe}}{% endif %}
+                        </dd>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
+            {% endwith %}
 			</dl>
 			
   			<br style="clear:both;"/>
@@ -104,4 +106,6 @@
 	{% endif %}
 </ul>
 {% require_script "layouts/tabs" %}
+
+
 

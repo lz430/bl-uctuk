@@ -116,6 +116,19 @@
 					]
 				}
 			]
-		}
+		},
+        {
+            "xtype": "panel",
+            "title": "Product Lists",
+            "collapsed": false,
+            "items": [
+                {
+                    "xtype": "mz-input-text",
+                    "name": "productShippingGiftOptions",
+                   "fieldLabel": "Product Shipping and Gift options tab attribute name"
+                }
+            ]
+        }
 	]
 }
+

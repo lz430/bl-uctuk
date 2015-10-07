@@ -1,28 +1,24 @@
-module.exports = function(grunt) {
+﻿module.exports = function(grunt) {
+    var jsonFiles = ['theme.json', 'theme-ui.json', 'package.json', 'labels/*.json'], 
+        jsFiles = ['Gruntfile.js', 'build.js', 'scripts/**/*.js'], 
+        filesToArchive = ['admin/**', 'compiled/**', 'labels/**', 'resources/**', 'scripts/**', 'stylesheets/**', 'templates/**', 'build.js', 'CHANGELOG.md', 'Gruntfile.js', 'LICENSE', 'package.json', 'README.md', 'theme.json', 'theme-ui.json', '*.ico', '*.png'], 
+        versionCmd = ':';
 
-  var jsonFiles = [
-        'theme.json',
-        'theme-ui.json',
-        'package.json',
-        'labels/*.json'
-    ],
-    jsFiles = [
-        'Gruntfile.js',
-        'build.js',
-        'scripts/**/*.js'
-    ],
-    filesToArchive = [
-        '**',
-        '!node_modules/**',
-        '!references/**',
-        '!tasks/**',
-        '!configure.js',
-        '!Gruntfile.js',
-        "!*.zip"
-    ],
-    versionCmd = ':'; // e.g. 'git describe --tags --always' or 'svn info'
-
+    // e.g. 'git describe --tags --always' or 'svn info'
     grunt.initConfig({
+        bower : {
+            install : {
+                options : {
+                    targetDir : './scripts/vendor',
+                    layout : 'byComponent',
+                    cleanBowerDir : true,
+                    bowerOptions : {
+                        production : true,
+                        forceLatest : true
+                    }
+                }
+            }
+        },
         pkg : grunt.file.readJSON('package.json'),
         jsonlint : {
             theme_json : {
@@ -32,12 +28,11 @@ module.exports = function(grunt) {
         jshint : {
             theme_js : jsFiles,
             options : {
-                ignores : ['build.js', 'scripts/vendor/**/*.js'],
+                ignores : ['build.js', 'scripts/*.js', 'scripts/vendor/**/*.js'],
                 undef : true,
                 laxcomma : true,
                 unused : false,
                 "-W099" : true,
-                "-W061" : true,
                 globals : {
                     jQuery : false,
                     console : true,
@@ -56,10 +51,11 @@ module.exports = function(grunt) {
                 }
             }
         },
-        zubat: {
-            main: {
-                dir: '.',
-                ignore: ['\\.references', '\\.git', 'node_modules', '^/resources', '^/tasks', '\\.zip$']
+        zubat : {
+            main : {
+                dir : '.',
+                manualancestry : null,
+                ignore : ['\\references', '\\.git', 'node_modules', '^/resources', '^/tasks', '\\.zip$']
             }
         },
         compress : {
@@ -74,69 +70,59 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        setver: {
-          release: {
-            cmd: versionCmd,
-            themejson: true,
-            packagejson: true,
-            readmemd: true,
-            thumbnail : {
-                src : 'thumb.tpt.png',
-                color : '#000000',
-                pointsize : 18,
-                dest : 'thumb.png'
-            }
-          },
-          build: {
-            cmd: versionCmd,
-            themejson: true,
-            thumbnail : {
-                src : 'thumb.tpt.png',
-                color : '#ffffff',
-                pointsize : 12,
-                dest : 'thumb.png'
-            }
-          },
-          renamezip: {
-            cmd: versionCmd,
-            filenames: ["<%= pkg.name %>.zip"]
-          }
-        },
-        watch: {
-            json: {
-                files: [
-                    'theme.json',
-                    'theme-ui.json',
-                    'labels/**/*.json'
-                ],
-                tasks: ['jshint'],
-                options: {
-                    spawn: false
+        setver : {
+            release : {
+                cmd : versionCmd,
+                themejson : true,
+                packagejson : true,
+                bowerjson : true,
+                thumbnail : {
+                    src : 'thumb.tpt.png',
+                    color : '#adc270',
+                    pointsize : 34,
+                    dest : 'thumb.png'
                 }
             },
-            javascript: {
-                files: [
-                    'scripts/**/*.js'
-                ],
-                tasks: ['default'],
-                options: {
-                    spawn: false
+            build : {
+                cmd : versionCmd,
+                themejson : true,
+                packagejson : true,
+                thumbnail : {
+                    src : 'thumb.tpt.png',
+                    color : '#bed381',
+                    pointsize : 16,
+                    dest : 'thumb.png'
                 }
+            },
+            renamezip : {
+                cmd : versionCmd,
+                filenames : ["<%= pkg.name %>.zip"]
+            }
+        },
+        watch : {
+            json : {
+                files : jsonFiles,
+                tasks : ['jsonlint'],
+                options : {
+                    spawn : false
+                }
+            },
+            javascript : {
+                files : jsFiles,
+                tasks : ['jshint'],
+                options : {
+                    spawn : false
+                }
+            },
+            compress : {
+                files : filesToArchive,
+                tasks : ['compress']
             }
         }
     });
-
-  [
-   'grunt-jsonlint',
-   'grunt-contrib-jshint',
-   'grunt-contrib-watch',
-   'grunt-contrib-compress'
-  ].forEach(grunt.loadNpmTasks);
-
-  grunt.loadTasks('./tasks/');
-
-  grunt.registerTask('build', ['jsonlint', 'jshint', 'zubat', 'setver:build', 'compress', 'setver:renamezip']);
-  grunt.registerTask('release', ['jsonlint', 'jshint', 'zubat', 'setver:release', 'compress', 'setver:renamezip']);
-  grunt.registerTask('default', ['build']);
-
+    ['grunt-bower-task', 'grunt-contrib-jshint', 'grunt-contrib-watch', 'grunt-contrib-compress'].forEach(grunt.loadNpmTasks);
+    grunt.loadTasks('./tasks/');
+    grunt.registerTask('build', ['jshint', 'zubat', 'setver:build', 'compress', 'setver:renamezip']);
+    grunt.registerTask('release', ['jshint', 'zubat', 'setver:release', 'compress', 'setver:renamezip']);
+    grunt.registerTask('default', ['build']);
 };

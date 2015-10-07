@@ -276,26 +276,50 @@ footer #fsSubmitButton1956359 {
     width: calc(~"100% - 54px");
     margin: 27px auto 0;
   }
-  
+   .email-list-mobile {
+    float: none;
+    text-align: center;
+  }
+  .email-list-mobile p {
+    width: -moz-calc(~"100% - 11px");
+    width: -webkit-calc(~"100% - 11px");
+    width: calc(~"100% - 11px");
+    margin: 0 auto 23px;
+  }
+  .mz-emailbox-button {
+    clear: both;
+    float: none;
+    width: -moz-calc(~"100% - 27px");
+    width: -webkit-calc(~"100% - 27px");
+    width: calc(~"100% - 27px");
+    margin: 0 auto;
+    display: block;
+  }
   /*-----------[ Social Media ]-----------*/
+  .social-media-footer {
+    float: none;
+    margin: 28px auto 0;
+    text-align: center;
+  }
   .social-media-footer li {
-    margin-right: 9px;
+    float: none;
+    margin-right: 12px;
+    display: inline-block;
    }
   .social-media-footer li:first-child {
-    margin-left: -11px;
+    margin-left: 0;
+  }
+  .social-media-footer li:last-child {
+    margin-right: 0;
   }
   .social-media-footer li a {
-    width: 38px;
-    height: 38px;
+    width: 48px;
+    height: 48px;
   }
-  .facebook-footer {
-    background-size: 38px 38px;
-  }
-  .twitter-footer {
-    background-size: 38px 38px;
-  }
-  .pinterest-footer {
-    background-size: 38px 38px;
+  .facebook-footer, 
+  .twitter-footer,
+  .pinterest-footer{
+    background-size: 48px 48px;
   }
   
   /*-----------[ Footer Navigation ]-----------*/
@@ -326,13 +350,14 @@ footer #fsSubmitButton1956359 {
   .security {
     margin: 15px 0 29px;
   }
-  .mz-emailbox-button.mobile{display: none;}
+  .mz-emailbox-button.mobile{display: block;}
+  .Form.mobile-hidden{display: none;}
 }
 
 /*-----------------------------------
  *    Smartphone Size
  *-----------------------------------*/
-@media only screen and ( max-width: 767px ) {
+@media only screen and ( max-width: 768px ) {
   .footer-top-container {
     width: -moz-calc(~"100% - 40px");
     width: -webkit-calc(~"100% - 40px");
@@ -361,13 +386,9 @@ footer #fsSubmitButton1956359 {
     width: 48px;
     height: 48px;
   }
-  .facebook-footer {
-    background-size: 48px 48px;
-  }
-  .twitter-footer {
-    background-size: 48px 48px;
-  }
-  .pinterest-footer {
+  .facebook-footer, 
+  .twitter-footer,
+  .pinterest-footer{
     background-size: 48px 48px;
   }
 
