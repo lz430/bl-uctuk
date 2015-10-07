@@ -249,7 +249,7 @@ define(['jquery'], function($) {
                 classout : 'dl-animate-out-2'
             }
         });
-        $('body').on('click', '.dl-menu-close', function(event) {
+        $('.dl-menu-close').on('click', function(event) {
             event.preventDefault();
             $dl_menu.data('dlmenu').closeMenu();
             $(this).removeClass('active');

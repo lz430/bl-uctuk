@@ -2,24 +2,49 @@
   <section class="footer-top">
     <div class="footer-top-container">
       <div class="email-list-mobile">
-        <p><img src="/resources/images/icon-email.png" alt="" /> Email List Sign Up</p>
-        <form data-id="embedded_signup:form" class="ctct-custom-form Form mobile-hidden" name="embedded_signup" method="POST" action="https://visitor2.constantcontact.com/api/signup">
-          <!-- The following code must be included to ensure your sign-up form works properly. -->
-          <input data-id="ca:input" type="hidden" name="ca" value="91675841-6d2f-4367-99ff-6fb5131e310d">
-          <input data-id="list:input" type="hidden" name="list" value="1104991320">
-          <input data-id="source:input" type="hidden" name="source" value="EFD">
-          <input data-id="required:input" type="hidden" name="required" value="list,email">
-          <input data-id="url:input" type="hidden" name="url" value="">
-          <p data-id="Email Address:p" class="email-inputs">
+        <!--Begin CTCT Sign-Up Form-->
+        <!-- EFD 1.0.0 [Wed Oct 07 14:23:39 EDT 2015] -->
+            <span id="success_message" style="display:none;">
+             <div style="text-align:center;">Thanks for signing up!</div>
+            </span>
+            <p><img src="/resources/images/icon-email.png" alt="" /> Email List Sign Up</p>
+            <form data-id="embedded_signup:form" class="ctct-custom-form Form mobile-hidden" name="embedded_signup" method="POST" action="https://visitor2.constantcontact.com/api/signup">
+              <!-- The following code must be included to ensure your sign-up form works properly. -->
+              <input data-id="ca:input" type="hidden" name="ca" value="91675841-6d2f-4367-99ff-6fb5131e310d">
+              <input data-id="list:input" type="hidden" name="list" value="1104991320">
+              <input data-id="source:input" type="hidden" name="source" value="EFD">
+              <input data-id="required:input" type="hidden" name="required" value="list,email">
+              <input data-id="url:input" type="hidden" name="url" value="">
+              <p data-id="Email Address:p" class="email-inputs">
             <!-- <label data-id="Email Address:label" data-name="email" class="ctct-form-required">Email Address</label> -->
             <input class="email-signup mobile" data-id="Email Address:input" type="text" name="email" placeholder="enter your email address" value="" maxlength="80">
-          <button type="submit" class="mz-emailbox-button" data-enabled="enabled">Join Now</button>
+            <button type="submit" class="mz-emailbox-button" data-enabled="enabled">Join Now</button>
           </p>
         </form>
         <!-- Showing this only on mobile -->
         <a href="http://visitor.r20.constantcontact.com/d.jsp?llr=yqnikktab&amp;p=oi&amp;m=1120259028504&amp;sit=s8ynynpjb&amp;f=1ee29974-913a-46a2-a470-dc1859d6a8b7" class="mz-emailbox-button mobile" title="Join Now" target="_blank">Join Now</a>
-      </div>
+            <script type='text/javascript'>
+              var localizedErrMap = {};
+              localizedErrMap['required'] = 'This field is required.';
+              localizedErrMap['ca'] = 'An unexpected error occurred while attempting to send email.';
+              localizedErrMap['email'] = 'Please enter your email address in name@email.com format.';
+              localizedErrMap['birthday'] = 'Please enter birthday in MM/DD format.';
+              localizedErrMap['anniversary'] = 'Please enter anniversary in MM/DD/YYYY format.';
+              localizedErrMap['custom_date'] = 'Please enter this date in MM/DD/YYYY format.';
+              localizedErrMap['list'] = 'Please select at least one email list.';
+              localizedErrMap['generic'] = 'This field is invalid.';
+              localizedErrMap['shared'] = 'Sorry, we could not complete your sign-up. Please contact us to resolve this.';
+              localizedErrMap['state_mismatch'] = 'Mismatched State/Province and Country.';
+              localizedErrMap['state_province'] = 'Select a state/province';
+              localizedErrMap['selectcountry'] = 'Select a country';
+              var postURL = 'https://visitor2.constantcontact.com/api/signup';
+            </script>
+            <script type='text/javascript' src='https://static.ctctcdn.com/h/contacts-embedded-signup-assets/1.0.2/js/signup-form.js'></script>
+            <!--End CTCT Sign-Up Form-->
 
+       
+      
+      </div>
       <ul class="social-media-footer">
         <li><a href="https://www.facebook.com/UCTUKcom" target="_blank" title="Facebook" class="facebook-footer"><span>Facebook</span></a></li>
         <li><a href="https://twitter.com/Uctukllc" target="_blank" title="Twitter" class="twitter-footer"><span>Twitter</span></a></li>
@@ -52,13 +77,11 @@
         <ul>
           <p>Your Account</p>
           <li><a href="/cart" title="Shopping Bag">Shopping Bag</a></li>
-          
           {% if not user.isAuthenticated %}
           <li><a href="/user/login" title="{{labels.logIn}}">Customer Login</a></li>
           {% else %}
           <li><a href="/logout" title="{{labels.logOut}}">Customer Logout</a></li>
           {% endif %}
-          
           <li><a href="" title="Register">Register</a></li>
           <li><a href="/myaccount#orderhistory" title="Order Status">Order Status</a></li>
         </ul>
