@@ -821,10 +821,13 @@
     width: 444% !important;
   } 
   .bl-product-scroller > div {
-    width: calc(65% / 3) !important;
+    // width: calc(65% / 3) !important;
   }
   .bl-product-scroller .mz-productlisting-image img {
     width: auto !important;
+  }
+  .bl-product-scroller-wrap .owl-carousel .mz-productlisting{
+    width:calc(50% / 3);
   }
   /*-----------[ Why Claddagh ]-----------*/
   #why-claddagh-wrapper {
@@ -873,6 +876,7 @@
     display: block;
     margin: 0 auto 5%;
   }
+  .ss-tarasdiary{margin-bottom:2%;}
   .ss-claddagh{margin:-13px auto 31px;width: 106px;}
   .ss-celticring {
     width: 176px;
@@ -920,4 +924,9 @@
   .ss-uctuk:hover {
     background-position: 0 -44px;
   }
+}
+
+// Funky break on home page heading. Removing the <br> tag
+@media only screen and (max-width: 400px){
+  .h1-container br{display: none;}
 }

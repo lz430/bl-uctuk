@@ -34,17 +34,19 @@
     @media only screen {      
       @media (max-width: @tabletThreshold) {
         .mz-l-tiles > * {
-          width: -moz-calc(~"100% / 3");
-          width: -webkit-calc(~"100% / 3");
-          width: calc(~"100% / 3");
+          width: -moz-calc(~"100% / 4");
+          width: -webkit-calc(~"100% / 4");
+          width: calc(~"100% / 4");
+          display: inline-block;
         }
       }
       
       @media (max-width: @mobileThreshold) {
         .mz-l-tiles > * {
-          width: -moz-calc(~"100% / 2 - 13px");
-          width: -webkit-calc(~"100% / 2 - 13px");
-          width: calc(~"100% / 2 - 13px");
+          width: -moz-calc(~"100% / 2");
+          width: -webkit-calc(~"100% / 2");
+          width: calc(~"100% / 2");
+          display: block;
         }
       }
     }

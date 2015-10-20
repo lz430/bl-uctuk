@@ -7,7 +7,14 @@
 		{% else %}
 			{{ labels.emailOpeningAlternative|safe }}
 		{% endif %}
-	
+		
+		<p>
+			Welcome, and thank you for registering with Uctuk.com.
+		</p>
+		<p>
+			Please keep a record of your login credentials for future access and to view past purchases and account information.
+		</p>
+		
 		<h1>{{ labels.newUserEmailSalutation|string_format(siteContext.generalSettings.websiteName) }}</h1>
 	
 		<p>{{ labels.newUserEmailNotification|string_format(domainName, model.UserEmailAddress)|safe }}</p>

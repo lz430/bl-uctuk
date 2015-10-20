@@ -2,7 +2,7 @@ define(['modules/jquery-mozu'], function($) {
 	var close = '[data-bl-action="closeLightbox"]', open = '[data-bl-action="openLightbox"]';
 
 	//Listen for close
-	$('body').on('click', close, function(event) {
+	$('body, .bl-l-lightbox-overlay').on('click', close, function(event) {
 		var element = $(this), container = $('.bl-l-lightbox');
 
 		if ($(event.target).data('blAction') === "closeLightbox") {

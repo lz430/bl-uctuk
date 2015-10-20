@@ -49,11 +49,12 @@ define(['modules/jquery-mozu', 'modules/api', 'hyprlive'], function($, api, Hypr
 					} else {
 						window.location.reload();
 					}
-                }, self.displayApiMessage);
+                }, function(xhr){self.displayApiMessage(xhr);});
             }
         },
 		displayApiMessage : function(xhr) {
-			this.displayMessage(xhr.message || (xhr && xhr.responseJSON && xhr.responseJSON.message) || Hypr.getLabel('unexpectedError'));
+            var self = this;
+			self.displayMessage(xhr.message || (xhr && xhr.responseJSON && xhr.responseJSON.message) || Hypr.getLabel('unexpectedError'));
 		},
         validate: function (payload) {
             if (!payload.account.emailAddress) return this.displayMessage(Hypr.getLabel('emailMissing')), false;
@@ -78,3 +79,5 @@ define(['modules/jquery-mozu', 'modules/api', 'hyprlive'], function($, api, Hypr
 		});
 	});
 });
+
+

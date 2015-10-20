@@ -334,7 +334,6 @@
     });
 
     $(document).ready(function () {
-
         var $checkoutView = $('#checkout-form'),
             checkoutData = require.mozuData('checkout');
 
@@ -395,5 +394,6 @@
 
         $checkoutView.noFlickerFadeIn();
 
-    });
+        
+    }); //end dom ready
 });

@@ -440,7 +440,7 @@
     "policyURL": "",
     "preselectAddressType": "Residential",
     "preselectCountryCode": "US",
-    "requireCheckoutAgreeToTerms": true,
+    "requireCheckoutAgreeToTerms": false,
     "suggestPriorSearchTerms": true,
     "searchExpandOnFocus": true,
     "showAddressTypeDropdown": true,

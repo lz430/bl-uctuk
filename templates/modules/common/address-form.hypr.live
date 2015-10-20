@@ -36,7 +36,9 @@
         </div>
     </div>
     <div class="mz-addressform-address2">
-        <div class=""></div>
+        <div class="">
+            <label for="address-line-2">{{ labels.addressLine2 }}</label>
+        </div>
         <div class="">
             <input type="text" name="address-line-2" data-mz-value="{{ addresscontext }}address.address2" value="{{ model.address.address2 }}">
             <span class="mz-validationmessage"></span>

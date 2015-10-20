@@ -1,3 +1,6 @@
+                                                                                                                                                                                                                                                                                
+                                                             
+
 /*-----------[ Category Sidebar ]-----------*/
 .bl-sidebar-menu-toggle {
   display: none;
@@ -62,7 +65,7 @@
 .mz-facetingform input[type="checkbox"] + label {
   padding-left: 25px;
   width: 15px;
-  height: 17px;
+  // height: 17px;
   background: url('../resources/images/checkbox2x.gif') no-repeat 0 2px;
   background-size: 15px 15px;
   cursor: pointer;
@@ -118,7 +121,6 @@
   text-transform: none;
 }
 .bl-top-description p {
-  width: 320px;
   margin: 0;
   padding: 0;
   color: #555555;
@@ -211,9 +213,13 @@
    /*-----------[ Category Sidebar ]-----------*/
   .bl-sidebar-menu-toggle {
     display: block;
+    float: left;
+    width: 100%;
   }
   .bl-sidebar-menu-title {
     display: none;
+    text-indent: -9999px;
+    color:transparent;
   }
   .mz-l-sidebaritem.bl-sidebar-menu-toggle input {
     width: 0;
@@ -225,8 +231,7 @@
     width: -moz-calc(~"100% - 14px");
     width: -webkit-calc(~"100% - 14px");
     width: calc(~"100% - 14px");
-    height: 23px;
-    padding: 8px 0 0 12px;
+    padding: 8px;
     color: #898989;
     font: 14px/20px 'Opens Sans', sans-serif;
     border: 1px solid #e1e1e1;
@@ -247,20 +252,28 @@
     border-bottom: 1px solid #e1e1e1;
     border-left: 1px solid #e1e1e1;
     border-right: 1px solid #e1e1e1;
+    width: -moz-calc(~"100% - 14px");
+    width: -webkit-calc(~"100% - 14px");
+    width: calc(~"100% - 14px");
   }
-  .mz-l-sidebaritem.bl-clearall-top, .mz-l-sidebaritem.bl-desktop-only, .mz-l-sidebaritem h4, .mz-l-sidebar .mz-facetingform-valuelabel {
+  .mz-l-sidebaritem.bl-desktop-only, .mz-l-sidebaritem h4, .mz-l-sidebar .mz-facetingform-valuelabel {
     display: none;
   }
+  .bl-clearall-top{
+    margin:10px auto 0;
+    width: 30%;
+  }
+
   /*-----------[ Faucet ]-----------*/
   .mz-l-sidebar.bl-sidebar-menu-expanded h4, .mz-l-sidebar.bl-sidebar-menu-expanded .mz-facetingform-valuelabel {
     display: block;
+    width: 100%;
   }
   .mz-l-sidebar.bl-sidebar-menu-expanded h4 {
     clear: both;
   }
   .mz-facetingform div:nth-child(2) h4 {
     margin-top: 10px;
-    border-top: none;
   }
   .mz-facetingform ul {
     float: left;
@@ -271,6 +284,31 @@
   .mz-l-sidebar.bl-sidebar-menu-expanded .mz-facetingform li {
     float: none;
   }
+  .bl-clearall-top{
+    display: none !important;
+  }
+  .bl-sidebar-menu-expanded .bl-clearall-top{
+    display: block !important;
+    width: 100%;
+  }
+
+  .mz-facetingform .mz-l-sidebaritem {
+    display: inline-block;
+    width: 18%;
+  }
+
+  // .mz-l-sidebaritem.bl-clearall-top{width:95%;clear:both;}
+  .mz-facetingform .bl-clearall-top{
+    width:85%;
+    clear:both;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .mz-facetingform .mz-l-sidebaritem.bl-clearall-bottom {
+    display: none;
+  }
+
   .mz-l-sidebaritem li input {
     display: none;
   }
@@ -360,10 +398,44 @@
     width: 100%;
     height: auto;
   }
-  .mz-productlist .mz-l-tiles > li:nth-child(odd) {
-    margin-right: 5px;
+  // .mz-productlist .mz-l-tiles > *{
+  //   width: 48%;
+  // }
+  .mz-productlist .mz-l-tiles > li{
+    margin:0 auto;
   }
-  .mz-productlist .mz-l-tiles > li:nth-child(even) {
-    margin-left: 5px;
+  
+  .bl-clearall-top{
+    display: none !important;
   }
+  .bl-sidebar-menu-expanded .bl-clearall-top{
+    display: block !important;
+    width: 100%;
+  }
+
+  .mz-facetingform .mz-l-sidebaritem {
+    display: inline-block;
+    width: 100%;
+  }
+
+  // .mz-l-sidebaritem.bl-clearall-top{width:95%;clear:both;}
+  .mz-facetingform .bl-clearall-top{
+    width:85%;
+    clear:both;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .mz-facetingform .mz-l-sidebaritem.bl-clearall-bottom {
+    display: none;
+  }
+
 }
+
+// @media only screen and ( max-width: 500px ) {
+//    .mz-productlist .mz-l-tiles > *{
+//     width: 90%;
+//   }
+// }
+
+

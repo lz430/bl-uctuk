@@ -50,17 +50,17 @@ div.owl-controls {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	float: right;
-	width: auto;
 	padding: 0 0 5px;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: absolute;
   right:0;
-  top:-54px;
+  top:85px;
+  width: 100%;
+  z-index: 99999999;
 }
 
 .owl-buttons > div {
-    width: 30px;
+    width: 24px;
     height: 26px;
     color: rgb(255, 255, 255);
     background-color: rgb(7, 47, 83);
@@ -69,6 +69,8 @@ div.owl-controls {
     display: inline-block;
     font-size: 20px;
 }
+.owl-prev{float:left;}
+.owl-next{float: right;}
 
 /* mouse grab icon */
 .grabbing {

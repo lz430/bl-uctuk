@@ -82,7 +82,7 @@
           {% else %}
           <li><a href="/logout" title="{{labels.logOut}}">Customer Logout</a></li>
           {% endif %}
-          <li><a href="" title="Register">Register</a></li>
+          <li><a href="/user/login" title="Register">Register</a></li>
           <li><a href="/myaccount#orderhistory" title="Order Status">Order Status</a></li>
         </ul>
       </div>

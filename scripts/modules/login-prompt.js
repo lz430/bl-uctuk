@@ -34,7 +34,7 @@ define(['modules/jquery-mozu', 'modules/api', 'hyprlive'], function($, api, Hypr
 			}).then(this.handleLoginComplete, $.proxy(this.displayApiMessage, this));
 		},
 		retrievePassword : function() {
-		    var me = this;
+            var me = this;
 			this.setLoading(true);
 			api.action('customer', 'resetPasswordStorefront', {
 				EmailAddress : this.$el.find('[data-mz-forgotpassword-email]').val()
@@ -91,3 +91,4 @@ define(['modules/jquery-mozu', 'modules/api', 'hyprlive'], function($, api, Hypr
 		});
 	});
 });
+
