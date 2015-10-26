@@ -28,6 +28,7 @@
 		<div class="bl-l-lightbox-overlay" data-bl-action=""></div>
 		<div class="bl-l-lightbox-content-wrapper" data-bl-action="">
 			<div class="bl-l-lightbox-content">
+			<div data-bl-action="closeLightbox" class="mz-button--x" style="height: 25px;width: 25px;background: red;"></div>
 				{% include "modules/cart/login-prompt" %}
 				<div class="bl-proceed-to-checkout">
 					<h2 class="bl-login-prompt-title">New Customer?</h2>

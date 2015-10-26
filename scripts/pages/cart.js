@@ -60,7 +60,6 @@
         CartMonitor.setCount(cartModel.count());
 
     $('#cart-checkout-top, #cart-checkout').click(function(){
-        console.log("clicked");
         $("html, body").animate({ scrollTop: 0 }, 300);
     });
 	});
